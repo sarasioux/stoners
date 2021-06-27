@@ -3,17 +3,28 @@
         <h1 class="title">Stoners</h1>
         <button v-if="showAuthButton" class="button" @click="handleAuthClick">Authorize Google</button>
         <div class="columns is-mobile">
-            <div class="column is-4">
+            <div class="column is-5">
                 <div class="box" v-if="attributesLoaded">
-                    <button v-if="!showAuthButton" class="button is-fullwidth" @click="choices = {}; reset = Date.now()">
-                        Reset Selections
-                    </button>
+                    <div class="field is-grouped">
+                        <div class="control is-expanded">
+                            <button class="button is-fullwidth" @click="choices = {}; reset = Date.now()">
+                                Reset
+                            </button>
+                        </div>
+                        <div class="control is-expanded">
+                            <button class="button is-primary is-fullwidth" @click="randomize = Date.now()">
+                                Random
+                            </button>
+                        </div>
+                    </div>
+
                     <br /><br />
                     <div v-for="attribute in choiceOrder" :key="attribute">
                         <Attribute
                                 :attribute="attribute"
                                 :id="attributes[attribute]"
                                 :reset="reset"
+                                :randomize="randomize"
                                 v-on:choice="choice"
                         />
                     </div>
@@ -49,6 +60,7 @@
         attributes: {},
         choices: {},
         reset: 0,
+        randomize: Date.now(),
         choiceOrder: [
           'Backgrounds', 'HairBehindStoner', 'Arms', 'Rocks', 'Eyes', 'HairAccessories', 'Nose', 'Mouths', 'Signature'
         ]

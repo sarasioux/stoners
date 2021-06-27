@@ -65,6 +65,6 @@
     .choice {
         position: fixed;
         top: 20px;
-        left: 500px;
+        left: 600px;
     }
 </style>
