@@ -62,7 +62,7 @@
         reset: 0,
         randomize: Date.now(),
         choiceOrder: [
-          'Backgrounds', 'HairBehindStoner', 'Arms', 'Rocks', 'HairAccessories', 'Eyes', 'Nose', 'Mouths', 'Signature'
+          'Backgrounds', 'HairBehindStoner', 'Arms', 'Rocks', 'HairAccessories', 'Eyes', 'Mouths', 'Nose', 'Signature'
         ]
       }
     },
