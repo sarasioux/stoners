@@ -24,13 +24,21 @@ export default {
   },
   props: {
     attribute: String,
-    id: String
+    id: String,
+    reset: Number
+  },
+  watch: {
+    reset: function () {
+      this.choice = '';
+      this.listFiles();
+    },
   },
   mounted: function() {
     this.listFiles();
   },
   methods: {
     listFiles: function() {
+      this.attributes = [];
       let self = this;
       window.gapi.client.drive.files.list({
         'q': "'" + this.id + "' in parents and mimeType contains 'image/'",

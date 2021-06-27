@@ -5,10 +5,15 @@
         <div class="columns">
             <div class="column is-4">
                 <div class="box" v-if="attributes.length > 0">
+                    <button v-if="!showAuthButton" class="button is-fullwidth" @click="choices = {}; reset = Date.now()">
+                        Reset Selections
+                    </button>
+                    <br /><br />
                     <div v-for="attribute in attributes" :key="attribute">
                         <Attribute
                                 :attribute="attribute.name"
                                 :id="attribute.id"
+                                :reset="reset"
                                 v-on:choice="choice"
                         />
                     </div>
@@ -40,7 +45,8 @@
         gapi: {},
         showAuthButton: true,
         attributes: [],
-        choices: {}
+        choices: {},
+        reset: 0
       }
     },
     components: {
