@@ -2,17 +2,17 @@
     <div class="container">
         <h1 class="title">Stoners</h1>
         <button v-if="showAuthButton" class="button" @click="handleAuthClick">Authorize Google</button>
-        <div class="columns">
+        <div class="columns is-mobile">
             <div class="column is-4">
-                <div class="box" v-if="attributes.length > 0">
+                <div class="box" v-if="attributesLoaded">
                     <button v-if="!showAuthButton" class="button is-fullwidth" @click="choices = {}; reset = Date.now()">
                         Reset Selections
                     </button>
                     <br /><br />
-                    <div v-for="attribute in attributes" :key="attribute">
+                    <div v-for="attribute in choiceOrder" :key="attribute">
                         <Attribute
-                                :attribute="attribute.name"
-                                :id="attribute.id"
+                                :attribute="attribute"
+                                :id="attributes[attribute]"
                                 :reset="reset"
                                 v-on:choice="choice"
                         />
@@ -21,10 +21,11 @@
             </div>
             <div class="column rock-column">
                 <div class="choices">
-                    <div v-for="(ch, att) in choices" :key="ch">
+                    <div v-for="att in choiceOrder" :key="att">
                         <Choice
-                                :attribute="att"
-                                :id="ch"
+                            v-if="choices[att]"
+                            :attribute="att"
+                            :id="choices[att]"
                         />
                     </div>
                 </div>
@@ -44,9 +45,13 @@
       return {
         gapi: {},
         showAuthButton: true,
-        attributes: [],
+        attributesLoaded: false,
+        attributes: {},
         choices: {},
-        reset: 0
+        reset: 0,
+        choiceOrder: [
+          'Backgrounds', 'HairBehindStoner', 'Arms', 'Rocks', 'Eyes', 'HairAccessories', 'Nose', 'Mouths', 'Signature'
+        ]
       }
     },
     components: {
@@ -73,8 +78,9 @@
           if (files && files.length > 0) {
             for (let i = 0; i < files.length; i++) {
               let file = files[i];
-              self.attributes.push({name: file.name, id: file.id});
+              self.attributes[file.name] = file.id;
             }
+            self.attributesLoaded = true;
           } else {
             console.log('No files found.');
           }

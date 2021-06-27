@@ -1,15 +1,17 @@
 <template>
   <div class="attribute">
-    <h2 class="title is-6">{{attribute}}</h2>
-    <div v-for="att in attributes" :key="att">
+    <div class="field">
+      <label class="label">{{attribute}}</label>
       <div class="control">
-        <label class="radio">
-          <input v-model="choice" type="radio" :name="attribute" :value="att.id" @change="radioSelect($event)">
-          {{att.name}}
-        </label>
+        <div class="select is-normal">
+          <select v-model="choice" @change="optionSelect">
+            <option value="select">Select Attribute</option>
+            <option v-for="att in attributes" :key="att" :value="att.id">{{att.name}}</option>
+          </select>
+        </div>
       </div>
     </div>
-    <hr />
+    <br />
   </div>
 </template>
 
@@ -19,7 +21,7 @@ export default {
   data: function() {
     return {
       attributes: [],
-      choice: ''
+      choice: 'select'
     }
   },
   props: {
@@ -29,7 +31,7 @@ export default {
   },
   watch: {
     reset: function () {
-      this.choice = '';
+      this.choice = 'select';
       this.listFiles();
     },
   },
@@ -56,7 +58,7 @@ export default {
         }
       });
     },
-    radioSelect: function() {
+    optionSelect: function() {
       this.$emit('choice', this.attribute, this.choice);
     }
   }
