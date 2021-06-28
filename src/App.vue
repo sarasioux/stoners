@@ -12,7 +12,7 @@
                             </button>
                         </div>
                         <div class="control is-expanded">
-                            <button class="button is-primary is-fullwidth" @click="randomize = Date.now()">
+                            <button class="button is-primary is-fullwidth" @click="processRandom">
                                 Random
                             </button>
                         </div>
@@ -31,6 +31,7 @@
                 </div>
             </div>
             <div class="column rock-column">
+                <h1 class="title has-text-centered">{{stonerName}}</h1>
                 <div class="choices">
                     <div v-for="(id, name) in attributes" :key="id">
                         <Choice
@@ -61,6 +62,83 @@
         choices: {},
         reset: 0,
         randomize: Date.now(),
+        stonerName: '',
+        namesPrefix: [
+          'OG',
+          'Purple',
+          'Grand Daddy',
+          'Sour',
+          'Lemon',
+          'Orange',
+          'Girl Scout',
+          'Wedding',
+          'Mr.',
+          'Blue',
+          'White',
+          'Ice Cream',
+          'Jack',
+          'Green',
+          'Northern',
+          'Bubba',
+          'Cherry',
+          'Strawberry',
+          'Lava',
+          'Super Sour',
+          'Super Lemon',
+          'Forbidden',
+          'Super Silver',
+          'Silver',
+          'Jet',
+          'Black',
+          'Maui',
+          'Platinum',
+          'Fire',
+          'Headband',
+          'Mango',
+          'G13',
+          'Alaskan',
+          'Blueberry',
+          'Pink',
+          'Blackberry',
+          'Hindu',
+          'God\'s'
+
+        ],
+        namesSuffix: [
+          'Kush',
+          'Urkle',
+          'Pineapple',
+          'Crush',
+          'Cake',
+          'Cookies',
+          'Dream',
+          'Widow',
+          'Punch',
+          'Gelato',
+          'Runtz',
+          'Sherbert',
+          'Express',
+          'Herer',
+          'Crack',
+          'Lights',
+          'Pie',
+          'Cough',
+          'Haze',
+          'Fruit',
+          'Trainwreck',
+          'OG',
+          'Cheese',
+          'Fuel',
+          'Diamond',
+          'Wowie',
+          'Thunderfuck',
+          'Rhino',
+          'Muffins',
+          'Skunk',
+          'Lemonaide',
+          'Creamsicle',
+          'Tangle'
+        ]
       }
     },
     components: {
@@ -99,8 +177,11 @@
         });
       },
       choice: function(attribute, choice) {
-        console.log('app choice made', attribute, choice);
         this.choices[attribute] = choice;
+      },
+      processRandom: function() {
+        this.randomize = Date.now()
+        this.stonerName = this.namesPrefix[Math.floor(Math.random()*this.namesPrefix.length)] + ' ' + this.namesSuffix[Math.floor(Math.random()*this.namesSuffix.length)];
       }
 
     }
