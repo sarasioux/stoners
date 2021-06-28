@@ -40,7 +40,7 @@
             let rarities = [];
             for(let i=0; i<this.attributes.length; i++) {
               let parts = this.attributes[i].name.split('.');
-              let frequency = parts[1];
+              let frequency = parseInt(parts[1]);
               for(let p=0; p<frequency; p++) {
                 rarities.push(this.attributes[i].id);
               }
