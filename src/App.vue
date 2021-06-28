@@ -42,7 +42,6 @@
             </div>
         </nav>
         <router-view
-            v-if="isConnected"
             :isGoogleAuthed="(showAuthButton === false)"
         ></router-view>
     </div>
