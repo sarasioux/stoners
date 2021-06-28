@@ -37,9 +37,17 @@
       },
       randomize: function () {
         if(this.attributes.length > 0) {
-          const att = this.attributes[Math.floor(Math.random()*this.attributes.length)];
-          this.choice = att.id;
-          this.$emit('choice', this.attribute, this.choice);
+            let rarities = [];
+            for(let i=0; i<this.attributes.length; i++) {
+              let parts = this.attributes[i].name.split('.');
+              let frequency = parts[1];
+              for(let p=0; p<frequency; p++) {
+                rarities.push(this.attributes[i].id);
+              }
+            }
+            this.shuffleArray(rarities);
+            this.choice = rarities[Math.floor(Math.random()*rarities.length)];
+            this.$emit('choice', this.attribute, this.choice);
         }
       },
     },
@@ -69,6 +77,14 @@
       },
       optionSelect: function() {
         this.$emit('choice', this.attribute, this.choice);
+      },
+      shuffleArray: function(array) {
+        for (var i = array.length - 1; i > 0; i--) {
+          var j = Math.floor(Math.random() * (i + 1));
+          var temp = array[i];
+          array[i] = array[j];
+          array[j] = temp;
+        }
       }
     }
   }

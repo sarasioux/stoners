@@ -93,7 +93,6 @@
               }
             }
             self.attributesLoaded = true;
-            console.log('files', self.attributes);
           } else {
             console.log('No files found.');
           }

@@ -64,7 +64,7 @@
 <style scoped>
     .choice {
         position: fixed;
-        top: 20px;
-        left: 600px;
+        top: 8%;
+        left: 50%;
     }
 </style>
