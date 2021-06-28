@@ -36,9 +36,11 @@
         this.listFiles();
       },
       randomize: function () {
-        const att = this.attributes[Math.floor(Math.random()*this.attributes.length)];
-        this.choice = att.id;
-        this.$emit('choice', this.attribute, this.choice);
+        if(this.attributes.length > 0) {
+          const att = this.attributes[Math.floor(Math.random()*this.attributes.length)];
+          this.choice = att.id;
+          this.$emit('choice', this.attribute, this.choice);
+        }
       },
     },
     mounted: function() {
@@ -51,7 +53,8 @@
         window.gapi.client.drive.files.list({
           'q': "'" + this.id + "' in parents and mimeType contains 'image/'",
           'pageSize': 100,
-          'fields': "nextPageToken, files(id, name)"
+          'fields': "nextPageToken, files(id, name)",
+          'orderBy': "name"
         }).then(function(response) {
           const files = response.result.files;
           if (files && files.length > 0) {
@@ -74,6 +77,6 @@
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
     .label {
-        min-width: 160px;
+        min-width: 200px;
     }
 </style>

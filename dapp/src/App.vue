@@ -19,10 +19,10 @@
                     </div>
 
                     <br /><br />
-                    <div v-for="attribute in choiceOrder" :key="attribute">
+                    <div v-for="(id, name) in attributes" :key="id">
                         <Attribute
-                                :attribute="attribute"
-                                :id="attributes[attribute]"
+                                :attribute="name"
+                                :id="id"
                                 :reset="reset"
                                 :randomize="randomize"
                                 v-on:choice="choice"
@@ -32,11 +32,11 @@
             </div>
             <div class="column rock-column">
                 <div class="choices">
-                    <div v-for="att in choiceOrder" :key="att">
+                    <div v-for="(id, name) in attributes" :key="id">
                         <Choice
-                            v-if="choices[att]"
-                            :attribute="att"
-                            :id="choices[att]"
+                            v-if="choices[name]"
+                            :attribute="name"
+                            :id="choices[name]"
                         />
                     </div>
                 </div>
@@ -84,7 +84,8 @@
         window.gapi.client.drive.files.list({
           'q': "'1jhlMWFT1SLsYDbua0lJDFGiI06EggBAg' in parents and mimeType='application/vnd.google-apps.folder'",
           'pageSize': 100,
-          'fields': "nextPageToken, files(id, name)"
+          'fields': "nextPageToken, files(id, name)",
+          'orderBy': "name"
         }).then(function(response) {
           const files = response.result.files;
           if (files && files.length > 0) {
@@ -93,6 +94,7 @@
               self.attributes[file.name] = file.id;
             }
             self.attributesLoaded = true;
+            console.log('files', self.attributes);
           } else {
             console.log('No files found.');
           }
