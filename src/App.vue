@@ -5,32 +5,53 @@
         <div class="columns is-mobile">
             <div class="column is-5">
                 <div class="box" v-if="attributesLoaded">
-                    <div class="field is-grouped">
-                        <div class="control is-expanded">
-                            <button class="button is-fullwidth" @click="choices = {}; reset = Date.now()">
-                                Reset
-                            </button>
+                    <div :class="{'hideme':isGenerating}">
+                        <div class="field is-grouped">
+                            <div class="control is-expanded">
+                                <button class="button is-fullwidth" @click="choices = {}; reset = Date.now()">
+                                    Reset
+                                </button>
+                            </div>
+                            <div class="control is-expanded">
+                                <button class="button is-primary is-fullwidth" @click="processRandom">
+                                    Random
+                                </button>
+                            </div>
                         </div>
-                        <div class="control is-expanded">
-                            <button class="button is-primary is-fullwidth" @click="processRandom">
-                                Random
-                            </button>
+                        <br /><br />
+                        <div v-for="(id, name) in attributes" :key="id">
+                            <Attribute
+                                    :attribute="name"
+                                    :id="id"
+                                    :reset="reset"
+                                    :randomize="randomize"
+                                    v-on:choice="choice"
+                            />
                         </div>
+                        <hr />
                     </div>
-
-                    <br /><br />
-                    <div v-for="(id, name) in attributes" :key="id">
-                        <Attribute
-                                :attribute="name"
-                                :id="id"
-                                :reset="reset"
-                                :randomize="randomize"
-                                v-on:choice="choice"
-                        />
+                    <div class="field is-horizontal">
+                        <div class="field-label is-normal">
+                            <label class="label">Generate</label>
+                        </div>
+                        <div class="field-body">
+                            <div class="field">
+                                <div class="control">
+                                    <input v-model="generateAmount" class="input " type="number" placeholder="100" :disabled="isGenerating">
+                                </div>
+                            </div>
+                            <div class="field">
+                                <div class="control">
+                                    <button class="button is-primary" @click="generateRocks" :disabled="isGenerating">
+                                        Generate
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="column rock-column">
+            <div class="column rock-column" v-if="!isGenerating">
                 <h1 class="title has-text-centered">{{stonerName}}</h1>
                 <div class="choices">
                     <div v-for="(id, name) in attributes" :key="id">
@@ -41,6 +62,17 @@
                         />
                     </div>
                 </div>
+            </div>
+            <div class="column rock-column" v-if="isGenerating">
+                <h1 class="title has-text-centered">Generating {{generateAmount}} Rocks</h1>
+            </div>
+        </div>
+        <div class="columns is-multiline" v-if="isGenerating">
+            <div class="column is-3" v-for="img in generated" :key="img">
+                {{img}}
+                <figure class="is-square">
+                    <img :src="img" />
+                </figure>
             </div>
         </div>
     </div>
@@ -55,6 +87,9 @@
     name: 'App',
     data: function() {
       return {
+        isGenerating: false,
+        generateAmount: 10,
+        generated: [],
         gapi: {},
         showAuthButton: true,
         attributesLoaded: false,
@@ -89,7 +124,6 @@
           'Super Silver',
           'Silver',
           'Jet',
-          'Black',
           'Maui',
           'Platinum',
           'Fire',
@@ -101,13 +135,13 @@
           'Pink',
           'Blackberry',
           'Hindu',
-          'God\'s'
+          'God\'s',
+          'Pineapple',
 
         ],
         namesSuffix: [
           'Kush',
           'Urkle',
-          'Pineapple',
           'Crush',
           'Cake',
           'Cookies',
@@ -182,6 +216,40 @@
       processRandom: function() {
         this.randomize = Date.now()
         this.stonerName = this.namesPrefix[Math.floor(Math.random()*this.namesPrefix.length)] + ' ' + this.namesSuffix[Math.floor(Math.random()*this.namesSuffix.length)];
+      },
+      generateRocks: function() {
+        this.isGenerating = true;
+        for(let i=0; i<this.generateAmount; i++) {
+          this.processRandom();
+          setTimeout(this.generateRoutine, 5000);
+        }
+      },
+      generateRoutine: async function() {
+        let canvas = document.createElement('canvas');
+        canvas.width = 600;
+        canvas.height = 600;
+
+        // Build an image with our layers
+        for(let k in this.attributes) {
+          if(this.choices[k]) {
+            await this.generateOne(canvas, this.choices[k]);
+          }
+        }
+        console.log('canvas', canvas);
+        const dataURL = canvas.toDataURL();
+        this.generated.push(dataURL);
+      },
+      generateOne: function(canvas, id) {
+        return new Promise(function(resolve) {
+          let newImage = document.createElement('img');
+          newImage.src = 'https://drive.google.com/uc?export=view&id=' + id;
+          newImage.setAttribute('crossorigin', 'anonymous');
+          newImage.onload = function () {
+            console.log('writing newimage', newImage);
+            canvas.getContext('2d').drawImage(newImage, 0, 0);
+            resolve(true);
+          }
+        });
       }
 
     }
@@ -189,8 +257,8 @@
 </script>
 
 <style>
-    .rock-column {
-
+    .hideme {
+        display: none;
     }
 
 </style>
