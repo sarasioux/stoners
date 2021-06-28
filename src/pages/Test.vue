@@ -1,5 +1,5 @@
 <template>
-    <div class="test">
+    <div class="test" v-if="isGoogleAuthed">
         <div class="columns is-mobile">
             <div class="column is-5">
                 <div class="box" v-if="attributesLoaded">
@@ -135,6 +135,9 @@
           'Hybrid'
         ]
       }
+    },
+    props: {
+      isGoogleAuthed: Boolean
     },
     components: {
       Attribute, Choice

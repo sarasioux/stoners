@@ -53,7 +53,7 @@
         let self = this;
         window.gapi.client.drive.files.list({
           'q': "'1DyqPzP_60zRaQwW6w1Qu6ACo2JxPEP_Q' in parents and name = '" + this.hash + ".json'",
-          'pageSize': 10,
+          'pageSize': 100,
           'fields': "nextPageToken, files(id, name)",
           'orderBy': "name"
         }).then(function(response) {
