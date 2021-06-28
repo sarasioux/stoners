@@ -61,9 +61,6 @@
         choices: {},
         reset: 0,
         randomize: Date.now(),
-        choiceOrder: [
-          'Backgrounds', 'HairBehindStoner', 'Arms', 'Rocks', 'HairAccessories', 'Eyes', 'Mouths', 'Nose', 'Signature'
-        ]
       }
     },
     components: {
@@ -91,7 +88,9 @@
           if (files && files.length > 0) {
             for (let i = 0; i < files.length; i++) {
               let file = files[i];
-              self.attributes[file.name] = file.id;
+              if(file.name !== 'Generated') {
+                self.attributes[file.name] = file.id;
+              }
             }
             self.attributesLoaded = true;
             console.log('files', self.attributes);
