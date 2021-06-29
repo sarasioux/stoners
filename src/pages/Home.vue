@@ -11,8 +11,8 @@
                 <div class="column">
                     <h1 class="title">Welcome to Stoners Rock.</h1>
                     <p>The Rocks are a collection of 10,420 unique NFTs minted on the Ethereum
-                        blockchain. Stoners grant you access to exclusive member hangouts like our Discord, and more
-                        exciting updates on the roadmap.</p>
+                        blockchain. Rocks grant you access to our exclusive <router-link to="/sanctuary">Stoner Sanctuary</router-link>, and more
+                        exciting updates on our rockmap.</p>
                     <br /><br />
                     <div class="columns is-multiline is-mobile">
                         <div class="column is-6">
@@ -41,7 +41,36 @@
         </div>
         <div class="section">
             <h2 class="title">Rockenomics</h2>
-            <p>The first 420 rocks are free, limit 1 per customer.  After that the price goes up to 0.05 + gas fees.  We held 100 back for ourselves and for prizes and giveaways, the rest are up for grabs to our stoner brethren.  The rocks reveal almost immediately after minting, pending some image certification updates from our buddies over at <a>Chainlink</a>.</p>
+
+            <div class="columns has-text-centered">
+                <div class="column">
+                    <h1 class="title has-text-primary">10,420</h1>
+                    <h2 class="subtitle">Total Rocks Ever</h2>
+                </div>
+                <div class="column">
+                    <h1 class="title has-text-primary">420</h1>
+                    <h2 class="subtitle">Rocks For Giveaways</h2>
+                </div>
+                <div class="column">
+                    <h1 class="title has-text-primary">.05</h1>
+                    <h2 class="subtitle">Price Per Rock</h2>
+                </div>
+                <div class="column">
+                    <h1 class="title has-text-primary">20</h1>
+                    <h2 class="subtitle">Limit Per Purchase</h2>
+                </div>
+                <div class="column">
+                    <h1 class="title has-text-primary">100</h1>
+                    <h2 class="subtitle">Custom Rocks</h2>
+                </div>
+            </div>
+
+            <p>We held back the first 420 rocks for giveaways and prizes, the rest are up for grabs to our stoner
+                brethren.  The rocks reveal almost immediately after minting, pending some randomization certification
+                from our buddies over at <a href="https://chain.link" target="_blank">Chainlink</a>.  Learn more about our implementation and integrations
+                over in <router-link to="/code">The Code</router-link> section.
+                A maximum of 100 minted rocks will bear a unique watermark entitling the owner to a custom hand-drawn
+                background of their choosing.  Learn more about our artist in <router-link to="/art">The Art</router-link> section.</p>
         </div>
         <div class="section">
             <h2 class="title">About the Rocks</h2>
@@ -53,11 +82,19 @@
                 </div>
                 <div class="column is-narrow"></div>
                 <div class="column">
-                    <p>The Rocks are a unique set of 10,420 avatars generated from over 1.3 million possible combinations of attributes including facial features, accessories, and unique themed names.</p>
+                    <h3 class="title is-4">Meet Orange Crush</h3>
+                    <p>The Rocks are a unique set of 10,420 avatars generated from over 1.3 million possible combinations
+                        of attributes including facial features, accessories, and unique themed names.</p>
                     <br />
-                    <p>Each rock is stored as an ERC-721 token on the Ethereum blockchain, and hosted on IPFS.  They were pre-generated and screened for awesomeness, and then randomly assigned to the minters during purchase.</p>
+                    <p>The names are randomly generated from a set of common strains.  Maybe you'll get lucky and pick up a real one like "Grand Daddy Purple",
+                        or maybe you'll get one like "Girl Scout Widow".  Either way they sound delicious.</p>
                     <br />
-                    <p>Up to 100 Stoners contain a special signature feature, entitling the rock holder to a customized avatar background hand drawn by our artist.  Rock holders can redeem their custom backgrounds on our website, when signed in to their Metamask wallet.</p>
+                    <p>Each rock is stored as an ERC-721 NFT token on the Ethereum blockchain, and hosted on IPFS.  They
+                        were pre-generated and screened for awesomeness, and then randomly assigned to the minters during purchase.</p>
+                    <br />
+                    <p>Up to 100 Rocks contain a special signature feature, entitling the Rock holder to a customized avatar
+                        background hand drawn by our artist.  Rock holders can redeem their custom backgrounds on our website,
+                        when signed in to their wallet.  When a background is complete your NFT will automatically be updated.</p>
                 </div>
             </div>
         </div>
@@ -78,43 +115,31 @@
                         <tbody>
                         <tr>
                             <td><strong class="has-text-primary">10%</strong></td>
-                            <td>Maybe we'll convince Shaun to smoke some weed with us.</td>
+                            <td>Get Shaun to smoke again (it's been a long, long time.)</td>
                         </tr>
                         <tr>
                             <td><strong class="has-text-primary">20%</strong></td>
-                            <td>Pay off some bills.</td>
+                            <td>Announce our Easter Eggs.</td>
                         </tr>
                         <tr>
                             <td><strong class="has-text-primary">30%</strong></td>
-                            <td>Start hosting sessions with the community.</td>
-                        </tr>
-                        <tr>
-                            <td><strong class="has-text-primary">40%</strong></td>
-                            <td>Maybe buy some more Bitcoin.</td>
+                            <td>Get Mark a moonlit house.</td>
                         </tr>
                         <tr>
                             <td><strong class="has-text-primary">50%</strong></td>
-                            <td>This is exhausting so probably take a break for a minute.</td>
-                        </tr>
-                        <tr>
-                            <td><strong class="has-text-primary">60%</strong></td>
-                            <td>Start thinking about our next project.</td>
+                            <td>Get Sara an ape (she really wants one) and give one away to our community.</td>
                         </tr>
                         <tr>
                             <td><strong class="has-text-primary">70%</strong></td>
-                            <td>Do something else cool for the stoners.</td>
+                            <td>Stoner Sanctuary location announced.</td>
                         </tr>
                         <tr>
-                            <td><strong class="has-text-primary">80%</strong></td>
-                            <td>A limited run of special edition rocks.</td>
-                        </tr>
-                        <tr>
-                            <td><strong class="has-text-primary">50%</strong></td>
-                            <td>Maybe do something the community asks for.</td>
+                            <td><strong class="has-text-primary">90%</strong></td>
+                            <td>Giveaways begin!</td>
                         </tr>
                         <tr>
                             <td><strong class="has-text-primary">100%</strong></td>
-                            <td>Custom rock accessories airdropped to rock holders.</td>
+                            <td>To thank our community for reaching our goal all minters receive a hand-drawn thank you card.</td>
                         </tr>
                         </tbody>
                     </table>
@@ -128,8 +153,8 @@
         </div>
 
         <div class="section">
-            <h2 class="title">Rock 'n' Roll Team</h2>
-            <p>A ragtag group of misfits, reuinted for one glorious quest into the exciting underbelly of the NFT world.</p>
+            <h2 class="title">Rockers</h2>
+            <p>A ragtag group of misfits, reunited for one glorious quest into the exciting underbelly of the NFT world.</p>
             <br />
             <div class="columns">
                 <div class="column is-3 is-offset-1">

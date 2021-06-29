@@ -16,11 +16,20 @@
             </div>
 
             <div id="navbarBasicExample" class="navbar-menu">
-                <div class="navbar-start" v-if="!showAuthButton">
-                    <router-link to="/test" class="navbar-item">
+                <div class="navbar-start">
+                    <router-link to="/sanctuary" class="navbar-item">
+                        The Sanctuary
+                    </router-link>
+                    <router-link to="/code" class="navbar-item">
+                        The Code
+                    </router-link>
+                    <router-link to="/art" class="navbar-item">
+                        The Art
+                    </router-link>
+                    <router-link to="/test" class="navbar-item" v-if="!showAuthButton">
                         Test
                     </router-link>
-                    <router-link to="/approve" class="navbar-item">
+                    <router-link to="/approve" class="navbar-item" v-if="!showAuthButton">
                         Approve
                     </router-link>
                 </div>

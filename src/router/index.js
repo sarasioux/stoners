@@ -3,6 +3,9 @@ import Home from "../pages/Home";
 import Test from "../pages/Test";
 import Mint from "../pages/Mint";
 import Approve from "../pages/Approve";
+import Code from "../pages/Code";
+import Art from "../pages/Art";
+import Sanctuary from "../pages/Sanctuary";
 
 const routes = [
   {
@@ -29,7 +32,24 @@ const routes = [
     name: "Approve",
     component: Approve
   },
-
+  {
+    // mode: 'history',
+    path: "/code",
+    name: "Code",
+    component: Code
+  },
+  {
+    // mode: 'history',
+    path: "/art",
+    name: "Art",
+    component: Art
+  },
+  {
+    // mode: 'history',
+    path: "/sanctuary",
+    name: "Sanctuary",
+    component: Sanctuary
+  },
 ];
 
 const router = createRouter({
