@@ -26,7 +26,7 @@
                 </div>
 
                 <div class="navbar-end">
-                    <div class="navbar-item" v-if="isAdmin() && ($route.name === 'Test' || $route.name === 'Approve') && showAuthButton" >
+                    <div class="navbar-item" v-if="isAdmin() && showAuthButton" >
                         <button class="button" @click="handleAuthClick">Authorize Google</button>
                     </div>
                     <div class="navbar-item" v-if="!isConnected">
@@ -94,7 +94,7 @@
         }
       },
       isAdmin: function() {
-        return (String(this.account) === '0x00796e910bd0228ddf4cd79e3f353871a61c351c');
+        return (String(this.account) === '0x00796e910bd0228ddf4cd79e3f353871a61c351c' || String(this.account) === '0xB58Fb5372e9Aa0C86c3B281179c05Af3bB7a181b' || String(this.account) === '0x7fc55376D5A29e0Ee86C18C81bb2fC8F9f490E50');
       }
 
     }

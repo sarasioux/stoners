@@ -82,19 +82,35 @@
                         </tr>
                         <tr>
                             <td><strong class="has-text-primary">20%</strong></td>
-                            <td>Automated Discord management for Stoner holders.</td>
+                            <td>Pay off some bills.</td>
                         </tr>
                         <tr>
                             <td><strong class="has-text-primary">30%</strong></td>
-                            <td>Automated Stoner Rocks T-shirt purchase integration.</td>
+                            <td>Start hosting sessions with the community.</td>
                         </tr>
                         <tr>
                             <td><strong class="has-text-primary">40%</strong></td>
-                            <td>Customized background redemption.</td>
+                            <td>Maybe buy some more Bitcoin.</td>
                         </tr>
                         <tr>
                             <td><strong class="has-text-primary">50%</strong></td>
-                            <td>This is exhausting so maybe take a break for a minute.</td>
+                            <td>This is exhausting so probably take a break for a minute.</td>
+                        </tr>
+                        <tr>
+                            <td><strong class="has-text-primary">60%</strong></td>
+                            <td>Start thinking about our next project.</td>
+                        </tr>
+                        <tr>
+                            <td><strong class="has-text-primary">70%</strong></td>
+                            <td>Do something else cool for the stoners.</td>
+                        </tr>
+                        <tr>
+                            <td><strong class="has-text-primary">80%</strong></td>
+                            <td>A limited run of special edition rocks.</td>
+                        </tr>
+                        <tr>
+                            <td><strong class="has-text-primary">50%</strong></td>
+                            <td>Maybe do something the community asks for.</td>
                         </tr>
                         <tr>
                             <td><strong class="has-text-primary">100%</strong></td>

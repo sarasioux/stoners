@@ -2,14 +2,8 @@
     <div class="approve" v-if="isGoogleAuthed">
         <h1 class="title">Approve</h1>
         <nav class="pagination is-small" role="navigation" aria-label="pagination">
-            <a class="pagination-previous">Previous</a>
-            <a class="pagination-next">Next page</a>
-            <ul class="pagination-list">
-                <li><a class="pagination-link" aria-label="Goto page 45">45</a></li>
-                <li><a class="pagination-link is-current" aria-label="Page 46" aria-current="page">46</a></li>
-                <li><a class="pagination-link" aria-label="Goto page 47">47</a></li>
-                <li><span class="pagination-ellipsis">&hellip;</span></li>
-            </ul>
+            <a class="pagination-previous" disabled>Previous</a>
+            <a class="pagination-next" disabled>Next page</a>
         </nav>
         <div class="columns is-multiline">
             <div class="column is-3" v-for="file in files" :key="file">
@@ -19,7 +13,6 @@
                 />
             </div>
         </div>
-        {{nextPageToken}}
     </div>
 </template>
 
@@ -52,7 +45,7 @@
         let self = this;
         window.gapi.client.drive.files.list({
           q: "'1DyqPzP_60zRaQwW6w1Qu6ACo2JxPEP_Q' in parents and mimeType='image/png'",
-          pageSize: 3,
+          pageSize: 100,
           fields: "nextPageToken, files(id, name)",
           orderBy: "name",
           pageToken: this.currentPageToken
