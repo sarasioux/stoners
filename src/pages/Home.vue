@@ -42,7 +42,7 @@
         <div class="section">
             <h2 class="title">Rockenomics</h2>
 
-            <div class="columns has-text-centered">
+            <div class="columns is-multiline has-text-centered">
                 <div class="column">
                     <h1 class="title has-text-primary">10,420</h1>
                     <h2 class="subtitle">Total Rocks Ever</h2>
@@ -52,7 +52,7 @@
                     <h2 class="subtitle">Rocks For Giveaways</h2>
                 </div>
                 <div class="column">
-                    <h1 class="title has-text-primary">.05</h1>
+                    <h1 class="title has-text-primary">.042069</h1>
                     <h2 class="subtitle">Price Per Rock</h2>
                 </div>
                 <div class="column">
@@ -63,18 +63,53 @@
                     <h1 class="title has-text-primary">100</h1>
                     <h2 class="subtitle">Custom Rocks</h2>
                 </div>
+                <div class="column">
+                    <h1 class="title has-text-primary">4.2069%</h1>
+                    <h2 class="subtitle">Fee on Transfer</h2>
+                </div>
             </div>
-
-            <p>We held back the first 420 rocks for giveaways and prizes, the rest are up for grabs to our stoner
-                brethren.  The rocks reveal almost immediately after minting, pending some randomization certification
+            <br />
+            <p>We held back the first <strong>420 rocks for giveaways and prizes</strong>, the rest are up for grabs to our stoner
+                brethren.  The rocks <strong>reveal almost immediately</strong> after minting, pending some randomization certification
                 from our buddies over at <a href="https://chain.link" target="_blank">Chainlink</a>.  Learn more about our implementation and integrations
                 over in <router-link to="/code">The Code</router-link> section.
-                A maximum of 100 minted rocks will bear a unique watermark entitling the owner to a custom hand-drawn
-                background of their choosing.  Learn more about our artist in <router-link to="/art">The Art</router-link> section.</p>
+                A maximum of 100 minted rocks will bear a unique watermark entitling the owner to a <strong>custom hand-drawn
+                background</strong> of their choosing.  Learn more about our artist in <router-link to="/art">The Art</router-link> section.</p>
+            <br />
+            <p>To fund the continued growth of our community, a 4.2069% fee is taken from all secondary sales.  Of this fee, 1% goes to the creators to help us get
+                closer to quitting our jobs and working crypto full time, the other <strong>3.2069% goes into a community fund</strong> to be spent on
+                initiatives that the Stoners decide.  We're thinking free merch, parties, and more giveaways.  (Shout out to the awesome
+                <a href="https://bullsontheblock.com/" target="_new">BOTB</a> creators for innovating community funds!)</p>
+        </div>
+        <div class="section">
+            <div class="columns">
+                <div class="column">
+                    <h2 class="title">Why Rocks?</h2>
+                    <p>We love NFTs and their creative potential, so we tried to find a way to take the most boring
+                        pet that's ever existed and make it fun.</p>
+                    <br />
+                    <p>Welcome to The Pet Rock.  Made famous in the 1970s by someone we don't know and didn't research, and featured in
+                        one of our coder's favorite books of all time: Gordon Korman's children's classic <i>No Coins Please</i> about a hustler who turns
+                        $100 into $1 million on a school field trip.  Definitely recommended reading.</p>
+                    <br />
+                    <p>Each rock is adorable and loveable and comes with a unique name that gives it extra personality.  This community
+                        is for rock enthusiasts and stoners, since we love a good pun.  Definitely mint a rock or you might
+                        miss out on NFT history.</p>
+                    <br />
+                    <p>Minting goes live at <strong>4:20pm EST on International Rock Day</strong> (July 13) so make sure you set your calendars.</p>
+                    <br />
+                </div>
+                <div class="column is-narrow"></div>
+                <div class="column is-3">
+                    <figure class="image">
+                        <img src="../assets/rocks/rock3.png" class="rock-img">
+                    </figure>
+                </div>
+            </div>
         </div>
         <div class="section">
             <h2 class="title">About the Rocks</h2>
-            <div class="columns is-mobile">
+            <div class="columns">
                 <div class="column is-4">
                     <figure class="image">
                         <img src="../assets/rocks/rock1.png" class="rock-img">
@@ -167,18 +202,17 @@
                         <div class="card-content">
                             <div class="media">
                                 <div class="media-content">
-                                    <p class="title is-4">Shaun B</p>
-                                    <p class="subtitle is-6">The Hustler</p>
+                                    <p class="title is-4"><a href="https://twitter.com/sircryptos" target="_blank">@sircryptos</a></p>
+                                    <p class="subtitle is-6 has-text-grey">The Hustler</p>
                                 </div>
                             </div>
 
                             <div class="content">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                I used to own an ice cream truck but now I collect NFTs.
                             </div>
                         </div>
                         <footer class="card-footer">
                             <a href="https://linedetail.com" target="_blank" class="card-footer-item">linedetail.com</a>
-                            <a href="https://twitter.com/linedetail" target="_blank" class="card-footer-item">@linedetail</a>
                         </footer>
                     </div>
                 </div>
@@ -193,18 +227,17 @@
                         <div class="card-content">
                             <div class="media">
                                 <div class="media-content">
-                                    <p class="title is-4">Mark LC</p>
-                                    <p class="subtitle is-6">The Artist</p>
+                                    <p class="title is-4"><a href="https://twitter.com/linedetail" target="_blank">@linedetail</a></p>
+                                    <p class="subtitle is-6 has-text-grey">The Artist</p>
                                 </div>
                             </div>
 
                             <div class="content">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                I'm an artist and animator, and I made an <a href="https://www.kickstarter.com/projects/line/lines-deck-of-elements" target="_blank">awesome deck of cards</a>.
                             </div>
                         </div>
                         <footer class="card-footer">
                             <a href="https://linedetail.com" target="_blank" class="card-footer-item">linedetail.com</a>
-                            <a href="https://twitter.com/linedetail" target="_blank" class="card-footer-item">@linedetail</a>
                         </footer>
                     </div>
                 </div>
@@ -219,8 +252,8 @@
                         <div class="card-content">
                             <div class="media">
                                 <div class="media-content">
-                                    <p class="title is-4">Sara Sioux</p>
-                                    <p class="subtitle is-6">The Coder</p>
+                                    <p class="title is-4"><a href="https://twitter.com/sarasioux" target="_blank">@sarasioux</a></p>
+                                    <p class="subtitle is-6 has-text-grey">The Coder</p>
                                 </div>
                             </div>
 
@@ -230,7 +263,7 @@
                         </div>
                         <footer class="card-footer">
                             <a href="https://melodramatic.com" target="_blank" class="card-footer-item">melodramatic.com</a>
-                            <a href="https://twitter.com/sarasioux" target="_blank" class="card-footer-item">@sarasioux</a>
+
                         </footer>
                     </div>
                 </div>
@@ -241,15 +274,25 @@
             <br />
             <hr />
             <br />
-            <div class="columns">
+            <div class="columns is-mobile">
                 <div class="column">
                     Sign up for our mailing list!
                 </div>
-                <div class="column has-text-centered">
+                <div class="column has-text-centered is-hidden-mobile">
                     Put a logo here
                 </div>
                 <div class="column has-text-right">
-                    And some social links
+                        <a class="button is-ghost" href="https://twitter.com/mystoners" target="_blank">
+                            <span class="icon is-large">
+                                <i class="fab fa-2x fa-twitter"></i>
+                            </span>
+                        </a>
+                        &nbsp;
+                        <a class="button is-ghost">
+                            <span class="icon">
+                                <i class="fab fa-2x fa-discord"></i>
+                            </span>
+                        </a>
                 </div>
             </div>
         </div>
@@ -277,5 +320,8 @@
 <style scoped>
     .rock-img {
         border-radius: 20px;
+    }
+    a.is-ghost:hover {
+        text-decoration: none !important;
     }
 </style>

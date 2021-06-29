@@ -4,18 +4,18 @@
             <div class="navbar-brand">
                 <div class="navbar-item">
                     <router-link to="/">
-                        <h1 class="title">Stoners Rock</h1>
+                        <h1 class="title is-4">Stoners Rock</h1>
                     </router-link>
                 </div>
 
-                <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample" @click="isDropdownActive=(isDropdownActive===false)" :class="{'is-active':isDropdownActive}">
                     <span aria-hidden="true"></span>
                     <span aria-hidden="true"></span>
                     <span aria-hidden="true"></span>
                 </a>
             </div>
 
-            <div id="navbarBasicExample" class="navbar-menu">
+            <div id="navbarBasicExample" class="navbar-menu" :class="{'is-active':isDropdownActive}">
                 <div class="navbar-start">
                     <router-link to="/sanctuary" class="navbar-item">
                         The Sanctuary
@@ -39,7 +39,7 @@
                         <button class="button" @click="handleAuthClick">Authorize Google</button>
                     </div>
                     <div class="navbar-item" v-if="!isConnected">
-                        <button class="button is-primary" @click="connectWeb3">Connect</button>
+                        <button class="button is-primary" @click="connectWeb3">Connect Wallet</button>
                     </div>
                     <div class="navbar-item" v-if="isConnected">
                         <span class="tag">{{account}}</span>
@@ -63,6 +63,7 @@
     name: 'App',
     data: function() {
       return {
+        isDropdownActive: false,
         isGenerating: false,
         generateAmount: 10,
         generated: [],
