@@ -135,87 +135,78 @@
                 <div class="column is-3 is-offset-1">
                     <div class="card">
                         <div class="card-image">
-                            <figure class="image is-4by3">
-                                <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+                            <figure class="image is-square">
+                                <img src="https://bulma.io/images/placeholders/256x256.png" alt="Placeholder image">
                             </figure>
                         </div>
                         <div class="card-content">
                             <div class="media">
-                                <div class="media-left">
-                                    <figure class="image is-48x48">
-                                        <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
-                                    </figure>
-                                </div>
                                 <div class="media-content">
                                     <p class="title is-4">Shaun B</p>
-                                    <p class="subtitle is-6">@mystoners</p>
+                                    <p class="subtitle is-6">The Hustler</p>
                                 </div>
                             </div>
 
                             <div class="content">
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                Phasellus nec iaculis mauris. <a>@bulmaio</a>.
-                                <a href="#">#css</a> <a href="#">#responsive</a>
                             </div>
                         </div>
+                        <footer class="card-footer">
+                            <a href="https://linedetail.com" target="_blank" class="card-footer-item">linedetail.com</a>
+                            <a href="https://twitter.com/linedetail" target="_blank" class="card-footer-item">@linedetail</a>
+                        </footer>
                     </div>
                 </div>
                 <div class="column is-narrow"></div>
                 <div class="column is-3">
                     <div class="card">
                         <div class="card-image">
-                            <figure class="image is-4by3">
-                                <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+                            <figure class="image is-square">
+                                <img src="https://bulma.io/images/placeholders/256x256.png" alt="Placeholder image">
                             </figure>
                         </div>
                         <div class="card-content">
                             <div class="media">
-                                <div class="media-left">
-                                    <figure class="image is-48x48">
-                                        <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
-                                    </figure>
-                                </div>
                                 <div class="media-content">
                                     <p class="title is-4">Mark LC</p>
-                                    <p class="subtitle is-6">@mystoners</p>
+                                    <p class="subtitle is-6">The Artist</p>
                                 </div>
                             </div>
 
                             <div class="content">
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                Phasellus nec iaculis mauris. <a>@bulmaio</a>.
-                                <a href="#">#css</a> <a href="#">#responsive</a>
                             </div>
                         </div>
+                        <footer class="card-footer">
+                            <a href="https://linedetail.com" target="_blank" class="card-footer-item">linedetail.com</a>
+                            <a href="https://twitter.com/linedetail" target="_blank" class="card-footer-item">@linedetail</a>
+                        </footer>
                     </div>
                 </div>
                 <div class="column is-narrow"></div>
                 <div class="column is-3">
                     <div class="card">
                         <div class="card-image">
-                            <figure class="image is-4by3">
-                                <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+                            <figure class="image is-square">
+                                <img src="../assets/plaguedoctor.png" alt="Placeholder image">
                             </figure>
                         </div>
                         <div class="card-content">
                             <div class="media">
-                                <div class="media-left">
-                                    <figure class="image is-48x48">
-                                        <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
-                                    </figure>
-                                </div>
                                 <div class="media-content">
-                                    <p class="title is-4">Sara S</p>
-                                    <p class="subtitle is-6">@mystoners</p>
+                                    <p class="title is-4">Sara Sioux</p>
+                                    <p class="subtitle is-6">The Coder</p>
                                 </div>
                             </div>
 
                             <div class="content">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                Phasellus nec iaculis mauris. <a>@bulmaio</a>.
-                                <a href="#">#css</a> <a href="#">#responsive</a>
+                                I play VR and vape a lot.  I also code smart contracts for fun.
                             </div>
                         </div>
+                        <footer class="card-footer">
+                            <a href="https://melodramatic.com" target="_blank" class="card-footer-item">melodramatic.com</a>
+                            <a href="https://twitter.com/sarasioux" target="_blank" class="card-footer-item">@sarasioux</a>
+                        </footer>
                     </div>
                 </div>
             </div>
