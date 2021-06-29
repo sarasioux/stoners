@@ -96,7 +96,7 @@
                         is for rock enthusiasts and stoners, since we love a good pun.  Definitely mint a rock or you might
                         miss out on NFT history.</p>
                     <br />
-                    <p>Minting goes live at <strong>4:20pm EST on International Rock Day</strong> (July 13) so make sure you set your calendars.</p>
+                    <p>Minting goes live at <strong>4:20pm EST on International Rock Day</strong> (July 13, obviously) so make sure to set your calendars.</p>
                     <br />
                 </div>
                 <div class="column is-narrow"></div>
@@ -189,7 +189,7 @@
 
         <div class="section">
             <h2 class="title">Rockers</h2>
-            <p>A ragtag group of misfits, reunited for one glorious quest into the exciting underbelly of the NFT world.</p>
+            <p>A ragtag group of misfits, reunited for one glorious quest into the exciting underbelly of the NFT world.  Also our coder is a girl so if you don't buy a rock you're clearly sexist.</p>
             <br />
             <div class="columns">
                 <div class="column is-3 is-offset-1">
