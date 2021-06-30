@@ -74,7 +74,7 @@
                 from our buddies over at <a href="https://chain.link" target="_blank">Chainlink</a>.  Learn more about our implementation and integrations
                 over in <router-link to="/code">The Code</router-link> section.
                 A maximum of 100 minted rocks will bear a unique watermark entitling the owner to a <strong>custom hand-drawn
-                background</strong> of their choosing.  Learn more about our artist in <router-link to="/art">The Art</router-link> section.</p>
+                background</strong> of their choosing.</p>
             <br />
             <p>To fund the continued growth of our community, a 4.2069% fee is taken from all secondary sales.  Of this fee, 1% goes to the creators to help us get
                 closer to quitting our jobs and working crypto full time, the other <strong>3.2069% goes into a community fund</strong> to be spent on
@@ -90,7 +90,7 @@
                     <br />
                     <p>Welcome to Stoners Rock.  A distant cousin of the rocks made famous in the 1970s by someone we don't know and didn't research, and featured in
                         Gordan Korman's classic children's novel <i>No Coins Please</i> about a young hustler who turns
-                        $100 into<br />$1 million on a school field trip.</p>
+                        $100 into $1 million on a school field trip.</p>
                     <br />
                     <p>Each rock is adorable and loveable and comes with a unique name that gives it extra personality.  This community
                         is for rock enthusiasts and stoners, since we love a good pun.  Definitely mint a rock or you might
@@ -136,7 +136,8 @@
 
         <div class="section">
             <h2 class="title is-hand">Rockmap Milestones</h2>
-            <p>We still have day jobs, but if we can fund this project with some sales we'll start work on further fostering our awesome community of Stoners.  Think of this NFT as a networking opportunity and an investment in your future.  When else do you have a chance to connect with people who love crypto and weed?</p>
+            <p>We still have day jobs, but if we can fund this project with some sales we'll start work on further fostering our awesome community of Stoners.
+                Think of this NFT as a networking opportunity and an investment in your future.  When else do you have a chance to connect with people who love crypto and weed?</p>
             <br />
             <div class="columns">
                 <div class="column">
@@ -161,12 +162,20 @@
                             <td>Stoner Rocks merchandise drops with free giveaways.</td>
                         </tr>
                         <tr>
+                            <td><strong class="has-text-primary">40%</strong></td>
+                            <td>Mark finally moves out of the hotel.</td>
+                        </tr>
+                        <tr>
                             <td><strong class="has-text-primary">50%</strong></td>
-                            <td>Get Sara an ape (she really wants one) and give one away to our community.</td>
+                            <td>Get Sara an ape (she really wants one) and give one away.</td>
                         </tr>
                         <tr>
                             <td><strong class="has-text-primary">70%</strong></td>
                             <td>Stoner Sanctuary location announced.</td>
+                        </tr>
+                        <tr>
+                            <td><strong class="has-text-primary">80%</strong></td>
+                            <td>First community smoke session.</td>
                         </tr>
                         <tr>
                             <td><strong class="has-text-primary">90%</strong></td>
@@ -174,7 +183,7 @@
                         </tr>
                         <tr>
                             <td><strong class="has-text-primary">100%</strong></td>
-                            <td>To thank our community for reaching our goal all minters receive a hand-drawn thank you card.</td>
+                            <td>To thank our community all minters receive a hand-drawn thank you card.</td>
                         </tr>
                         </tbody>
                     </table>
@@ -208,7 +217,7 @@
                             </div>
 
                             <div class="content">
-                                Entrepreneur turned NFT collector trying to bring love to rocks! BAYC, Alien boys, BOTB and HOK owner that will do anything to make Stoner Owners lives better.
+                                Entrepreneur turned NFT collector trying to bring love to rocks! BAYC, Alien boys, BOTB and HOK owner.
                             </div>
                         </div>
                     </div>
@@ -321,4 +330,5 @@
     a.is-ghost:hover {
         text-decoration: none !important;
     }
+
 </style>

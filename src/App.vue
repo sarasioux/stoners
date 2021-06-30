@@ -23,9 +23,6 @@
                     <router-link to="/code" class="navbar-item">
                         The Code
                     </router-link>
-                    <router-link to="/art" class="navbar-item">
-                        The Art
-                    </router-link>
                     <router-link to="/test" class="navbar-item has-text-danger" v-if="!showAuthButton">
                         Test
                     </router-link>
@@ -118,5 +115,7 @@
     .pull-right {
         float: right;
     }
-
+    .navbar {
+        background: transparent;
+    }
 </style>
