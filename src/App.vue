@@ -1,52 +1,54 @@
 <template>
     <div class="container">
-        <nav class="navbar" role="navigation" aria-label="main navigation">
-            <div class="navbar-brand">
-                <div class="navbar-item">
-                    <router-link to="/">
-                        <h1 class="title is-4 is-hand has-text-primary">Stoners Rock</h1>
-                    </router-link>
+        <div class="section">
+            <nav class="navbar" role="navigation" aria-label="main navigation">
+                <div class="navbar-brand">
+                    <div class="navbar-item">
+                        <router-link to="/">
+                            <h1 class="title is-4 is-hand has-text-link">Stoners Rock</h1>
+                        </router-link>
+                    </div>
+
+                    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample" @click="isDropdownActive=(isDropdownActive===false)" :class="{'is-active':isDropdownActive}">
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                    </a>
                 </div>
 
-                <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample" @click="isDropdownActive=(isDropdownActive===false)" :class="{'is-active':isDropdownActive}">
-                    <span aria-hidden="true"></span>
-                    <span aria-hidden="true"></span>
-                    <span aria-hidden="true"></span>
-                </a>
-            </div>
+                <div id="navbarBasicExample" class="navbar-menu" :class="{'is-active':isDropdownActive}">
+                    <div class="navbar-start">
+                        <router-link to="/sanctuary" class="navbar-item">
+                            The Sanctuary
+                        </router-link>
+                        <router-link to="/code" class="navbar-item">
+                            The Code
+                        </router-link>
+                        <router-link to="/test" class="navbar-item has-text-danger" v-if="!showAuthButton">
+                            Test
+                        </router-link>
+                        <router-link to="/approve" class="navbar-item has-text-danger" v-if="!showAuthButton">
+                            Approve
+                        </router-link>
+                    </div>
 
-            <div id="navbarBasicExample" class="navbar-menu" :class="{'is-active':isDropdownActive}">
-                <div class="navbar-start">
-                    <router-link to="/sanctuary" class="navbar-item">
-                        The Sanctuary
-                    </router-link>
-                    <router-link to="/code" class="navbar-item">
-                        The Code
-                    </router-link>
-                    <router-link to="/test" class="navbar-item has-text-danger" v-if="!showAuthButton">
-                        Test
-                    </router-link>
-                    <router-link to="/approve" class="navbar-item has-text-danger" v-if="!showAuthButton">
-                        Approve
-                    </router-link>
-                </div>
-
-                <div class="navbar-end">
-                    <div class="navbar-item" v-if="isAdmin() && showAuthButton" >
-                        <button class="button" @click="handleAuthClick">Authorize Google</button>
-                    </div>
-                    <div class="navbar-item" v-if="!isConnected">
-                        <button class="button is-primary" @click="connectWeb3">Connect Wallet</button>
-                    </div>
-                    <div class="navbar-item" v-if="isConnected">
-                        <span class="tag">{{account}}</span>
-                    </div>
-                    <div class="navbar-item" v-if="isConnected">
-                        <router-link to="/mint" class="button is-primary">Mint</router-link>
+                    <div class="navbar-end">
+                        <div class="navbar-item" v-if="isAdmin() && showAuthButton" >
+                            <button class="button" @click="handleAuthClick">Authorize Google</button>
+                        </div>
+                        <div class="navbar-item" v-if="!isConnected">
+                            <button class="button is-primary has-text-weight-bold" @click="connectWeb3">Connect Wallet</button>
+                        </div>
+                        <div class="navbar-item" v-if="isConnected">
+                            <span class="tag">{{account}}</span>
+                        </div>
+                        <div class="navbar-item" v-if="isConnected">
+                            <router-link to="/mint" class="button is-primary has-text-weight-bold">Mint</router-link>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </nav>
+            </nav>
+        </div>
         <router-view
             :isGoogleAuthed="(showAuthButton === false)"
         ></router-view>
@@ -54,7 +56,6 @@
 </template>
 
 <script>
-
 
   export default {
     name: 'App',

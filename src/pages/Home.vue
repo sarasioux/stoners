@@ -9,7 +9,7 @@
                 </div>
                 <div class="column is-narrow"></div>
                 <div class="column">
-                    <h1 class="title is-hand">Welcome to Stoners Rock.</h1>
+                    <h1 class="title is-hand">Welcome to <span class="has-text-primary">Stoners Rock</span>.</h1>
                     <p>The Rocks are a collection of 10,420 unique NFTs minted on the Ethereum
                         blockchain. Rocks grant you access to our exclusive <router-link to="/sanctuary">Stoner Sanctuary</router-link>, and more
                         exciting updates on our rockmap.</p>
@@ -40,7 +40,7 @@
             </div>
         </div>
         <div class="section">
-            <h2 class="title is-hand">Rockenomics</h2>
+            <h2 class="title is-hand is-1">Rockenomics</h2>
 
             <div class="columns is-multiline has-text-centered">
                 <div class="column">
@@ -84,9 +84,9 @@
         <div class="section">
             <div class="columns">
                 <div class="column">
-                    <h2 class="title is-hand">Why Rocks?</h2>
+                    <h2 class="title is-hand is-1">Why Rocks?</h2>
                     <p>We love NFTs and their creative potential, so we tried to find a way to take the most boring
-                        pet that's ever existed and make it fun.</p>
+                        pet ever and make it fun.</p>
                     <br />
                     <p>Welcome to Stoners Rock.  A distant cousin of the rocks made famous in the 1970s by someone we don't know and didn't research, and featured in
                         Gordan Korman's classic children's novel <i>No Coins Please</i> about a young hustler who turns
@@ -108,7 +108,7 @@
             </div>
         </div>
         <div class="section">
-            <h2 class="title is-hand">About the Rocks</h2>
+            <h2 class="title is-hand is-1">About the Rocks</h2>
             <div class="columns">
                 <div class="column is-4">
                     <figure class="image">
@@ -117,7 +117,7 @@
                 </div>
                 <div class="column is-narrow"></div>
                 <div class="column">
-                    <h3 class="title is-4 is-hand">Meet Orange Crush</h3>
+                    <h3 class="title is-3 is-hand has-text-primary">Meet Orange Crush</h3>
                     <p>The Rocks are a unique set of 10,420 avatars generated from over 1.3 million possible combinations
                         of attributes including facial features, accessories, and unique themed names.</p>
                     <br />
@@ -135,13 +135,13 @@
         </div>
 
         <div class="section">
-            <h2 class="title is-hand">Rockmap Milestones</h2>
+            <h2 class="title is-hand is-1">Rockmap Milestones</h2>
             <p>We still have day jobs, but if we can fund this project with some sales we'll start work on further fostering our awesome community of Stoners.
                 Think of this NFT as a networking opportunity and an investment in your future.  When else do you have a chance to connect with people who love crypto and weed?</p>
             <br />
             <div class="columns">
                 <div class="column">
-                    <table class="table is-striped">
+                    <table class="table">
                         <thead>
                         <tr>
                             <th>Percent Sold</th>
@@ -197,7 +197,7 @@
         </div>
 
         <div class="section">
-            <h2 class="title is-hand">Rockers</h2>
+            <h2 class="title is-hand is-1">Rockers</h2>
             <p>A ragtag group of misfits, reunited for one glorious quest into the exciting underbelly of the NFT world.  Buy our rocks so we can keep on doing what we love.</p>
             <br />
             <div class="columns">
@@ -211,7 +211,7 @@
                         <div class="card-content">
                             <div class="media">
                                 <div class="media-content">
-                                    <p class="title is-4"><a href="https://twitter.com/sircryptos" target="_blank">@sircryptos</a></p>
+                                    <p class="title is-4"><a href="https://twitter.com/sircryptos" target="_blank" class="has-text-primary">@sircryptos</a></p>
                                     <p class="subtitle is-6 has-text-grey">The Hustler</p>
                                 </div>
                             </div>
@@ -233,7 +233,7 @@
                         <div class="card-content">
                             <div class="media">
                                 <div class="media-content">
-                                    <p class="title is-4"><a href="https://twitter.com/linedetail" target="_blank">@linedetail</a></p>
+                                    <p class="title is-4"><a href="https://twitter.com/linedetail" target="_blank" class="has-text-primary">@linedetail</a></p>
                                     <p class="subtitle is-6 has-text-grey">The Artist</p>
                                 </div>
                             </div>
@@ -258,7 +258,7 @@
                         <div class="card-content">
                             <div class="media">
                                 <div class="media-content">
-                                    <p class="title is-4"><a href="https://twitter.com/sarasioux" target="_blank">@sarasioux</a></p>
+                                    <p class="title is-4"><a href="https://twitter.com/sarasioux" target="_blank" class="has-text-primary">@sarasioux</a></p>
                                     <p class="subtitle is-6 has-text-grey">The Coder</p>
                                 </div>
                             </div>

@@ -6,7 +6,7 @@
                     <h1 class="title">The Sanctuary</h1>
                     <p class="has-text-centered">The Stoner Sanctuary for Rock holders is coming soon.  In the meantime, please enjoy this essential video.</p>
                     <br />
-                    <iframe width="785" height="525" src="https://www.youtube.com/embed/NtExVJlgEC0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe width="100%" height="525" src="https://www.youtube.com/embed/NtExVJlgEC0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
             </div>
         </div>

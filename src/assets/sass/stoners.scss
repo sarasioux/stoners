@@ -2,8 +2,23 @@
 @import "../../../node_modules/bulma/sass/utilities/functions";
 @import url('https://fonts.googleapis.com/css?family=Indie+Flower:400');
 
-$primary: #0E66FF;
-$link: $primary;
+$primary: #15E6CD;
+$link: #FE6D73;
+$text: #aeb1b7;
+$text-strong: #f3f4f5;
+
+$box-background-color: #252837;
+$card-background-color: $box-background-color;
+$card-footer-border-top: 1px solid #3b3e4b;
+$table-background-color: $box-background-color;
+$table-cell-border: 1px solid #3b3e4b;
+$table-color: $text;
+$card-radius: 20px;
+$panel-heading-background-color: $box-background-color;
+
+html, body {
+  background: #1F1B2B !important;
+}
 
 .is-hand {
   font-family: "Indie Flower" !important;
