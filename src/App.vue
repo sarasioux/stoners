@@ -4,7 +4,7 @@
             <div class="navbar-brand">
                 <div class="navbar-item">
                     <router-link to="/">
-                        <h1 class="title is-4">Stoners Rock</h1>
+                        <h1 class="title is-4 is-hand has-text-primary">Stoners Rock</h1>
                     </router-link>
                 </div>
 
@@ -26,10 +26,10 @@
                     <router-link to="/art" class="navbar-item">
                         The Art
                     </router-link>
-                    <router-link to="/test" class="navbar-item" v-if="!showAuthButton">
+                    <router-link to="/test" class="navbar-item has-text-danger" v-if="!showAuthButton">
                         Test
                     </router-link>
-                    <router-link to="/approve" class="navbar-item" v-if="!showAuthButton">
+                    <router-link to="/approve" class="navbar-item has-text-danger" v-if="!showAuthButton">
                         Approve
                     </router-link>
                 </div>
@@ -114,6 +114,9 @@
 <style>
     .hideme {
         display: none;
+    }
+    .pull-right {
+        float: right;
     }
 
 </style>

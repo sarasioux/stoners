@@ -9,7 +9,7 @@
                 </div>
                 <div class="column is-narrow"></div>
                 <div class="column">
-                    <h1 class="title">Welcome to Stoners Rock.</h1>
+                    <h1 class="title is-hand">Welcome to Stoners Rock.</h1>
                     <p>The Rocks are a collection of 10,420 unique NFTs minted on the Ethereum
                         blockchain. Rocks grant you access to our exclusive <router-link to="/sanctuary">Stoner Sanctuary</router-link>, and more
                         exciting updates on our rockmap.</p>
@@ -40,7 +40,7 @@
             </div>
         </div>
         <div class="section">
-            <h2 class="title">Rockenomics</h2>
+            <h2 class="title is-hand">Rockenomics</h2>
 
             <div class="columns is-multiline has-text-centered">
                 <div class="column">
@@ -84,13 +84,13 @@
         <div class="section">
             <div class="columns">
                 <div class="column">
-                    <h2 class="title">Why Rocks?</h2>
+                    <h2 class="title is-hand">Why Rocks?</h2>
                     <p>We love NFTs and their creative potential, so we tried to find a way to take the most boring
                         pet that's ever existed and make it fun.</p>
                     <br />
-                    <p>Welcome to The Pet Rock.  Made famous in the 1970s by someone we don't know and didn't research, and featured in
-                        one of our coder's favorite books of all time: Gordon Korman's children's classic <i>No Coins Please</i> about a hustler who turns
-                        $100 into $1 million on a school field trip.  Definitely recommended reading.</p>
+                    <p>Welcome to Stoners Rock.  A distant cousin of the rocks made famous in the 1970s by someone we don't know and didn't research, and featured in
+                        Gordan Korman's classic children's novel <i>No Coins Please</i> about a young hustler who turns
+                        $100 into<br />$1 million on a school field trip.</p>
                     <br />
                     <p>Each rock is adorable and loveable and comes with a unique name that gives it extra personality.  This community
                         is for rock enthusiasts and stoners, since we love a good pun.  Definitely mint a rock or you might
@@ -108,7 +108,7 @@
             </div>
         </div>
         <div class="section">
-            <h2 class="title">About the Rocks</h2>
+            <h2 class="title is-hand">About the Rocks</h2>
             <div class="columns">
                 <div class="column is-4">
                     <figure class="image">
@@ -117,7 +117,7 @@
                 </div>
                 <div class="column is-narrow"></div>
                 <div class="column">
-                    <h3 class="title is-4">Meet Orange Crush</h3>
+                    <h3 class="title is-4 is-hand">Meet Orange Crush</h3>
                     <p>The Rocks are a unique set of 10,420 avatars generated from over 1.3 million possible combinations
                         of attributes including facial features, accessories, and unique themed names.</p>
                     <br />
@@ -135,7 +135,7 @@
         </div>
 
         <div class="section">
-            <h2 class="title">Rockmap Milestones</h2>
+            <h2 class="title is-hand">Rockmap Milestones</h2>
             <p>We still have day jobs, but if we can fund this project with some sales we'll start work on further fostering our awesome community of Stoners.  Think of this NFT as a networking opportunity and an investment in your future.  When else do you have a chance to connect with people who love crypto and weed?</p>
             <br />
             <div class="columns">
@@ -158,7 +158,7 @@
                         </tr>
                         <tr>
                             <td><strong class="has-text-primary">30%</strong></td>
-                            <td>Get Mark a moonlit house.</td>
+                            <td>Stoner Rocks merchandise drops with free giveaways.</td>
                         </tr>
                         <tr>
                             <td><strong class="has-text-primary">50%</strong></td>
@@ -170,7 +170,7 @@
                         </tr>
                         <tr>
                             <td><strong class="has-text-primary">90%</strong></td>
-                            <td>Giveaways begin!</td>
+                            <td>Rock giveaways begin!</td>
                         </tr>
                         <tr>
                             <td><strong class="has-text-primary">100%</strong></td>
@@ -188,15 +188,15 @@
         </div>
 
         <div class="section">
-            <h2 class="title">Rockers</h2>
-            <p>A ragtag group of misfits, reunited for one glorious quest into the exciting underbelly of the NFT world.  Also our coder is a girl so if you don't buy a rock you're clearly sexist.</p>
+            <h2 class="title is-hand">Rockers</h2>
+            <p>A ragtag group of misfits, reunited for one glorious quest into the exciting underbelly of the NFT world.  Buy our rocks so we can keep on doing what we love.</p>
             <br />
             <div class="columns">
                 <div class="column is-3 is-offset-1">
                     <div class="card">
                         <div class="card-image">
                             <figure class="image is-square">
-                                <img src="https://bulma.io/images/placeholders/256x256.png" alt="Placeholder image">
+                                <img src="../assets/sircrypto.jpg" alt="Sir Crypto Bitcoin Man">
                             </figure>
                         </div>
                         <div class="card-content">
@@ -208,12 +208,9 @@
                             </div>
 
                             <div class="content">
-                                I used to own an ice cream truck but now I collect NFTs.
+                                Entrepreneur turned NFT collector trying to bring love to rocks! BAYC, Alien boys, BOTB and HOK owner that will do anything to make Stoner Owners lives better.
                             </div>
                         </div>
-                        <footer class="card-footer">
-                            <a href="https://linedetail.com" target="_blank" class="card-footer-item">linedetail.com</a>
-                        </footer>
                     </div>
                 </div>
                 <div class="column is-narrow"></div>
@@ -246,7 +243,7 @@
                     <div class="card">
                         <div class="card-image">
                             <figure class="image is-square">
-                                <img src="../assets/plaguedoctor.png" alt="Placeholder image">
+                                <img src="../assets/plaguedoctor.png" alt="Sara Sioux Plague Doctor">
                             </figure>
                         </div>
                         <div class="card-content">

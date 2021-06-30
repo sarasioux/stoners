@@ -1,0 +1,13 @@
+@charset "utf-8";
+@import "../../../node_modules/bulma/sass/utilities/functions";
+@import url('https://fonts.googleapis.com/css?family=Indie+Flower:400');
+
+$primary: #0E66FF;
+$link: $primary;
+
+.is-hand {
+  font-family: "Indie Flower" !important;
+}
+
+
+@import "../../../node_modules/bulma/bulma.sass";

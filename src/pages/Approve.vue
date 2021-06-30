@@ -2,12 +2,17 @@
     <div class="approve" v-if="isGoogleAuthed">
         <h1 class="title">Approve</h1>
         <nav class="pagination is-small" role="navigation" aria-label="pagination">
-            <a class="pagination-previous" disabled>Previous</a>
-            <a class="pagination-next" disabled>Next page</a>
+            <a class="pagination-previous" @click="previousPage">Previous</a>
+            <a class="pagination-next" @click="nextPage">Next page</a>
+            <ul class="pagination-list">
+                <li v-for="(page, idx) in pages" :key="page">
+                    <a class="pagination-link" :class="{'is-current':(idx === currentPageNumber)}" @click="setCurrentPage(idx)" aria-label="Goto page 1">{{idx + 1}}</a>
+                </li>
+            </ul>
         </nav>
         <div class="columns is-multiline">
             <div class="column is-3" v-for="file in files" :key="file">
-                <Rock
+                <ApproveRock
                     :id="file.id"
                     :name="file.name"
                 />
@@ -18,27 +23,32 @@
 
 <script>
 
-  import Rock from "../components/Rock.vue";
+  import ApproveRock from "../components/ApproveRock.vue";
 
   export default {
     name: 'Test',
     data: function() {
       return {
-        nextPageToken: null,
-        prevPageToken: null,
-        currentPageToken: null,
         currentPageNumber: 0,
-        files: []
+        files: [],
+        pages: [null],
       }
     },
     components: {
-        Rock
+      ApproveRock
     },
     props: {
       isGoogleAuthed: Boolean
     },
+    watch: {
+      isGoogleAuthed: function() {
+        this.listFiles();
+      }
+    },
     mounted: function() {
-      this.listFiles();
+      if(this.isGoogleAuthed) {
+        this.listFiles();
+      }
     },
     methods: {
       listFiles: function() {
@@ -48,17 +58,35 @@
           pageSize: 100,
           fields: "nextPageToken, files(id, name)",
           orderBy: "name",
-          pageToken: this.currentPageToken
+          pageToken: this.pages[this.currentPageNumber]
         }).then(function(response) {
           const files = response.result.files;
           if (files && files.length > 0) {
             self.files = files;
-            self.nextPageToken = response.result.nextPageToken;
+            if(response.result.nextPageToken) {
+              self.pages[self.currentPageNumber+1] = response.result.nextPageToken;
+            }
           } else {
             console.log('No files found.');
           }
         });
       },
+      nextPage: function() {
+        if(this.pages[this.currentPageNumber + 1]) {
+          this.currentPageNumber++;
+          this.listFiles();
+        }
+      },
+      previousPage: function() {
+        if(this.currentPageNumber > 0) {
+          this.currentPageNumber--;
+          this.listFiles();
+        }
+      },
+      setCurrentPage: function(num) {
+        this.currentPageNumber = num;
+        this.listFiles();
+      }
     }
   }
 </script>

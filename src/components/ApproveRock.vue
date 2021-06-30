@@ -1,5 +1,5 @@
 <template>
-    <div class="card">
+    <div class="card" :class="{'has-background-grey':deleted}">
         <div class="card-image">
             <figure class="image is-square">
                 <img :src="'https://drive.google.com/uc?export=view&id=' + id" />
@@ -23,12 +23,16 @@
                 </div>
             </div>
         </div>
+        <footer class="card-footer">
+            <a v-if="!deleted" href="#" class="card-footer-item" @click="deleteRock">Delete</a>
+            <h3 v-if="deleted" class="title is-6 card-footer-item has-text-danger">DELETED</h3>
+        </footer>
     </div>
 </template>
 
 <script>
   export default {
-    name: 'Rock',
+    name: 'ApproveRock',
     data: function() {
       return {
         hash: '',
@@ -36,7 +40,8 @@
         rockName: '',
         description: '',
         external_url: '',
-        attributes: []
+        attributes: [],
+        deleted: false,
       }
     },
     props: {
@@ -53,8 +58,8 @@
         let self = this;
         window.gapi.client.drive.files.list({
           'q': "'1DyqPzP_60zRaQwW6w1Qu6ACo2JxPEP_Q' in parents and name = '" + this.hash + ".json'",
-          'pageSize': 100,
-          'fields': "nextPageToken, files(id, name)",
+          'pageSize': 1,
+          'fields': "files(id, name)",
           'orderBy': "name"
         }).then(function(response) {
           const files = response.result.files;
@@ -76,7 +81,17 @@
         this.description = json.description;
         this.external_url = json.external_url;
         this.attributes = json.attributes;
+      },
+      deleteRock: async function() {
+        await window.gapi.client.drive.files.delete({
+          fileId: this.id
+        });
+        await window.gapi.client.drive.files.delete({
+          fileId: this.jsonId
+        });
+        this.deleted = true;
       }
+
     }
   }
 </script>
