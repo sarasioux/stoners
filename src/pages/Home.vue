@@ -41,45 +41,49 @@
         </div>
         <div class="section">
             <h2 class="title is-hand is-1">Rockenomics</h2>
-
-            <div class="columns is-multiline has-text-centered">
-                <div class="column">
-                    <h1 class="title has-text-primary">10,420</h1>
-                    <h2 class="subtitle">Total Rocks Ever</h2>
+            <div class="box">
+                <div class="columns is-multiline has-text-centered">
+                    <div class="column">
+                        <h1 class="title has-text-primary">10,420</h1>
+                        <h2 class="subtitle">Total Rocks Ever</h2>
+                    </div>
+                    <div class="column">
+                        <h1 class="title has-text-primary">420</h1>
+                        <h2 class="subtitle">Pre-Minted</h2>
+                    </div>
+                    <div class="column">
+                        <h1 class="title has-text-primary">.042069</h1>
+                        <h2 class="subtitle">Price Per Rock</h2>
+                    </div>
+                    <div class="column">
+                        <h1 class="title has-text-primary">20</h1>
+                        <h2 class="subtitle">Limit Per Purchase</h2>
+                    </div>
+                    <div class="column">
+                        <h1 class="title has-text-primary">100</h1>
+                        <h2 class="subtitle">Custom Rocks</h2>
+                    </div>
+                    <div class="column">
+                        <h1 class="title has-text-primary">4.2069%</h1>
+                        <h2 class="subtitle">Community Fund</h2>
+                    </div>
                 </div>
-                <div class="column">
-                    <h1 class="title has-text-primary">420</h1>
-                    <h2 class="subtitle">Rocks For Giveaways</h2>
-                </div>
-                <div class="column">
-                    <h1 class="title has-text-primary">.042069</h1>
-                    <h2 class="subtitle">Price Per Rock</h2>
-                </div>
-                <div class="column">
-                    <h1 class="title has-text-primary">20</h1>
-                    <h2 class="subtitle">Limit Per Purchase</h2>
-                </div>
-                <div class="column">
-                    <h1 class="title has-text-primary">100</h1>
-                    <h2 class="subtitle">Custom Rocks</h2>
-                </div>
-                <div class="column">
-                    <h1 class="title has-text-primary">4.2069%</h1>
-                    <h2 class="subtitle">Fee on Transfer</h2>
-                </div>
+                <br />
+                <p>We held back the first <strong>420 rocks for giveaways and prizes</strong>, the rest are up for grabs to our stoner
+                    brethren.  The rocks <strong>reveal almost immediately</strong> after minting, pending some certification
+                    from our buddies over at <a href="https://chain.link" target="_blank">Chainlink</a>.  Learn more about our implementation and integrations
+                    over in <router-link to="/code">The Code</router-link> section.
+                    A maximum of 100 minted rocks will bear a unique watermark entitling the owner to a <strong>custom hand-drawn
+                        background</strong> of their choosing.</p>
+                <br />
+                <p>To fund the continued growth of our community, a 4.2069% fee is taken from all secondary sales.  Of this fee, 1% goes to the creators to help us get
+                    closer to quitting our jobs and working crypto full time, the other <strong>3.2069% goes into a community fund</strong> to be spent on
+                    initiatives that the Stoners decide.  We're thinking free merch, parties, and more giveaways.  (Shout out to the awesome
+                    <a href="https://bullsontheblock.com/" target="_new">BOTB</a> creators for innovating community funds!)</p>
+                <br />
             </div>
-            <br />
-            <p>We held back the first <strong>420 rocks for giveaways and prizes</strong>, the rest are up for grabs to our stoner
-                brethren.  The rocks <strong>reveal almost immediately</strong> after minting, pending some randomization certification
-                from our buddies over at <a href="https://chain.link" target="_blank">Chainlink</a>.  Learn more about our implementation and integrations
-                over in <router-link to="/code">The Code</router-link> section.
-                A maximum of 100 minted rocks will bear a unique watermark entitling the owner to a <strong>custom hand-drawn
-                background</strong> of their choosing.</p>
-            <br />
-            <p>To fund the continued growth of our community, a 4.2069% fee is taken from all secondary sales.  Of this fee, 1% goes to the creators to help us get
-                closer to quitting our jobs and working crypto full time, the other <strong>3.2069% goes into a community fund</strong> to be spent on
-                initiatives that the Stoners decide.  We're thinking free merch, parties, and more giveaways.  (Shout out to the awesome
-                <a href="https://bullsontheblock.com/" target="_new">BOTB</a> creators for innovating community funds!)</p>
+
+
         </div>
         <div class="section">
             <div class="columns">
@@ -109,27 +113,30 @@
         </div>
         <div class="section">
             <h2 class="title is-hand is-1">About the Rocks</h2>
-            <div class="columns">
-                <div class="column is-4">
-                    <figure class="image">
-                        <img src="../assets/rocks/rock1.png" class="rock-img">
-                    </figure>
-                </div>
-                <div class="column is-narrow"></div>
-                <div class="column">
-                    <h3 class="title is-3 is-hand has-text-primary">Meet Orange Crush</h3>
-                    <p>The Rocks are a unique set of 10,420 avatars generated from over 1.3 million possible combinations
-                        of attributes including facial features, accessories, and unique themed names.</p>
-                    <br />
-                    <p>The names are randomly generated from a set of common strains.  Maybe you'll get lucky and pick up a real one like "Grand Daddy Purple",
-                        or maybe you'll get one like "Girl Scout Widow".  Either way they sound delicious.</p>
-                    <br />
-                    <p>Each rock is stored as an ERC-721 NFT token on the Ethereum blockchain, and hosted on IPFS.  They
-                        were pre-generated and screened for awesomeness, and then randomly assigned to the minters during purchase.</p>
-                    <br />
-                    <p>Up to 100 Rocks contain a special signature feature, entitling the Rock holder to a customized avatar
-                        background hand drawn by our artist.  Rock holders can redeem their custom backgrounds on our website,
-                        when signed in to their wallet.  When a background is complete your NFT will automatically be updated.</p>
+            <div class="box">
+                <div class="columns">
+                    <div class="column is-4">
+                        <figure class="image">
+                            <img src="../assets/rocks/rock1.png" class="rock-img">
+                        </figure>
+                    </div>
+                    <div class="column is-narrow"></div>
+                    <div class="column">
+                        <h3 class="title is-3 is-hand has-text-primary">Meet Orange Crush</h3>
+                        <p>The Rocks are a unique set of 10,420 avatars generated from over 1.3 million possible combinations
+                            of attributes including facial features, accessories, and unique themed names.</p>
+                        <br />
+                        <p>The names are randomly generated from a set of common strains.  Maybe you'll get lucky and pick up a real one like "Grand Daddy Purple",
+                            or maybe you'll get one like "Girl Scout Widow".  Either way they sound delicious.</p>
+                        <br />
+                        <p>Each rock is stored as an ERC-721 NFT token on the Ethereum blockchain, and hosted on IPFS.  They
+                            were pre-generated and screened for awesomeness, and then randomly assigned to the minters during purchase.</p>
+                        <br />
+                        <p>Up to 100 Rocks contain a special signature feature, entitling the Rock holder to a customized avatar
+                            background hand drawn by our artist.  Rock holders can redeem their custom backgrounds on our website,
+                            when signed in to their wallet.  When a background is complete your NFT will automatically be updated.</p>
+                        <br />
+                    </div>
                 </div>
             </div>
         </div>

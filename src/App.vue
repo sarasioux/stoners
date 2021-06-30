@@ -40,7 +40,7 @@
                             <button class="button is-primary has-text-weight-bold" @click="connectWeb3">Connect Wallet</button>
                         </div>
                         <div class="navbar-item" v-if="isConnected">
-                            <span class="tag">{{account}}</span>
+                            <span class="tag is-dark">{{account}}</span>
                         </div>
                         <div class="navbar-item" v-if="isConnected">
                             <router-link to="/mint" class="button is-primary has-text-weight-bold">Mint</router-link>
