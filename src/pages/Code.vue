@@ -79,6 +79,7 @@
 
         <div class="section">
             <h2 class="title is-hand">The Contract</h2>
+            <p>More details about the contract coming soon.  We're still under development!</p>
         </div>
 
 

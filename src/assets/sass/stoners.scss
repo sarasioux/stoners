@@ -2,22 +2,25 @@
 @import "../../../node_modules/bulma/sass/utilities/functions";
 @import url('https://fonts.googleapis.com/css?family=Indie+Flower:400');
 
-$primary: #15E6CD;
-$link: #FE6D73;
-$text: #aeb1b7;
-$text-strong: #f3f4f5;
+$primary: #31AB6A;
+$link: #31AB6A;
+$link-hover: #FFFFFF;
+$text: #8595a3;
+$text-strong: #aab5bf;
 
-$box-background-color: #252837;
+$box-background-color: #172B3F;
 $card-background-color: $box-background-color;
-$card-footer-border-top: 1px solid #3b3e4b;
+$card-footer-border-top: 1px solid #2e4052;
 $table-background-color: $box-background-color;
-$table-cell-border: 1px solid #3b3e4b;
+$table-cell-border: 1px solid #2e4052;
 $table-color: $text;
 $card-radius: 20px;
 $panel-heading-background-color: $box-background-color;
+$navbar-item-hover-background-color: transparent;
+$navbar-item-active-background-color: transparent;
 
 html, body {
-  background: #1F1B2B !important;
+  background: #122433 !important;
 }
 
 .is-hand {

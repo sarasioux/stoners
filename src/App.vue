@@ -52,6 +52,28 @@
         <router-view
             :isGoogleAuthed="(showAuthButton === false)"
         ></router-view>
+
+        <div class="section">
+            <br />
+            <br />
+            <div class="columns is-mobile">
+                <div class="column"></div>
+                <div class="column has-text-centered is-hidden-mobile">
+                    <a class="button is-ghost" href="https://twitter.com/mystoners" target="_blank">
+                            <span class="icon is-large">
+                                <i class="fab fa-2x fa-twitter"></i>
+                            </span>
+                    </a>
+                    &nbsp;
+                    <a class="button is-ghost">
+                            <span class="icon">
+                                <i class="fab fa-2x fa-discord"></i>
+                            </span>
+                    </a>
+                </div>
+                <div class="column has-text-right"></div>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -118,5 +140,9 @@
     }
     .navbar {
         background: transparent;
+    }
+    a.button.is-ghost:hover {
+        text-decoration: none !important;
+        color: white;
     }
 </style>

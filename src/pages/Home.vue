@@ -65,7 +65,7 @@
                     </div>
                     <div class="column">
                         <h1 class="title has-text-primary">4.2069%</h1>
-                        <h2 class="subtitle">Community Fund</h2>
+                        <h2 class="subtitle">Royalties</h2>
                     </div>
                 </div>
                 <br />
@@ -234,7 +234,7 @@
                     <div class="card">
                         <div class="card-image">
                             <figure class="image is-square">
-                                <img src="https://bulma.io/images/placeholders/256x256.png" alt="Placeholder image">
+                                <img src="../assets/linedetail.jpg" alt="Placeholder image">
                             </figure>
                         </div>
                         <div class="card-content">
@@ -279,33 +279,6 @@
 
                         </footer>
                     </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="section">
-            <br />
-            <hr />
-            <br />
-            <div class="columns is-mobile">
-                <div class="column">
-                    Sign up for our mailing list!
-                </div>
-                <div class="column has-text-centered is-hidden-mobile">
-                    Put a logo here
-                </div>
-                <div class="column has-text-right">
-                        <a class="button is-ghost" href="https://twitter.com/mystoners" target="_blank">
-                            <span class="icon is-large">
-                                <i class="fab fa-2x fa-twitter"></i>
-                            </span>
-                        </a>
-                        &nbsp;
-                        <a class="button is-ghost">
-                            <span class="icon">
-                                <i class="fab fa-2x fa-discord"></i>
-                            </span>
-                        </a>
                 </div>
             </div>
         </div>

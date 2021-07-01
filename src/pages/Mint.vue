@@ -10,16 +10,16 @@
                 </div>
                 <div class="columns">
                     <div class="column has-text-centered">
-                        <h2 class="title is-4">3456</h2>
-                        <h3 class="subtitle is-5 has-text-primary">Rocks Remaining</h3>
+                        <h2 class="title is-5">3456</h2>
+                        <h3 class="subtitle is-6 has-text-primary">Rocks Remaining</h3>
                     </div>
                     <div class="column has-text-centered">
-                        <h2 class="title is-4">.042069</h2>
-                        <h3 class="subtitle is-5 has-text-primary">Price Per Rock</h3>
+                        <h2 class="title is-5">.042069</h2>
+                        <h3 class="subtitle is-6 has-text-primary">Price Per Rock</h3>
                     </div>
                     <div class="column has-text-centered">
-                        <h2 class="title is-4">20</h2>
-                        <h3 class="subtitle is-5 has-text-primary">Limit Per Order</h3>
+                        <h2 class="title is-5">20</h2>
+                        <h3 class="subtitle is-6 has-text-primary">Limit Per Order</h3>
                     </div>
                 </div>
                 <hr />
