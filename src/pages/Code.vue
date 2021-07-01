@@ -38,7 +38,7 @@
         </div>
 
         <div class="section">
-            <a class="button pull-right is-dark" href="https://github.com/sarasioux/stoners" target="_blank">
+            <a class="button pull-right is-primary is-outlined" href="https://github.com/sarasioux/stoners" target="_blank">
                         <span class="icon">
                             <i class="fab fa-github"></i>
                         </span>

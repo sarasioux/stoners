@@ -1,6 +1,8 @@
 <template>
     <div class="home">
-        <div class="section">
+        <div class="section is-small">
+            <h1 class="title is-hand is-1 has-text-centered">Welcome to <span class="has-text-primary">Stoners Rock</span>.</h1>
+            <br />
             <div class="columns">
                 <div class="column is-8">
                     <figure class="is-4by3">
@@ -9,7 +11,6 @@
                 </div>
                 <div class="column is-narrow"></div>
                 <div class="column">
-                    <h1 class="title is-hand">Welcome to <span class="has-text-primary">Stoners Rock</span>.</h1>
                     <p>The Rocks are a collection of 10,420 unique NFTs minted on the Ethereum
                         blockchain. Rocks grant you access to our exclusive <router-link to="/sanctuary">Stoner Sanctuary</router-link>, and more
                         exciting updates on our rockmap.</p>
@@ -104,7 +105,7 @@
                     <br />
                 </div>
                 <div class="column is-narrow"></div>
-                <div class="column is-3">
+                <div class="column is-4-desktop is-3-fullhd">
                     <figure class="image">
                         <img src="../assets/rocks/rock3.png" class="rock-img">
                     </figure>
@@ -115,7 +116,7 @@
             <h2 class="title is-hand is-1">About the Rocks</h2>
             <div class="box">
                 <div class="columns">
-                    <div class="column is-4">
+                    <div class="column is-5-desktop is-4-fullhd">
                         <figure class="image">
                             <img src="../assets/rocks/rock1.png" class="rock-img">
                         </figure>
@@ -162,35 +163,39 @@
                         </tr>
                         <tr>
                             <td><strong class="has-text-primary">20%</strong></td>
-                            <td>Announce our Easter Eggs.</td>
+                            <td class="has-text-white">Announce our hidden Easter Eggs.</td>
                         </tr>
                         <tr>
                             <td><strong class="has-text-primary">30%</strong></td>
-                            <td>Stoner Rocks merchandise drops with free giveaways.</td>
+                            <td class="has-text-white">Stoner Rocks merchandise drops with free giveaways.</td>
                         </tr>
                         <tr>
                             <td><strong class="has-text-primary">40%</strong></td>
-                            <td>Mark finally moves out of the hotel.</td>
+                            <td>Pay some bills.</td>
                         </tr>
                         <tr>
                             <td><strong class="has-text-primary">50%</strong></td>
-                            <td>Get Sara an ape (she really wants one) and give one away.</td>
+                            <td class="has-text-white">Stoner Sanctuary location announced.</td>
+                        </tr>
+                        <tr>
+                            <td><strong class="has-text-primary">60%</strong></td>
+                            <td class="has-text-white">Custom backgrounds start to drop.</td>
                         </tr>
                         <tr>
                             <td><strong class="has-text-primary">70%</strong></td>
-                            <td>Stoner Sanctuary location announced.</td>
+                            <td>We buy something nice for our moms.</td>
                         </tr>
                         <tr>
                             <td><strong class="has-text-primary">80%</strong></td>
-                            <td>First community smoke session.</td>
+                            <td class="has-text-white">First community smoke session.</td>
                         </tr>
                         <tr>
                             <td><strong class="has-text-primary">90%</strong></td>
-                            <td>Rock giveaways begin!</td>
+                            <td class="has-text-white">Rock giveaways begin!</td>
                         </tr>
                         <tr>
                             <td><strong class="has-text-primary">100%</strong></td>
-                            <td>To thank our community all minters receive a hand-drawn thank you card.</td>
+                            <td class="has-text-white">To thank our community all minters receive a hand-drawn thank you card.</td>
                         </tr>
                         </tbody>
                     </table>
