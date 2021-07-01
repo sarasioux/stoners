@@ -38,46 +38,29 @@
         </div>
 
         <div class="section">
-            <a class="button pull-right is-primary is-outlined" href="https://github.com/sarasioux/stoners" target="_blank">
-                        <span class="icon">
-                            <i class="fab fa-github"></i>
-                        </span>
-                <span>Visit dApp on Github</span>
+            <a class="is-hidden button pull-right is-primary is-outlined" href="https://github.com/sarasioux/stoners" target="_blank">
+                <span class="icon">
+                    <i class="fab fa-github"></i>
+                </span>
+                <span>dApp on Github</span>
             </a>
             <h2 class="title is-hand">
                 Getting Started
             </h2>
-            <div class="columns">
-                <div class="column is-2">
-                    <div class="box">
-                        <figure class="image">
-                            <img src="../assets/google-screenshot.png" alt="Google Drive Screenshot" />
-                        </figure>
-                    </div>
-                </div>
-                <div class="column is-narrow"></div>
-                <div class="column">
-
-                    <p>We started with a set of assets stored on Google Drive, with each attribute stored in its own subfolder.  Every asset was
-                        pre-sized to fit exactly when stacked on top of eachother in a 600x600 frame.  Then we built a dApp to connect
-                        Google and start our Web3 experience.  The dApp allowed us to test the random generation to see what our
-                        Rocks would look like, so we could make any changes to the artwork before generating in bulk.</p>
-                    <br />
-                    <p>The dApp also provided an admin interface to review generated Rocks, and delete any seriously undesirables.  This was
-                        extremely rare though, and once we got the art dialed in I don't think it happened at all except for the placement of
-                        easter eggs and giveaways.</p>
-                    <br />
-                    <p>Once all of the images were generated, catalogued, verified, and approved, it was a simple matter of uploading them to IPFS
-                        and tracking their CIDs for use in our contract's token URLs.</p>
-                    <br />
-
-                </div>
-
-            </div>
-
+            <p>We started with a set of assets stored on Google Drive, with each attribute stored in its own subfolder.  Every asset was
+                pre-sized to fit exactly when stacked on top of eachother in a square frame.  Then we built a dApp to connect
+                Google and start our Web3 experience.  The dApp allowed us to test the random generation to see what our
+                Rocks would look like, so we could make any changes to the artwork before generating in bulk.</p>
+            <br />
         </div>
 
         <div class="section">
+            <a class="is-hidden button pull-right is-primary is-outlined" href="https://github.com/sarasioux/stoners-contracts" target="_blank">
+                <span class="icon">
+                    <i class="fab fa-github"></i>
+                </span>
+                <span>Contracts on Github</span>
+            </a>
             <h2 class="title is-hand">The Contract</h2>
             <p>More details about the contract coming soon.  We're still under development!</p>
         </div>

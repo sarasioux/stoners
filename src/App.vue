@@ -64,7 +64,7 @@
                             </span>
                     </a>
                     &nbsp;
-                    <a class="button is-ghost">
+                    <a class="button is-ghost" href="https://discord.gg/gjVrcc7FZU" target="_blank">
                             <span class="icon">
                                 <i class="fab fa-2x fa-discord"></i>
                             </span>
@@ -143,5 +143,12 @@
     a.button.is-ghost:hover {
         text-decoration: none !important;
         color: white;
+    }
+
+    .base-transition {
+        transition: transform 1s;
+    }
+    .change-transition {
+        transform: translateX(-100vw);
     }
 </style>

@@ -4,9 +4,9 @@
             <h1 class="title is-hand is-1 has-text-centered">Welcome to <span class="has-text-primary">Stoners Rock</span>.</h1>
             <br />
             <div class="columns">
-                <div class="column is-8">
-                    <figure class="is-4by3">
-                        <img src="https://bulma.io/images/placeholders/1280x960.png" />
+                <div class="column is-9">
+                    <figure class="is-4by3 base-transition">
+                        <img src="../assets/couch.png" class="rock-img" />
                     </figure>
                 </div>
                 <div class="column is-narrow"></div>
@@ -58,7 +58,7 @@
                     </div>
                     <div class="column">
                         <h1 class="title has-text-primary">20</h1>
-                        <h2 class="subtitle">Limit Per Purchase</h2>
+                        <h2 class="subtitle">Purchase Limit</h2>
                     </div>
                     <div class="column">
                         <h1 class="title has-text-primary">100</h1>
