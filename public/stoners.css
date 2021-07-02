@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Indie+Flower:400");
+@import url("https://fonts.googleapis.com/css?family=Raleway:500,700");
 html, body {
-  background: #1A1A22 !important; }
+  background: #15151b !important; }
 
 .is-hand {
   font-family: "Indie Flower" !important; }
@@ -282,7 +283,7 @@ th {
 
 html {
   background-color: white;
-  font-size: 16px;
+  font-size: 20px;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   min-width: 300px;
@@ -306,7 +307,7 @@ input,
 optgroup,
 select,
 textarea {
-  font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif; }
+  font-family: Raleway; }
 
 code,
 pre {
@@ -317,7 +318,7 @@ pre {
 body {
   color: #adadaf;
   font-size: 1em;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1.5; }
 
 a {
@@ -398,7 +399,7 @@ table th {
 
 /* Bulma Elements */
 .box {
-  background-color: #2c2c32;
+  background-color: #232328;
   border-radius: 6px;
   box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1), 0 0px 0 1px rgba(10, 10, 10, 0.02);
   color: #adadaf;
@@ -1798,11 +1799,11 @@ div.icon-text {
     background-position: -200% 0; } }
 
 .table {
-  background-color: #2c2c32;
+  background-color: #232328;
   color: #adadaf; }
   .table td,
   .table th {
-    border: 1px solid #2e4052;
+    border: 1px solid #414147;
     border-width: 0 0 1px;
     padding: 0.5em 0.75em;
     vertical-align: top; }
@@ -3029,7 +3030,7 @@ a.tag:hover {
     content: "\0227B"; }
 
 .card {
-  background-color: #2c2c32;
+  background-color: #232328;
   border-radius: 20px;
   box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1), 0 0px 0 1px rgba(10, 10, 10, 0.02);
   color: #adadaf;
@@ -3093,7 +3094,7 @@ a.tag:hover {
 
 .card-footer {
   background-color: transparent;
-  border-top: 1px solid #2e4052;
+  border-top: 1px solid #414147;
   align-items: stretch;
   display: flex; }
 
@@ -3106,7 +3107,7 @@ a.tag:hover {
   justify-content: center;
   padding: 0.75rem; }
   .card-footer-item:not(:last-child) {
-    border-right: 1px solid #2e4052; }
+    border-right: 1px solid #414147; }
 
 .card .media:not(:last-child) {
   margin-bottom: 1.5rem; }
@@ -4531,7 +4532,7 @@ a.navbar-item,
   border-bottom: 1px solid #ededed; }
 
 .panel-heading {
-  background-color: #2c2c32;
+  background-color: #232328;
   border-radius: 6px 6px 0 0;
   color: #d5dadf;
   font-size: 1.25em;
@@ -7021,7 +7022,7 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   font-weight: 700 !important; }
 
 .is-family-primary {
-  font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif !important; }
+  font-family: Raleway !important; }
 
 .is-family-secondary {
   font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif !important; }

@@ -11,13 +11,13 @@
 
             <div id="navbarBasicExample" class="navbar-menu" :class="{'is-active':isDropdownActive}">
                 <div class="navbar-start">
-                    <router-link to="/" class="navbar-item">
+                    <router-link to="/" class="navbar-item has-text-primary">
                         Home
                     </router-link>
-                    <router-link to="/sanctuary" class="navbar-item">
+                    <router-link to="/sanctuary" class="navbar-item has-text-primary">
                         Sanctuary
                     </router-link>
-                    <router-link to="/code" class="navbar-item">
+                    <router-link to="/code" class="navbar-item has-text-primary">
                         Code
                     </router-link>
                     <router-link to="/test" class="navbar-item has-text-danger" v-if="!showAuthButton">

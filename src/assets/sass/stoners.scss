@@ -1,6 +1,12 @@
 @charset "utf-8";
 @import "../../../node_modules/bulma/sass/utilities/functions";
 @import url('https://fonts.googleapis.com/css?family=Indie+Flower:400');
+@import url('https://fonts.googleapis.com/css?family=Raleway:500,700');
+
+$family-primary: Raleway;
+
+$body-size: 20px !default
+$body-weight: 500 !default
 
 $primary: #41ad33;
 $link: #5b7baa;
@@ -12,11 +18,11 @@ $danger: #CC1F00;
 $warning: #FFFF03;
 
 
-$box-background-color: #2c2c32;
+$box-background-color: #232328;
 $card-background-color: $box-background-color;
-$card-footer-border-top: 1px solid #2e4052;
+$card-footer-border-top: 1px solid #414147;
 $table-background-color: $box-background-color;
-$table-cell-border: 1px solid #2e4052;
+$table-cell-border: 1px solid #414147;
 $table-color: $text;
 $card-radius: 20px;
 $panel-heading-background-color: $box-background-color;
@@ -24,7 +30,7 @@ $navbar-item-hover-background-color: transparent;
 $navbar-item-active-background-color: transparent;
 
 html, body {
-  background: #1A1A22 !important;
+  background: #15151b !important;
   //background: transparent !important;
 }
 

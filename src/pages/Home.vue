@@ -5,35 +5,35 @@
                 <img src="../assets/logo.png" />
             </figure>
             <br />
+            <figure class="is-4by3 base-transition">
+                <img src="../assets/couch.png" class="rock-img" />
+            </figure>
+            <br />
             <div class="columns">
-                <div class="column is-9">
-                    <figure class="is-4by3 base-transition">
-                        <img src="../assets/couch.png" class="rock-img" />
-                    </figure>
-                </div>
-                <div class="column is-narrow"></div>
                 <div class="column">
                     <p>The Rocks are a collection of 10,420 unique NFTs minted on the Ethereum
                         blockchain. Rocks grant you access to our exclusive <router-link to="/sanctuary">Stoner Sanctuary</router-link>, and more
                         exciting updates on our rockmap.</p>
-                    <br /><br />
+                </div>
+                <div class="column is-narrow"></div>
+                <div class="column is-8">
                     <div class="columns is-multiline is-mobile">
-                        <div class="column is-6">
+                        <div class="column is-3">
                             <figure class="is-square">
                                 <img src="../assets/rocks/rock4.png" class="rock-img">
                             </figure>
                         </div>
-                        <div class="column is-6">
+                        <div class="column is-3">
                             <figure class="is-square">
                                 <img src="../assets/rocks/rock3.png" class="rock-img">
                             </figure>
                         </div>
-                        <div class="column is-6">
+                        <div class="column is-3">
                             <figure class="is-square">
                                 <img src="../assets/rocks/rock2.png" class="rock-img">
                             </figure>
                         </div>
-                        <div class="column is-6">
+                        <div class="column is-3">
                             <figure class="is-square">
                                 <img src="../assets/rocks/rock1.png" class="rock-img">
                             </figure>
@@ -47,35 +47,34 @@
             <div class="">
                 <div class="columns is-multiline has-text-centered">
                     <div class="column">
-                        <h1 class="title has-text-warning">10,420</h1>
-                        <h2 class="subtitle">Total Rocks Ever</h2>
+                        <h1 class="title has-text-warning is-4">10,420</h1>
+                        <h2 class="subtitle is-6">Total Rocks Ever</h2>
                     </div>
                     <div class="column">
-                        <h1 class="title has-text-warning">420</h1>
-                        <h2 class="subtitle">Pre-Minted</h2>
+                        <h1 class="title has-text-warning is-4">420</h1>
+                        <h2 class="subtitle is-6">Pre-Minted</h2>
                     </div>
                     <div class="column">
-                        <h1 class="title has-text-warning">.042069</h1>
-                        <h2 class="subtitle">Price Per Rock</h2>
+                        <h1 class="title has-text-warning is-4">.042069</h1>
+                        <h2 class="subtitle is-6">Price Per Rock</h2>
                     </div>
                     <div class="column">
-                        <h1 class="title has-text-warning">20</h1>
-                        <h2 class="subtitle">Purchase Limit</h2>
+                        <h1 class="title has-text-warning is-4">20</h1>
+                        <h2 class="subtitle is-6">Purchase Limit</h2>
                     </div>
                     <div class="column">
-                        <h1 class="title has-text-warning">100</h1>
-                        <h2 class="subtitle">Custom Rocks</h2>
+                        <h1 class="title has-text-warning is-4">100</h1>
+                        <h2 class="subtitle is-6">Custom Rocks</h2>
                     </div>
                     <div class="column">
-                        <h1 class="title has-text-warning">4.2069%</h1>
-                        <h2 class="subtitle">Royalties</h2>
+                        <h1 class="title has-text-warning is-4">4.2069%</h1>
+                        <h2 class="subtitle is-6">Royalties</h2>
                     </div>
                 </div>
                 <br />
                 <p>We held back the first <strong>420 rocks for giveaways and prizes</strong>, the rest are up for grabs to our stoner
                     brethren.  The rocks <strong>reveal immediately</strong> after minting, because we believe in instant gratification.
-                    Learn more about our contracts and mechanics over in <router-link to="/code">The Code</router-link> section.  A maximum of 100 minted rocks will bear a unique
-                    watermark entitling the owner to a <strong>custom hand-drawn background</strong> of their choosing (subject to the
+                    A maximum of 100 minted rocks will bear a unique watermark entitling the owner to a <strong>custom hand-drawn background</strong> of their choosing (subject to the
                     artist's discretion, of course.)
                 </p>
                 <br />
@@ -93,29 +92,29 @@
             <div class="">
                 <div class="columns is-multiline has-text-centered">
                     <div class="column">
-                        <h1 class="title has-text-primary">Instantly</h1>
-                        <h2 class="subtitle">Revealed</h2>
+                        <h1 class="title has-text-primary is-4">Instantly</h1>
+                        <h2 class="subtitle is-6">Revealed</h2>
                     </div>
                     <div class="column">
-                        <h1 class="title has-text-primary">On-Chain</h1>
-                        <h2 class="subtitle">Stored</h2>
+                        <h1 class="title has-text-primary is-4">On-Chain</h1>
+                        <h2 class="subtitle is-6">Stored</h2>
                     </div>
                     <div class="column">
-                        <h1 class="title has-text-primary">IPFS</h1>
-                        <h2 class="subtitle">Metadata & Images</h2>
+                        <h1 class="title has-text-primary is-4">IPFS</h1>
+                        <h2 class="subtitle is-6">Metadata & Images</h2>
                     </div>
                     <div class="column">
-                        <h1 class="title has-text-primary">Locked</h1>
-                        <h2 class="subtitle">Token URIs</h2>
+                        <h1 class="title has-text-primary is-4">Locked</h1>
+                        <h2 class="subtitle is-6">Token URIs</h2>
                     </div>
                     <div class="column">
-                        <h1 class="title has-text-primary">Wizards</h1>
-                        <h2 class="subtitle">Closest Contract</h2>
+                        <h1 class="title has-text-primary is-4">Wizards</h1>
+                        <h2 class="subtitle is-6">Closest Contract</h2>
                     </div>
                 </div>
                 <br />
                 <p>Our token mechanics were heavily inspired by the recently launched <a href="https://www.forgottenrunes.com/wtf" target="_blank">FRWC</a>
-                    who demonstrated the techniques and value of storing NFT data on-chain.  Most of the recent NFT projects (Apes, Punks, Bulls) store their images on IPFS, but keep
+                    who demonstrated the techniques and value of storing NFT data on-chain.  Most of the recent NFT projects store their images on IPFS, but keep
                     the JSON metadata hosted <strong>on their own hosted API</strong>.  This means that if the API ever goes down, <strong>the original NFT is lost forever</strong>.  We believe the beauty of the blockchain universe is in its permanence, decentralization, and non-fungibility.  With that in mind, our NFTs have been hardened
                     and <strong>stored on-chain, backed up to IPFS, with no external API server dependency</strong>.</p>
                 <br />
@@ -124,20 +123,21 @@
 
         </div>
         <div class="section">
+            <h2 class="title is-hand is-1">Why Rocks?</h2>
             <div class="columns">
                 <div class="column">
-                    <h2 class="title is-hand is-1">Why Rocks?</h2>
-                    <p>We love NFTs and their creative potential, so we tried to find a way to take the most boring
-                        pet ever and make it fun.</p>
-                    <br />
-                    <p>Welcome to Stoners Rock.  A distant cousin of the rocks made famous in the 1970s by someone we don't know and didn't research, and featured in
-                        Gordan Korman's classic children's novel <i>No Coins Please</i> about a young hustler who turns
-                        $100 into $1 million on a school field trip.</p>
-                    <br />
-                    <p>Each rock is adorable and loveable and comes with a unique name that gives it extra personality.  This community
-                        is for rock enthusiasts and stoners, since we love a good pun.</p>
-                    <br />
-                    <p>Minting goes live at <strong>4:20pm EST on July 13, International Rock Day</strong> so set your calendars.</p>
+                    <div class="is-size-6">
+                        <p>We love NFTs and their creative potential, so we tried to find a way to take the most boring
+                            pet ever and make it fun.</p>
+                        <br />
+                        <p>Welcome to Stoners Rock.  A distant cousin of the rocks made famous in the 1970s by someone we don't know and didn't research, and featured in
+                            Gordan Korman's classic children's novel <i>No Coins Please</i> about a young hustler who turns
+                            $100 into $1 million on a school trip.</p>
+                        <br />
+                        <p>Each rock is adorable and loveable and comes with a unique name that gives it extra personality.  This community
+                            is for rock enthusiasts and stoners, since we love a good pun.  Minting goes live at <strong>4:20pm EST on July 13,
+                            International Rock Day</strong> so set your calendars.</p>
+                    </div>
                     <br />
                 </div>
                 <div class="column is-narrow"></div>
@@ -186,7 +186,7 @@
             <br />
             <div class="columns">
                 <div class="column">
-                    <table class="table">
+                    <table class="table is-size-7">
                         <thead>
                         <tr>
                             <th>Percent Sold</th>
@@ -265,7 +265,7 @@
                                 </div>
                             </div>
 
-                            <div class="content">
+                            <div class="content is-size-7">
                                 Entrepreneur turned NFT collector trying to bring love to rocks! BAYC, Alien boys, BOTB and HOK owner.
                             </div>
                         </div>
@@ -287,8 +287,8 @@
                                 </div>
                             </div>
 
-                            <div class="content">
-                                I'm an artist and animator, and I made an <a href="https://www.kickstarter.com/projects/line/lines-deck-of-elements" target="_blank">awesome deck of cards</a>.
+                            <div class="content is-size-7">
+                                I'm an artist and animator, and I made a <a href="https://www.kickstarter.com/projects/line/lines-deck-of-elements" target="_blank">badass deck of cards</a>.
                             </div>
                         </div>
                         <footer class="card-footer">
@@ -312,7 +312,7 @@
                                 </div>
                             </div>
 
-                            <div class="content">
+                            <div class="content is-size-7">
                                 I play VR and vape a lot.  I also code smart contracts for fun.
                             </div>
                         </div>
@@ -355,5 +355,7 @@
     figure.logo {
         text-align: center;
     }
-
+    p.is-size-4 {
+        line-height: 1.3em;
+    }
 </style>
