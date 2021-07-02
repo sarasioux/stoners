@@ -14,9 +14,6 @@
                     <router-link to="/" class="navbar-item has-text-primary">
                         Home
                     </router-link>
-                    <router-link to="/sanctuary" class="navbar-item has-text-primary">
-                        Sanctuary
-                    </router-link>
                     <router-link to="/test" class="navbar-item has-text-danger" v-if="!showAuthButton">
                         Test
                     </router-link>

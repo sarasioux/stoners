@@ -5,12 +5,12 @@
             <div class="box">
                 <h1 class="title">Mint Your Rocks</h1>
                 <div class="box has-text-centered" v-if="!saleActive">
-                    <h1 class="title is-1 has-text-danger">{{timeLeft}}</h1>
+                    <h1 class="title is-1 has-text-warning">{{timeLeft}}</h1>
                     <h2 class="subtitle">Sale Begins</h2>
                 </div>
                 <div class="columns">
                     <div class="column has-text-centered">
-                        <h2 class="title is-5">3456</h2>
+                        <h2 class="title is-5">10,000</h2>
                         <h3 class="subtitle is-6 has-text-primary has-text-weight-bold">Rocks Remaining</h3>
                     </div>
                     <div class="column has-text-centered">
