@@ -18,22 +18,22 @@
                 <div class="column is-narrow"></div>
                 <div class="column is-8">
                     <div class="columns is-multiline is-mobile">
-                        <div class="column is-3">
+                        <div class="column is-3-desktop is-6-mobile">
                             <figure class="is-square">
                                 <img src="../assets/rocks/rainbow.png" class="rock-img">
                             </figure>
                         </div>
-                        <div class="column is-3">
+                        <div class="column is-3-desktop is-6-mobile">
                             <figure class="is-square">
                                 <img src="../assets/rocks/girl.png" class="rock-img">
                             </figure>
                         </div>
-                        <div class="column is-3">
+                        <div class="column is-3-desktop is-6-mobile">
                             <figure class="is-square">
                                 <img src="../assets/rocks/stoner.png" class="rock-img">
                             </figure>
                         </div>
-                        <div class="column is-3">
+                        <div class="column is-3-desktop is-6-mobile">
                             <figure class="is-square">
                                 <img src="../assets/rocks/tophat.png" class="rock-img">
                             </figure>
@@ -79,7 +79,7 @@
                 <br />
                 <p>To fund the continued growth of our community, a 4.2069% fee is taken from all secondary sales.  Of this fee, 1% goes to the creators to help us get
                     closer to quitting our jobs and working crypto full time, the other <strong>3.2069% goes into a community fund</strong> to be spent on
-                    initiatives that the Stoners decide.  We're thinking free merch, parties, and more giveaways.  (Shout out to the awesome
+                    initiatives that the Stoners decide.  We're thinking free merch, cash giveaways, and building out a piece of the metaverse for our stoners to enjoy.  (Shout out to the awesome
                     <a href="https://bullsontheblock.com/" target="_new">BOTB</a> creators for innovating community funds!)</p>
                 <br />
             </div>
@@ -171,12 +171,7 @@
                             as well as new strains like <i>Girl Scout Widow</i> are all possible.  Either way they sound delicious.</p>
                         <br />
                         <p>Each rock is stored as an ERC-721 NFT token on the Ethereum blockchain. Their images and attributes are stored on-chain,
-                            and their JSON and web-available image are hosted on IPFS.  They were pre-generated and screened for awesomeness, and then
-                            randomly assigned to the minters during purchase.</p>
-                        <br />
-                        <p>Up to 100 Rocks contain a special signature feature, entitling the Rock holder to a customized avatar
-                            background hand drawn by our artist.  Rock holders can redeem their custom backgrounds on our website,
-                            when signed in to their wallet.  When a background is complete your NFT will automatically be updated.</p>
+                            and their JSON and web-available image are hosted on IPFS.  They were randomly generated and randomly assigned to the minters during purchase.</p>
                         <br />
                     </div>
                 </div>
