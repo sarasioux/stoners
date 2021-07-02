@@ -1,7 +1,9 @@
 <template>
     <div class="home">
         <div class="section is-small">
-            <h1 class="title is-hand is-1 has-text-centered">Welcome to <span class="has-text-primary">Stoners Rock</span>.</h1>
+            <figure class="logo">
+                <img src="../assets/logo.png" />
+            </figure>
             <br />
             <div class="columns">
                 <div class="column is-9">
@@ -42,45 +44,80 @@
         </div>
         <div class="section">
             <h2 class="title is-hand is-1">Rockenomics</h2>
-            <div class="box">
+            <div class="">
                 <div class="columns is-multiline has-text-centered">
                     <div class="column">
-                        <h1 class="title has-text-primary">10,420</h1>
+                        <h1 class="title has-text-warning">10,420</h1>
                         <h2 class="subtitle">Total Rocks Ever</h2>
                     </div>
                     <div class="column">
-                        <h1 class="title has-text-primary">420</h1>
+                        <h1 class="title has-text-warning">420</h1>
                         <h2 class="subtitle">Pre-Minted</h2>
                     </div>
                     <div class="column">
-                        <h1 class="title has-text-primary">.042069</h1>
+                        <h1 class="title has-text-warning">.042069</h1>
                         <h2 class="subtitle">Price Per Rock</h2>
                     </div>
                     <div class="column">
-                        <h1 class="title has-text-primary">20</h1>
+                        <h1 class="title has-text-warning">20</h1>
                         <h2 class="subtitle">Purchase Limit</h2>
                     </div>
                     <div class="column">
-                        <h1 class="title has-text-primary">100</h1>
+                        <h1 class="title has-text-warning">100</h1>
                         <h2 class="subtitle">Custom Rocks</h2>
                     </div>
                     <div class="column">
-                        <h1 class="title has-text-primary">4.2069%</h1>
+                        <h1 class="title has-text-warning">4.2069%</h1>
                         <h2 class="subtitle">Royalties</h2>
                     </div>
                 </div>
                 <br />
                 <p>We held back the first <strong>420 rocks for giveaways and prizes</strong>, the rest are up for grabs to our stoner
-                    brethren.  The rocks <strong>reveal almost immediately</strong> after minting, pending some certification
-                    from our buddies over at <a href="https://chain.link" target="_blank">Chainlink</a>.  Learn more about our implementation and integrations
-                    over in <router-link to="/code">The Code</router-link> section.
-                    A maximum of 100 minted rocks will bear a unique watermark entitling the owner to a <strong>custom hand-drawn
-                        background</strong> of their choosing.</p>
+                    brethren.  The rocks <strong>reveal immediately</strong> after minting, because we believe in instant gratification.
+                    Learn more about our contracts and mechanics over in <router-link to="/code">The Code</router-link> section.  A maximum of 100 minted rocks will bear a unique
+                    watermark entitling the owner to a <strong>custom hand-drawn background</strong> of their choosing (subject to the
+                    artist's discretion, of course.)
+                </p>
                 <br />
                 <p>To fund the continued growth of our community, a 4.2069% fee is taken from all secondary sales.  Of this fee, 1% goes to the creators to help us get
                     closer to quitting our jobs and working crypto full time, the other <strong>3.2069% goes into a community fund</strong> to be spent on
                     initiatives that the Stoners decide.  We're thinking free merch, parties, and more giveaways.  (Shout out to the awesome
                     <a href="https://bullsontheblock.com/" target="_new">BOTB</a> creators for innovating community funds!)</p>
+                <br />
+            </div>
+
+
+        </div>
+        <div class="section">
+            <h2 class="title is-hand is-1">Mechanics</h2>
+            <div class="">
+                <div class="columns is-multiline has-text-centered">
+                    <div class="column">
+                        <h1 class="title has-text-primary">Instantly</h1>
+                        <h2 class="subtitle">Revealed</h2>
+                    </div>
+                    <div class="column">
+                        <h1 class="title has-text-primary">On-Chain</h1>
+                        <h2 class="subtitle">Stored</h2>
+                    </div>
+                    <div class="column">
+                        <h1 class="title has-text-primary">IPFS</h1>
+                        <h2 class="subtitle">Metadata & Images</h2>
+                    </div>
+                    <div class="column">
+                        <h1 class="title has-text-primary">Locked</h1>
+                        <h2 class="subtitle">Token URIs</h2>
+                    </div>
+                    <div class="column">
+                        <h1 class="title has-text-primary">Wizards</h1>
+                        <h2 class="subtitle">Closest Contract</h2>
+                    </div>
+                </div>
+                <br />
+                <p>Our token mechanics were heavily inspired by the recently launched <a href="https://www.forgottenrunes.com/wtf" target="_blank">FRWC</a>
+                    who demonstrated the techniques and value of storing NFT data on-chain.  Most of the recent NFT projects (Apes, Punks, Bulls) store their images on IPFS, but keep
+                    the JSON metadata hosted <strong>on their own hosted API</strong>.  This means that if the API ever goes down, <strong>the original NFT is lost forever</strong>.  We believe the beauty of the blockchain universe is in its permanence, decentralization, and non-fungibility.  With that in mind, our NFTs have been hardened
+                    and <strong>stored on-chain, backed up to IPFS, with no external API server dependency</strong>.</p>
                 <br />
             </div>
 
@@ -98,14 +135,13 @@
                         $100 into $1 million on a school field trip.</p>
                     <br />
                     <p>Each rock is adorable and loveable and comes with a unique name that gives it extra personality.  This community
-                        is for rock enthusiasts and stoners, since we love a good pun.  Definitely mint a rock or you might
-                        miss out on NFT history.</p>
+                        is for rock enthusiasts and stoners, since we love a good pun.</p>
                     <br />
-                    <p>Minting goes live at <strong>4:20pm EST on International Rock Day</strong> (July 13, obviously) so make sure to set your calendars.</p>
+                    <p>Minting goes live at <strong>4:20pm EST on July 13, International Rock Day</strong> so set your calendars.</p>
                     <br />
                 </div>
                 <div class="column is-narrow"></div>
-                <div class="column is-4-desktop is-3-fullhd">
+                <div class="column is-4">
                     <figure class="image">
                         <img src="../assets/rocks/rock3.png" class="rock-img">
                     </figure>
@@ -124,14 +160,15 @@
                     <div class="column is-narrow"></div>
                     <div class="column">
                         <h3 class="title is-3 is-hand has-text-primary">Meet Orange Crush</h3>
-                        <p>The Rocks are a unique set of 10,420 avatars generated from over 1.3 million possible combinations
+                        <p>The Rocks are a unique set of avatars generated from over 2 million possible combinations
                             of attributes including facial features, accessories, and unique themed names.</p>
                         <br />
-                        <p>The names are randomly generated from a set of common strains.  Maybe you'll get lucky and pick up a real one like "Grand Daddy Purple",
-                            or maybe you'll get one like "Girl Scout Widow".  Either way they sound delicious.</p>
+                        <p>The names are randomly generated from a set of common strains of weed.  Real strains like <i>White Widow</i>,
+                            as well as new strains like <i>Girl Scout Widow</i> are all possible.  Either way they sound delicious.</p>
                         <br />
-                        <p>Each rock is stored as an ERC-721 NFT token on the Ethereum blockchain, and hosted on IPFS.  They
-                            were pre-generated and screened for awesomeness, and then randomly assigned to the minters during purchase.</p>
+                        <p>Each rock is stored as an ERC-721 NFT token on the Ethereum blockchain. Their images and attributes are stored on-chain,
+                            and their JSON and web-available image are hosted on IPFS.  They were pre-generated and screened for awesomeness, and then
+                            randomly assigned to the minters during purchase.</p>
                         <br />
                         <p>Up to 100 Rocks contain a special signature feature, entitling the Rock holder to a customized avatar
                             background hand drawn by our artist.  Rock holders can redeem their custom backgrounds on our website,
@@ -163,39 +200,39 @@
                         </tr>
                         <tr>
                             <td><strong class="has-text-primary">20%</strong></td>
-                            <td class="has-text-white">Announce our hidden Easter Eggs.</td>
+                            <td>Announce our hidden Easter Eggs.</td>
                         </tr>
                         <tr>
                             <td><strong class="has-text-primary">30%</strong></td>
-                            <td class="has-text-white">Stoner Rocks merchandise drops with free giveaways.</td>
+                            <td>Stoner Rocks merchandise drops with free giveaways.</td>
                         </tr>
                         <tr>
                             <td><strong class="has-text-primary">40%</strong></td>
-                            <td>Pay some bills.</td>
+                            <td>On-chain storage mechanism released.</td>
                         </tr>
                         <tr>
                             <td><strong class="has-text-primary">50%</strong></td>
-                            <td class="has-text-white">Stoner Sanctuary location announced.</td>
+                            <td>Stoner Sanctuary location announced.</td>
                         </tr>
                         <tr>
                             <td><strong class="has-text-primary">60%</strong></td>
-                            <td class="has-text-white">Custom backgrounds start to drop.</td>
+                            <td>Custom backgrounds start to drop.</td>
                         </tr>
                         <tr>
                             <td><strong class="has-text-primary">70%</strong></td>
-                            <td>We buy something nice for our moms.</td>
+                            <td>Get some lawyers to figure out commercial rights.</td>
                         </tr>
                         <tr>
                             <td><strong class="has-text-primary">80%</strong></td>
-                            <td class="has-text-white">First community smoke session.</td>
+                            <td>First community smoke session.</td>
                         </tr>
                         <tr>
                             <td><strong class="has-text-primary">90%</strong></td>
-                            <td class="has-text-white">Rock giveaways begin!</td>
+                            <td>Rock giveaways begin!</td>
                         </tr>
                         <tr>
                             <td><strong class="has-text-primary">100%</strong></td>
-                            <td class="has-text-white">To thank our community all minters receive a hand-drawn thank you card.</td>
+                            <td>To thank our community all minters receive a hand-drawn thank you card.</td>
                         </tr>
                         </tbody>
                     </table>
@@ -239,7 +276,7 @@
                     <div class="card">
                         <div class="card-image">
                             <figure class="image is-square">
-                                <img src="../assets/linedetail.jpg" alt="Placeholder image">
+                                <img src="../assets/cards.jpg" alt="Placeholder image">
                             </figure>
                         </div>
                         <div class="card-content">
@@ -314,6 +351,9 @@
     }
     a.is-ghost:hover {
         text-decoration: none !important;
+    }
+    figure.logo {
+        text-align: center;
     }
 
 </style>

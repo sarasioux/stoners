@@ -22,7 +22,7 @@
         </div>
 
         <div class="section">
-            <h1 class="title is-hand">About The Code</h1>
+            <h1 class="title is-hand is-1">About The Code</h1>
             <p>Thanks to <a href="https://boredapeyachtclub.com">BAYC</a> for setting the bar on transparency in NFT hashing and provenance.
                 With them in mind and an eye toward creating a more open and transparent crypto community, we'd love to discuss our code.  Each Rock
                 image is first hashed using SHA-256. That hash is used for creating the file, as well as the corresponding attributes
@@ -44,7 +44,7 @@
                 </span>
                 <span>dApp on Github</span>
             </a>
-            <h2 class="title is-hand">
+            <h2 class="title is-hand is-1">
                 Getting Started
             </h2>
             <p>We started with a set of assets stored on Google Drive, with each attribute stored in its own subfolder.  Every asset was
@@ -52,6 +52,8 @@
                 Google and start our Web3 experience.  The dApp allowed us to test the random generation to see what our
                 Rocks would look like, so we could make any changes to the artwork before generating in bulk.</p>
             <br />
+            <p>I didn't exactly build ours to be public-facing, but you can imagine it looks a lot like the cool one over at
+                <a href="https://nouns.wtf" target="_blank">nouns.wtf</a>.</p>
         </div>
 
         <div class="section">
@@ -61,8 +63,8 @@
                 </span>
                 <span>Contracts on Github</span>
             </a>
-            <h2 class="title is-hand">The Contract</h2>
-            <p>More details about the contract coming soon.  We're still under development!</p>
+            <h2 class="title is-hand is-1">The Contracts</h2>
+            <p>More details about the contracts coming soon.  We're still under development!</p>
         </div>
 
 

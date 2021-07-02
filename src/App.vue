@@ -2,12 +2,6 @@
     <div class="container">
         <nav class="navbar" role="navigation" aria-label="main navigation">
             <div class="navbar-brand">
-                <div class="navbar-item">
-                    <router-link to="/">
-                        <h1 class="title is-4 is-hand has-text-link">Stoners Rock</h1>
-                    </router-link>
-                </div>
-
                 <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample" @click="isDropdownActive=(isDropdownActive===false)" :class="{'is-active':isDropdownActive}">
                     <span aria-hidden="true"></span>
                     <span aria-hidden="true"></span>
@@ -17,11 +11,14 @@
 
             <div id="navbarBasicExample" class="navbar-menu" :class="{'is-active':isDropdownActive}">
                 <div class="navbar-start">
+                    <router-link to="/" class="navbar-item">
+                        Home
+                    </router-link>
                     <router-link to="/sanctuary" class="navbar-item">
-                        The Sanctuary
+                        Sanctuary
                     </router-link>
                     <router-link to="/code" class="navbar-item">
-                        The Code
+                        Code
                     </router-link>
                     <router-link to="/test" class="navbar-item has-text-danger" v-if="!showAuthButton">
                         Test
@@ -151,4 +148,15 @@
     .change-transition {
         transform: translateX(-100vw);
     }
+
+    /*
+    html {
+        background: url(./assets/couch.png) no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
+    */
+
 </style>
