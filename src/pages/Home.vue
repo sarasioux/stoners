@@ -20,22 +20,22 @@
                     <div class="columns is-multiline is-mobile">
                         <div class="column is-3">
                             <figure class="is-square">
-                                <img src="../assets/rocks/rock4.png" class="rock-img">
+                                <img src="../assets/rocks/rainbow.png" class="rock-img">
                             </figure>
                         </div>
                         <div class="column is-3">
                             <figure class="is-square">
-                                <img src="../assets/rocks/rock3.png" class="rock-img">
+                                <img src="../assets/rocks/girl.png" class="rock-img">
                             </figure>
                         </div>
                         <div class="column is-3">
                             <figure class="is-square">
-                                <img src="../assets/rocks/rock2.png" class="rock-img">
+                                <img src="../assets/rocks/stoner.png" class="rock-img">
                             </figure>
                         </div>
                         <div class="column is-3">
                             <figure class="is-square">
-                                <img src="../assets/rocks/rock1.png" class="rock-img">
+                                <img src="../assets/rocks/tophat.png" class="rock-img">
                             </figure>
                         </div>
                     </div>
@@ -143,7 +143,7 @@
                 <div class="column is-narrow"></div>
                 <div class="column is-4">
                     <figure class="image">
-                        <img src="../assets/rocks/rock3.png" class="rock-img">
+                        <img src="../assets/rocks/rainbow.png" class="rock-img">
                     </figure>
                 </div>
             </div>
@@ -154,7 +154,7 @@
                 <div class="columns">
                     <div class="column is-5-desktop is-4-fullhd">
                         <figure class="image">
-                            <img src="../assets/rocks/rock1.png" class="rock-img">
+                            <img src="../assets/rocks/stoner.png" class="rock-img">
                         </figure>
                     </div>
                     <div class="column is-narrow"></div>
@@ -239,7 +239,7 @@
                 </div>
                 <div class="column is-4">
                     <figure class="image">
-                        <img src="../assets/rocks/rock2.png" class="rock-img">
+                        <img src="../assets/rocks/girl.png" class="rock-img">
                     </figure>
                 </div>
             </div>
