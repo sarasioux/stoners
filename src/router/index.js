@@ -6,6 +6,7 @@ import Approve from "../pages/Approve";
 import Code from "../pages/Code";
 import Art from "../pages/Art";
 import Sanctuary from "../pages/Sanctuary";
+import Admin from "../pages/Admin";
 
 const routes = [
   {
@@ -49,6 +50,12 @@ const routes = [
     path: "/sanctuary",
     name: "Sanctuary",
     component: Sanctuary
+  },
+  {
+    // mode: 'history',
+    path: "/admin",
+    name: "Admin",
+    component: Admin
   },
 ];
 

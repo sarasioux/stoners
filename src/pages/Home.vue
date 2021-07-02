@@ -43,7 +43,7 @@
             </div>
         </div>
         <div class="section">
-            <h2 class="title is-hand is-1">Rockenomics</h2>
+            <h2 class="title is-hand is-1 is-size-2-mobile">Rockenomics</h2>
             <div class="">
                 <div class="columns is-multiline has-text-centered">
                     <div class="column">
@@ -52,7 +52,7 @@
                     </div>
                     <div class="column">
                         <h1 class="title has-text-warning is-4">420</h1>
-                        <h2 class="subtitle is-6">Pre-Minted</h2>
+                        <h2 class="subtitle is-6">Reserved Rocks</h2>
                     </div>
                     <div class="column">
                         <h1 class="title has-text-warning is-4">.042069</h1>
@@ -74,8 +74,7 @@
                 <br />
                 <p>We held back the first <strong>420 rocks for giveaways and prizes</strong>, the rest are up for grabs to our stoner
                     brethren.  The rocks <strong>reveal immediately</strong> after minting, because we believe in instant gratification.
-                    A maximum of 100 minted rocks will bear a unique watermark entitling the owner to a <strong>custom hand-drawn background</strong> of their choosing (subject to the
-                    artist's discretion, of course.)
+                    A maximum of 100 minted rocks will bear a unique watermark entitling the owner to a <strong>custom hand-drawn NFT</strong> by our artist.
                 </p>
                 <br />
                 <p>To fund the continued growth of our community, a 4.2069% fee is taken from all secondary sales.  Of this fee, 1% goes to the creators to help us get
@@ -115,9 +114,14 @@
                 <br />
                 <p>Our token mechanics were heavily inspired by the recently launched <a href="https://www.forgottenrunes.com/wtf" target="_blank">FRWC</a>
                     who demonstrated the techniques and value of storing NFT data on-chain.  Most of the recent NFT projects store their images on IPFS, but keep
-                    the JSON metadata hosted <strong>on their own hosted API</strong>.  This means that if the API ever goes down, <strong>the original NFT is lost forever</strong>.  We believe the beauty of the blockchain universe is in its permanence, decentralization, and non-fungibility.  With that in mind, our NFTs have been hardened
+                    the metadata hosted <strong>on their own API</strong>.</p>
+                <br />
+                <p>This means that if the API ever goes down, <strong>the original NFT is lost forever</strong>.  We believe the beauty of the blockchain universe is in its permanence, decentralization, and non-fungibility.  With that in mind, our NFTs have been hardened
                     and <strong>stored on-chain, backed up to IPFS, with no external API server dependency</strong>.</p>
                 <br />
+                <p>We also took a novel approach to our rock reservation strategy.  Instead of pre-minting, we started the token ID count at 421, and left the first 420
+                    rocks un-minted.  We have the ability to mint them as-needed for giveaways.  This <strong>eliminates the possibility of holding back the best mints for
+                    ourselves</strong>.  Since the reserved rocks are unminted, we have no idea what they are!</p>
             </div>
 
 
@@ -135,8 +139,8 @@
                             $100 into $1 million on a school trip.</p>
                         <br />
                         <p>Each rock is adorable and loveable and comes with a unique name that gives it extra personality.  This community
-                            is for rock enthusiasts and stoners, since we love a good pun.  Minting goes live at <strong>4:20pm EST on July 13,
-                            International Rock Day</strong> so set your calendars.</p>
+                            is for rock enthusiasts and stoners, since we love a good pun.  Minting goes live at approximately <strong class="has-text-warning">4:20pm EST on July 13,
+                            International Rock Day</strong>.</p>
                     </div>
                     <br />
                 </div>
@@ -216,7 +220,7 @@
                         </tr>
                         <tr>
                             <td><strong class="has-text-primary">60%</strong></td>
-                            <td>Custom backgrounds start to drop.</td>
+                            <td>Custom NFTs start to drop.</td>
                         </tr>
                         <tr>
                             <td><strong class="has-text-primary">70%</strong></td>
@@ -242,6 +246,9 @@
                         <img src="../assets/rocks/girl.png" class="rock-img">
                     </figure>
                 </div>
+            </div>
+            <div class="has-text-centered ">
+                <a href="https://discord.gg/gjVrcc7FZU" class="title is-5 has-text-link" target="_blank">Join our Discord to influence our Rockmap!</a>
             </div>
         </div>
 
