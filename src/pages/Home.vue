@@ -6,7 +6,7 @@
             </figure>
             <br />
             <figure class="is-4by3 base-transition">
-                <img src="../assets/couch.png" class="rock-img" />
+                <img src="../assets/couch.jpg" class="rock-img" />
             </figure>
             <br />
             <div class="columns">

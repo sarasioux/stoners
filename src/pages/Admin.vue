@@ -137,16 +137,26 @@
     name: 'Admin',
     data: function() {
       return {
+        startingBlock: 120250457,
+        baseUri: 'http://localhost:8080/rocks/',
+        provenanceHash: '',
+        withdrawAmount: 0,
+
       }
     },
     props: {
-      isAdmin: Function
+      isAdmin: Function,
+      contract: Object
     },
     components: {
     },
     mounted: function() {
+      console.log('contract', this.contract);
     },
     methods: {
+      updateStartingBlock: async function() {
+        console.log('contract');
+      }
     }
   }
 </script>

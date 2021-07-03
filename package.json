@@ -9,6 +9,7 @@
     "css-build": "node-sass --omit-source-map-url src/assets/sass/stoners.scss public/stoners.css"
   },
   "dependencies": {
+    "@truffle/contract": "^4.3.23",
     "bulma": "^0.9.3",
     "core-js": "^3.6.5",
     "node-sass": "^6.0.1",

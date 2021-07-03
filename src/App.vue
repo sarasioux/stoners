@@ -42,6 +42,7 @@
         <router-view
             :isGoogleAuthed="(showAuthButton === false)"
             :isAdmin="isAdmin"
+            :contract="contract"
         ></router-view>
 
         <div class="section">
@@ -70,10 +71,14 @@
 
 <script>
 
+  import StonersRockContract from '../public/contracts/StonersRock.json'
+  import TruffleContract from '@truffle/contract'
+
   export default {
     name: 'App',
     data: function() {
       return {
+        contract: {},
         isDropdownActive: false,
         isGenerating: false,
         generateAmount: 10,
@@ -108,14 +113,26 @@
           this.connectionInProgress = false;
           this.network = await this.$web3.eth.net.getId();
           this.isConnected = true;
+          this.initContracts();
 
         } catch (error) {
           // User denied account access
           console.log('did not receive accts', error);
         }
       },
+      initContracts: async function() {
+        let contract = TruffleContract(StonersRockContract);
+        contract.setProvider(this.$web3.currentProvider);
+        contract.defaults({
+          from: this.account
+        });
+        this.contract = await contract.deployed();
+      },
       isAdmin: function() {
-        return (String(this.account).toLowerCase() === '0x00796e910bd0228ddf4cd79e3f353871a61c351c'.toLowerCase() || String(this.account).toLowerCase() === '0xB58Fb5372e9Aa0C86c3B281179c05Af3bB7a181b'.toLowerCase() || String(this.account).toLowerCase() === '0x7fc55376D5A29e0Ee86C18C81bb2fC8F9f490E50'.toLowerCase());
+        return (
+          String(this.account).toLowerCase() === '0x00796e910bd0228ddf4cd79e3f353871a61c351c'.toLowerCase() || String(this.account).toLowerCase() === '0xB58Fb5372e9Aa0C86c3B281179c05Af3bB7a181b'.toLowerCase() || String(this.account).toLowerCase() === '0x7fc55376D5A29e0Ee86C18C81bb2fC8F9f490E50'.toLowerCase()
+          || String(this.account).toLowerCase() === '0x314439ab9e319440500376224211aa898215b889'.toLowerCase()
+        );
       }
 
     }
