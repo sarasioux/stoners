@@ -63,10 +63,6 @@
                         <h2 class="subtitle is-6">Purchase Limit</h2>
                     </div>
                     <div class="column">
-                        <h1 class="title has-text-warning is-4">100</h1>
-                        <h2 class="subtitle is-6">Custom Rocks</h2>
-                    </div>
-                    <div class="column">
                         <h1 class="title has-text-warning is-4">4.2069%</h1>
                         <h2 class="subtitle is-6">Royalties</h2>
                     </div>
@@ -74,7 +70,6 @@
                 <br />
                 <p>We held back the first <strong>420 rocks for giveaways and prizes</strong>, the rest are up for grabs to our stoner
                     brethren.  The rocks <strong>reveal immediately</strong> after minting, because we believe in instant gratification.
-                    A maximum of 100 minted rocks will bear a unique watermark entitling the owner to a <strong>custom hand-drawn NFT</strong> by our artist.
                 </p>
                 <br />
                 <p>To fund the continued growth of our community, a 4.2069% fee is taken from all secondary sales.  Of this fee, 1% goes to the creators to help us get
