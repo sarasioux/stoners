@@ -11,7 +11,7 @@
 
             <div id="navbarBasicExample" class="navbar-menu" :class="{'is-active':isDropdownActive}">
                 <div class="navbar-start">
-                    <router-link to="/" class="navbar-item has-text-primary">
+                    <router-link to="/" class="navbar-item has-text-primary" v-if="$route.name != 'Home'">
                         Home
                     </router-link>
                     <router-link to="/test" class="navbar-item has-text-danger" v-if="!showAuthButton">
@@ -24,7 +24,7 @@
 
                 <div class="navbar-end">
                     <div class="navbar-item" v-if="isAdmin() && showAuthButton" >
-                        <button class="button" @click="handleAuthClick">Authorize Google</button>
+                        <button class="button is-primary is-outlined" @click="handleAuthClick">Authorize Google</button>
                     </div>
                     <div class="navbar-item" v-if="!isConnected">
                         <button class="button is-primary has-text-weight-bold" @click="connectWeb3">Connect Wallet</button>
@@ -41,6 +41,7 @@
 
         <router-view
             :isGoogleAuthed="(showAuthButton === false)"
+            :isAdmin="isAdmin"
         ></router-view>
 
         <div class="section">

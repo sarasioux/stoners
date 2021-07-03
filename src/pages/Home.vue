@@ -96,7 +96,7 @@
                     </div>
                     <div class="column">
                         <h1 class="title has-text-primary is-4">On-Chain</h1>
-                        <h2 class="subtitle is-6">Stored</h2>
+                        <h2 class="subtitle is-6">Storage</h2>
                     </div>
                     <div class="column">
                         <h1 class="title has-text-primary is-4">IPFS</h1>
@@ -106,17 +106,14 @@
                         <h1 class="title has-text-primary is-4">Locked</h1>
                         <h2 class="subtitle is-6">Token URIs</h2>
                     </div>
-                    <div class="column">
-                        <h1 class="title has-text-primary is-4">Wizards</h1>
-                        <h2 class="subtitle is-6">Closest Contract</h2>
-                    </div>
                 </div>
                 <br />
-                <p>Our token mechanics were heavily inspired by the recently launched <a href="https://www.forgottenrunes.com/wtf" target="_blank">FRWC</a>
-                    who demonstrated the techniques and value of storing NFT data on-chain.  Most of the recent NFT projects store their images on IPFS, but keep
+                <p>Our token mechanics were inspired by the recently launched <a href="https://www.forgottenrunes.com/wtf" target="_blank">FRWC</a>
+                    who demonstrated the techniques for storing NFT data on-chain.  Most of the recent NFT projects store their images on IPFS, but keep
                     the metadata hosted <strong>on their own API</strong>.</p>
                 <br />
-                <p>This means that if the API ever goes down, <strong>the original NFT is lost forever</strong>.  We believe the beauty of the blockchain universe is in its permanence, decentralization, and non-fungibility.  With that in mind, our NFTs have been hardened
+                <p>This means that if the API ever goes down, <strong>the original NFT is lost forever</strong>.  We believe the beauty of the blockchain universe is in
+                    its permanence, decentralization, and non-fungibility.  With that in mind, our NFTs have been hardened
                     and <strong>stored on-chain, backed up to IPFS, with no external API server dependency</strong>.</p>
                 <br />
                 <p>We also took a novel approach to our rock reservation strategy.  Instead of pre-minting, we started the token ID count at 421, and left the first 420
@@ -303,7 +300,7 @@
                     <div class="card">
                         <div class="card-image">
                             <figure class="image is-square">
-                                <img src="../assets/plaguedoctor.png" alt="Sara Sioux Plague Doctor">
+                                <img src="../assets/wizard.png" alt="Sara Sioux Plague Doctor">
                             </figure>
                         </div>
                         <div class="card-content">
