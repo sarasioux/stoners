@@ -4,14 +4,18 @@
         <div class="column is-half is-offset-one-quarter">
             <div class="box">
                 <h1 class="title">Mint Your Rocks</h1>
-                <div class="box has-text-centered" v-if="!saleActive">
+                <div class="box has-text-centered" v-if="salePending">
+                    <h1 class="title is-2 has-text-warning">Sale Pending...</h1>
+                    <h3 class="subtitle">{{startingBlock - currentBlock}} Blocks Remaining</h3>
+                </div>
+                <div class="box has-text-centered" v-if="!saleActive && !salePending">
                     <h1 class="title is-1 has-text-warning">{{timeLeft}}</h1>
                     <h2 class="subtitle">Sale Begins</h2>
                 </div>
                 <div class="columns">
                     <div class="column has-text-centered">
                         <h2 class="title is-5">10,000</h2>
-                        <h3 class="subtitle is-6 has-text-primary has-text-weight-bold">Rocks Remaining</h3>
+                        <h3 class="subtitle is-6 has-text-primary has-text-weight-bold">Rocks Left</h3>
                     </div>
                     <div class="column has-text-centered">
                         <h2 class="title is-5">.042069</h2>
@@ -19,14 +23,14 @@
                     </div>
                     <div class="column has-text-centered">
                         <h2 class="title is-5">20</h2>
-                        <h3 class="subtitle is-6 has-text-primary has-text-weight-bold">Limit Per Order</h3>
+                        <h3 class="subtitle is-6 has-text-primary has-text-weight-bold">Limit Per Mint</h3>
                     </div>
                 </div>
                 <hr />
                 <div class="field-body">
                     <div class="field">
                         <p class="control is-expanded has-icons-left">
-                            <input class="input is-large" type="number" placeholder="Amount to Mint" :disabled="(saleActive === false)">
+                            <input v-model="mintAmount" class="input" type="number" placeholder="Amount to Mint" :disabled="(saleActive === false || isMinting)">
                             <span class="icon is-small is-left">
                               <i class="fas fa-gem"></i>
                             </span>
@@ -34,7 +38,7 @@
                     </div>
                     <div class="field">
                         <p class="control is-expanded">
-                            <button class="button is-large is-primary is-fullwidth" :disabled="(saleActive === false)">
+                            <button class="button is-primary is-fullwidth" :disabled="(saleActive === false || isMinting)" @click="mintRock">
                                 <span class="icon is-small is-left">
                                   <i class="fab fa-ethereum"></i>
                                 </span>
@@ -47,7 +51,7 @@
             <br />
             <div class="box">
                 <h1 class="title">Your Rocks</h1>
-                <p>You are not yet a rock collector.</p>
+                <p v-if="balanceOfRocks === 0">You are not yet a rock collector.</p>
             </div>
         </div>
     </div>
@@ -61,22 +65,78 @@
       return {
         mintStart: 0,
         timeLeft: '',
+        salePending: false,
         saleActive: false,
+        startingBlock:  '',
+        currentBlock: '',
+        balanceOfRocks: 0,
+        rocks: [],
+        mintAmount: '',
+        isMinting: false,
       }
     },
     components: {
     },
-    mounted: function() {
+    props: {
+      account: String,
+      isAdmin: Function,
+      contract: Object
+    },
+    watch: {
+      contract: function() {
+        this.loadStartingBlock();
+        this.loadRocks();
+      }
+    },
+    mounted: async function() {
+      if(this.contract) {
+        this.loadStartingBlock();
+      }
+      if(this.account) {
+        this.loadRocks();
+      }
+      this.loadCurrentBlock();
       const d = new Date(1626207600*1000);
       this.mintStart = d.getTime();
+      //this.mintStart = Date.now() + 30*1000;
       this.calculateTimeLeft();
       setTimeout(this.calculateTimeLeft, 1000);
+
     },
     methods: {
+      mintRock: async function() {
+        this.isMinting = true;
+        const response = await this.contract.mintRock(this.mintAmount);
+        this.isMinting = false;
+        console.log('response', response);
+      },
+      loadRocks: async function() {
+        if(this.contract.address) {
+          this.balanceOfRocks = await this.contract.balanceOf.call(this.account, {from: this.account});
+          if(this.balanceOfRocks > 0) {
+            this.rocks = await this.contract.getRocksByOwner.call(this.account, {from: this.account});
+          }
+        }
+      },
+      loadStartingBlock: async function() {
+        if(this.contract.address) {
+          this.startingBlock = parseInt(await this.contract.saleStartBlock.call({from: this.account}));
+        }
+      },
+      loadCurrentBlock: async function() {
+        this.currentBlock = await this.$web3.eth.getBlockNumber();
+        if(this.startingBlock && this.currentBlock >= this.startingBlock) {
+          this.saleActive = true;
+          this.salePending = false;
+        } else {
+          setTimeout(this.loadCurrentBlock, 15000);
+        }
+      },
       calculateTimeLeft: function() {
         const timeLeft = (this.mintStart - Date.now()) / 1000;
         if(timeLeft <= 0) {
-          this.saleActive = true;
+          this.salePending = true;
+          this.loadCurrentBlock();
         } else {
           const days = Math.floor(timeLeft/(60*60*24));
           const hours = Math.floor((timeLeft-(days*60*60*24))/(60*60));

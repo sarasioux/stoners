@@ -43,6 +43,7 @@
             :isGoogleAuthed="(showAuthButton === false)"
             :isAdmin="isAdmin"
             :contract="contract"
+            :account="account"
         ></router-view>
 
         <div class="section">
@@ -85,10 +86,9 @@
         generated: [],
         gapi: {},
         showAuthButton: true,
-
-        account: '',
         connectionInProgress: false,
         isConnected: false,
+        account: ''
 
       }
     },
@@ -113,7 +113,7 @@
           this.connectionInProgress = false;
           this.network = await this.$web3.eth.net.getId();
           this.isConnected = true;
-          this.initContracts();
+          //this.initContracts();
 
         } catch (error) {
           // User denied account access
