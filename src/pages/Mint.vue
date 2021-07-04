@@ -4,6 +4,11 @@
         <div class="column is-half is-offset-one-quarter">
             <div class="box">
                 <h1 class="title">Mint Your Rocks</h1>
+                <article class="message is-warning" v-if="!account">
+                    <div class="message-body">
+                        Connect your wallet with the top right button.
+                    </div>
+                </article>
                 <div class="box has-text-centered" v-if="salePending">
                     <h1 class="title is-2 has-text-warning">Sale Pending...</h1>
                     <h3 class="subtitle">{{startingBlock - currentBlock}} Blocks Remaining</h3>
@@ -47,11 +52,21 @@
                         </p>
                     </div>
                 </div>
+                <br />
+                <div class="columns" v-if="account">
+                    <div class="column has-text-dark">
+                        <p class="help">Starting Block: {{startingBlock}}</p>
+                    </div>
+                    <div class="column has-text-right has-text-dark">
+                        <p class="help">Current Block: {{currentBlock}}</p>
+                    </div>
+                </div>
             </div>
             <br />
             <div class="box">
                 <h1 class="title">Your Rocks</h1>
                 <p v-if="balanceOfRocks === 0">You are not yet a rock collector.</p>
+                {{rocks}}
             </div>
         </div>
     </div>
@@ -80,12 +95,20 @@
     props: {
       account: String,
       isAdmin: Function,
-      contract: Object
+      contract: Object,
+      network: Number
     },
     watch: {
       contract: function() {
         this.loadStartingBlock();
+      },
+      account: function() {
         this.loadRocks();
+      },
+      network: function() {
+        if(this.network === 5777) {
+          this.mintStart = Date.now() + 15*1000;
+        }
       }
     },
     mounted: async function() {
@@ -96,9 +119,13 @@
         this.loadRocks();
       }
       this.loadCurrentBlock();
-      const d = new Date(1626207600*1000);
-      this.mintStart = d.getTime();
-      //this.mintStart = Date.now() + 30*1000;
+
+      if(this.network === 5777) {
+        this.mintStart = Date.now() + 30*1000;
+      } else {
+        const d = new Date(1626207600*1000);
+        this.mintStart = d.getTime();
+      }
       this.calculateTimeLeft();
       setTimeout(this.calculateTimeLeft, 1000);
 
@@ -106,17 +133,17 @@
     methods: {
       mintRock: async function() {
         this.isMinting = true;
-        const response = await this.contract.mintRock(this.mintAmount);
+        const response = await this.contract.mintRock(this.mintAmount, {value: this.mintAmount * .042069 * 1e18, from: this.account});
         this.isMinting = false;
-        console.log('response', response);
+        this.loadRocks();
+        console.log('minting response', response);
       },
       loadRocks: async function() {
-        if(this.contract.address) {
+          console.log('loading rocks', this.contract);
           this.balanceOfRocks = await this.contract.balanceOf.call(this.account, {from: this.account});
           if(this.balanceOfRocks > 0) {
             this.rocks = await this.contract.getRocksByOwner.call(this.account, {from: this.account});
           }
-        }
       },
       loadStartingBlock: async function() {
         if(this.contract.address) {

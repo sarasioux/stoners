@@ -95,11 +95,33 @@
           'Blackberry',
           'God\'s',
           'Pineapple',
+          'Super',
+          'Cookies and',
+          'Peanut Butter',
+          'Grease',
+          'Grape',
+          'Tropicana',
+          'Birthday',
+          'Ghost Train',
+          'Master',
+          'Golden',
+          'Lilac',
+          'Black',
+          'Monster',
+          'Critical',
+          'Alien',
+          'Agent',
+          'Truffle',
+          'Apple',
+          'Papaya',
+          'Dream',
+          'Sugar',
+          'Mint',
+          'Laughing'
 
         ],
         namesSuffix: [
           'Kush',
-          'Urkle',
           'Crush',
           'Cake',
           'Cookies',
@@ -132,18 +154,38 @@
           'Tangle',
           'Indica',
           'Sativa',
-          'Hybrid'
+          'Hybrid',
+          'Slurricane',
+          'Biscotti',
+          'Gushers',
+          'Breath',
+          'Cream',
+          'Jack',
+          'Diesel',
+          'Skywalker',
+          'Orange',
+          'Butter',
+          'Cheesecake',
+          'Queen',
+          'Dawg'
         ]
       }
     },
     props: {
       isGoogleAuthed: Boolean
     },
+    watch: {
+      isGoogleAuthed: function() {
+        this.listFiles();
+      }
+    },
     components: {
       Attribute, Choice
     },
     mounted: function() {
-      this.listFiles();
+      if(this.isGoogleAuthed) {
+        this.listFiles();
+      }
     },
     methods: {
       listFiles: function() {

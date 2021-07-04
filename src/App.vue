@@ -20,6 +20,9 @@
                     <router-link to="/approve" class="navbar-item has-text-danger" v-if="!showAuthButton">
                         Approve
                     </router-link>
+                    <router-link to="/admin" class="navbar-item has-text-danger" v-if="!showAuthButton">
+                        Admin
+                    </router-link>
                 </div>
 
                 <div class="navbar-end">
@@ -44,6 +47,7 @@
             :isAdmin="isAdmin"
             :contract="contract"
             :account="account"
+            :network="network"
         ></router-view>
 
         <div class="section">
@@ -88,7 +92,8 @@
         showAuthButton: true,
         connectionInProgress: false,
         isConnected: false,
-        account: ''
+        account: '',
+        network: 0
 
       }
     },
@@ -113,8 +118,9 @@
           this.connectionInProgress = false;
           this.network = await this.$web3.eth.net.getId();
           this.isConnected = true;
-          //this.initContracts();
-
+          if(this.network === 5777) {
+            this.initContracts();
+          }
         } catch (error) {
           // User denied account access
           console.log('did not receive accts', error);

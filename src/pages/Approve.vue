@@ -18,6 +18,15 @@
                 />
             </div>
         </div>
+        <nav class="pagination is-small" role="navigation" aria-label="pagination">
+            <a class="pagination-previous" @click="previousPage">Previous</a>
+            <a class="pagination-next" @click="nextPage">Next page</a>
+            <ul class="pagination-list">
+                <li v-for="(page, idx) in pages" :key="page">
+                    <a class="pagination-link" :class="{'is-current':(idx === currentPageNumber)}" @click="setCurrentPage(idx)" aria-label="Goto page 1">{{idx + 1}}</a>
+                </li>
+            </ul>
+        </nav>
     </div>
 </template>
 
