@@ -1,7 +1,9 @@
 .DS_Store
 node_modules
 /dist
-build/*
+build/rocks/image/*
+build/rocks/json/*
+build/google/*
 
 
 # local env files
