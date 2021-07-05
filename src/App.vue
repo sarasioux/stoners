@@ -11,6 +11,17 @@
 
             <div id="navbarBasicExample" class="navbar-menu" :class="{'is-active':isDropdownActive}">
                 <div class="navbar-start">
+                    <a class="navbar-item has-text-warning" href="https://twitter.com/mystoners" target="_blank">
+                            <span class="icon is-large">
+                                <i class="fab fa-2x fa-twitter"></i>
+                            </span>
+                    </a>
+                    &nbsp;
+                    <a class="navbar-item has-text-warning" href="https://discord.gg/gjVrcc7FZU" target="_blank">
+                            <span class="icon">
+                                <i class="fab fa-2x fa-discord"></i>
+                            </span>
+                    </a>
                     <router-link to="/" class="navbar-item has-text-primary" v-if="$route.name != 'Home'">
                         Home
                     </router-link>

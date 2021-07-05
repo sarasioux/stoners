@@ -87,7 +87,6 @@
                             />
                     </div>
                 </div>
-                {{rocks}}
             </div>
         </div>
     </div>
