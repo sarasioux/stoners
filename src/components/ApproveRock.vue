@@ -8,16 +8,16 @@
         <div class="card-content">
             <div class="media">
                 <div class="media-content">
-                    <p class="title is-4">{{rockName}}</p>
+                    <p class="title is-6">{{rockName}}</p>
                     <p class="code subtitle is-7">{{hash}}</p>
                 </div>
             </div>
 
             <div class="content">
-                <div class="columns is-multiline">
-                    <div class="column is-6 has-text-centered" v-for="att in attributes" :key="att">
-                        <h1 class="title is-6">{{att.value}}</h1>
-                        <h2 class="subtitle is-7">{{att.trait_type}}</h2>
+                <div class="columns is-multiline attributes">
+                    <div class="column is-4 has-text-centered" v-for="att in attributes" :key="att">
+                        <h1 class="title">{{att.value}}</h1>
+                        <p class="subtitle">{{att.trait_type}}</p>
                     </div>
                 </div>
             </div>
@@ -101,4 +101,8 @@
       font-family: Courier;
       font-size: 0.6em;
   }
+    .attributes .title,
+    .attributes .subtitle {
+        font-size: 0.55em !important;
+    }
 </style>

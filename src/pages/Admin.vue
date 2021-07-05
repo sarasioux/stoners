@@ -52,12 +52,20 @@
                         <div class="field-body">
                             <div class="field">
                                 <p class="control is-expanded">
-                                    <button class="button is-warning" @click="transferRoyalties">Withdraw</button>
+                                    <button class="button is-warning" @click="transferRoyalties">Transfer Community</button>
                                 </p>
                                 <p class="help">Balance: {{currentRoyalties}}</p>
                             </div>
                             <div class="field">
-                                <p class="help">Moves money from the Split contract into the Rock contract, so it can be withdrawn above.</p>
+                                <p class="control is-expanded">
+                                    <button class="button is-warning" @click="transferRoyalties">Withdraw Personal</button>
+                                </p>
+                                <p class="help">Balance: {{personalRoyalties}}</p>
+                            </div>
+                            <div class="field">
+                                <p class="control">
+                                    <span class="help">Current split contract balance:<br /> <strong>{{splitBalance}}</strong>.</span>
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -91,7 +99,7 @@
                                 <p class="control is-expanded">
                                     <input v-model="baseUri" class="input" type="text" placeholder="http://localhost:8080/rocks/">
                                 </p>
-                                <p class="help">{{baseUri}}</p>
+                                <p class="help">{{currentBaseUri}}</p>
                             </div>
                             <div class="field">
                                 <p class="control is-expanded">
@@ -157,14 +165,17 @@
     data: function() {
       return {
         startingBlock: 120250457,
-        baseUri: 'http://localhost:8080/rocks/',
+        baseUri: '',
+        currentBaseUri: '',
         provenanceHash: '',
         withdrawAmount: '',
         mintReservedAmount: '',
         currentRockId: 0,
         currentReserveId: 0,
         currentBalance: 0,
+        splitBalance: 0,
         currentRoyalties: 0,
+        personalRoyalties: 0,
         splitContract: '',
       }
     },
@@ -189,7 +200,7 @@
       loadVariables: async function() {
         if(this.contract.address) {
           this.startingBlock = parseInt(await this.contract.saleStartBlock({from: this.account}));
-          this.baseUri = await this.contract.baseUri({from: this.account});
+          this.currentBaseUri = await this.contract.baseUri({from: this.account});
           this.provenanceHash = await this.contract.PROVENANCE({from: this.account});
           this.currentRockId = parseInt(await this.contract.getCurrentRockId.call({from: this.account}));
           this.currentReserveId = parseInt(await this.contract.getCurrentReserveId.call({from: this.account}));
@@ -202,7 +213,21 @@
           });
           const instance = await contract.deployed();
           this.splitContract = instance.address;
-          this.currentRoyalties = parseInt(await instance.getOwed(instance.address));
+          this.splitBalance = await this.$web3.eth.getBalance(this.splitContract) / 1e18;
+          this.currentRoyalties = parseInt(await instance.getOwed(this.contract.address)) / 1e18;
+          this.personalRoyalties = parseInt(await instance.getOwed(this.account)) / 1e18;
+
+          const royaltyData = {};
+          royaltyData.totalReceived = this.splitBalance;
+          royaltyData.totalReleased = parseInt(await instance.totalReleased());
+          royaltyData.totalShares = parseInt(await instance.totalShares());
+          royaltyData.shares = parseInt(await instance.shares(this.contract.address));
+          royaltyData.released = parseInt(await instance.released(this.contract.address));
+          royaltyData.payee0 = await instance.payee(0);
+          royaltyData.payee1 = await instance.payee(1);
+          royaltyData.payee2 = await instance.payee(2);
+          royaltyData.payee3 = await instance.payee(3);
+          console.log('royaltyData', royaltyData);
         }
       },
       withdraw: async function() {

@@ -44,13 +44,26 @@
                     <div class="field">
                         <p class="control is-expanded">
                             <button class="button is-primary is-fullwidth" :disabled="(saleActive === false || isMinting)" @click="mintRock">
-                                <span class="icon is-small is-left">
+                                <span class="icon is-small is-left" v-if="!isMinting">
                                   <i class="fab fa-ethereum"></i>
+                                </span>
+                                <span class="icon is-small is-left" v-if="isMinting">
+                                  <i class="fas fa-spinner fa-pulse"></i>
                                 </span>
                                 <span>Mint</span>
                             </button>
                         </p>
                     </div>
+                </div>
+                <br />
+                <div class="has-text-centered">
+                    <audio controls autoplay loop v-if="isMinting">
+                        <source src="../assets/reggae.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                    <audio autoplay v-if="playHurray">
+                        <source src="../assets/hurray.mp3" type="audio/mpeg">
+                    </audio>
                 </div>
                 <br />
                 <div class="columns" v-if="account">
@@ -66,6 +79,14 @@
             <div class="box">
                 <h1 class="title">Your Rocks</h1>
                 <p v-if="balanceOfRocks === 0">You are not yet a rock collector.</p>
+                <div class="columns is-multiline is-mobile" v-if="balanceOfRocks > 0">
+                    <div class="column is-6" v-for="rock in rocks" :key="rock">
+                        <Rock
+                            :id="parseInt(rock)"
+                            :contract="contract"
+                            />
+                    </div>
+                </div>
                 {{rocks}}
             </div>
         </div>
@@ -73,6 +94,9 @@
 </template>
 
 <script>
+  import confetti from 'canvas-confetti';
+
+  import Rock from "../components/Rock.vue";
 
   export default {
     name: 'Mint',
@@ -88,9 +112,11 @@
         rocks: [],
         mintAmount: '',
         isMinting: false,
+        playHurray: false,
       }
     },
     components: {
+      Rock
     },
     props: {
       account: String,
@@ -101,8 +127,6 @@
     watch: {
       contract: function() {
         this.loadStartingBlock();
-      },
-      account: function() {
         this.loadRocks();
       },
       network: function() {
@@ -112,10 +136,8 @@
       }
     },
     mounted: async function() {
-      if(this.contract) {
+      if(this.contract.address) {
         this.loadStartingBlock();
-      }
-      if(this.account) {
         this.loadRocks();
       }
       this.loadCurrentBlock();
@@ -133,17 +155,22 @@
     methods: {
       mintRock: async function() {
         this.isMinting = true;
-        const response = await this.contract.mintRock(this.mintAmount, {value: this.mintAmount * .042069 * 1e18, from: this.account});
+        await this.contract.mintRock(this.mintAmount, {value: this.mintAmount * .042069 * 1e18, from: this.account});
         this.isMinting = false;
-        this.loadRocks();
-        console.log('minting response', response);
+        this.playHurray = true;
+        this.confetti();
+        setTimeout(this.loadRocks, 5000);
+        setTimeout(this.noHurray, 5000);
+      },
+      noHurray: function() {
+        this.playHurray = false;
       },
       loadRocks: async function() {
-          console.log('loading rocks', this.contract);
-          this.balanceOfRocks = await this.contract.balanceOf.call(this.account, {from: this.account});
-          if(this.balanceOfRocks > 0) {
-            this.rocks = await this.contract.getRocksByOwner.call(this.account, {from: this.account});
-          }
+            console.log('loading rocks', this.contract);
+            let rocks = await this.contract.getRocksByOwner(this.account, {from: this.account});
+            rocks.reverse();
+            this.rocks = rocks;
+            this.balanceOfRocks = this.rocks.length;
       },
       loadStartingBlock: async function() {
         if(this.contract.address) {
@@ -178,6 +205,22 @@
           return '0' + String(num);
         }
         return num;
+      },
+      confetti: function() {
+        let colors = ['#FD2A00', '#FDFE00', '#19C401'];
+        let end = Date.now() + (3 * 1000);
+        (function frame() {
+          confetti({
+            particleCount: 3,
+            angle: -90,
+            spread: 200,
+            origin: { y: -0.2 },
+            colors: colors
+          });
+          if (Date.now() < end) {
+            requestAnimationFrame(frame);
+          }
+        }());
       }
     }
   }

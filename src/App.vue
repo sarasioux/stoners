@@ -20,7 +20,7 @@
                     <router-link to="/approve" class="navbar-item has-text-danger" v-if="!showAuthButton">
                         Approve
                     </router-link>
-                    <router-link to="/admin" class="navbar-item has-text-danger" v-if="!showAuthButton">
+                    <router-link to="/admin" class="navbar-item has-text-danger" v-if="isAdmin()">
                         Admin
                     </router-link>
                 </div>

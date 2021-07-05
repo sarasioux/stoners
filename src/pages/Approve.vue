@@ -66,7 +66,7 @@
           q: "'1DyqPzP_60zRaQwW6w1Qu6ACo2JxPEP_Q' in parents and mimeType='image/png'",
           pageSize: 100,
           fields: "nextPageToken, files(id, name)",
-          orderBy: "name",
+          orderBy: "createdTime desc",
           pageToken: this.pages[this.currentPageNumber]
         }).then(function(response) {
           const files = response.result.files;
