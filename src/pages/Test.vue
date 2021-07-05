@@ -117,7 +117,7 @@
           'Dream',
           'Sugar',
           'Mint',
-          'Laughing'
+          'Laughing',
 
         ],
         namesSuffix: [
@@ -167,7 +167,8 @@
           'Butter',
           'Cheesecake',
           'Queen',
-          'Dawg'
+          'Dawg',
+          'Ape'
         ]
       }
     },

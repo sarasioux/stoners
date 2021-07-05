@@ -8,14 +8,14 @@
         <div class="card-content">
             <div class="media">
                 <div class="media-content">
-                    <p class="title is-5">{{name}}</p>
+                    <p class="title is-6">{{name}}</p>
                 </div>
             </div>
 
             <div class="content">
                 <div class="columns is-multiline">
                     <div class="column is-6 has-text-centered" v-for="att in attributes" :key="att">
-                        <h1 class="title is-6 has-text-warning">{{att.value}}</h1>
+                        <h1 class="title is-7 has-text-warning">{{att.value}}</h1>
                         <h2 class="subtitle is-7">{{att.trait_type}}</h2>
                     </div>
                 </div>

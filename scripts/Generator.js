@@ -178,7 +178,8 @@ const Generator = function() {
       'Butter',
       'Cheesecake',
       'Queen',
-      'Dawg'
+      'Dawg',
+      'Ape'
     ];
     return namePrefix[Math.floor(Math.random()*namePrefix.length)] + ' ' + nameSuffix[Math.floor(Math.random()*nameSuffix.length)];
   };

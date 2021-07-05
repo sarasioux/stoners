@@ -159,6 +159,8 @@
 <script>
   import StonersSplit from '../../public/contracts/StonersSplit.json'
   import TruffleContract from '@truffle/contract'
+  import uint8ArrayToString from 'uint8arrays/to-string';
+  import uint8ArrayConcat from 'uint8arrays/concat';
 
   export default {
     name: 'Admin',
@@ -228,6 +230,15 @@
           royaltyData.payee2 = await instance.payee(2);
           royaltyData.payee3 = await instance.payee(3);
           console.log('royaltyData', royaltyData);
+
+          const ipfsPath = '/ipfs/Qme3X4xgPxgtVABMKXUBA2HKf5pygRaB1BJTg18vNJUfsk/1';
+          const content = [];
+          for await (const chunk of this.$ipfs.cat(ipfsPath)) {
+            content.push(chunk)
+          }
+          const str = uint8ArrayToString(uint8ArrayConcat(content));
+          const json = JSON.parse(str);
+          console.log('json', json);
         }
       },
       withdraw: async function() {
