@@ -129,7 +129,7 @@
           this.connectionInProgress = false;
           this.network = await this.$web3.eth.net.getId();
           this.isConnected = true;
-          if(this.network === 5777) {
+          if(this.network === 5777 || this.network === 4) {
             this.initContracts();
           }
         } catch (error) {

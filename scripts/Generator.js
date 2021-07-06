@@ -4,9 +4,17 @@
     Handles all of the auto-generation and composition functions previously found in scripts.
 */
 
-const { createCanvas, loadImage } = require('node-canvas')
+const { createCanvas, loadImage } = require('node-canvas');
+const { create, globSource } = require('ipfs-http-client');
+
 const fs = require('fs');
 const crypto = require('crypto');
+
+const ipfsHost = 'ipfs.infura.io';
+const ipfsPort = 5001;
+const ipfsProtocol = 'https';
+const ipfsProjectId = process.env.PROJECT_ID;
+const ipfsProjectSecret = process.env.PROJECT_SECRET;
 
 const Generator = function() {
   
@@ -349,9 +357,12 @@ const Generator = function() {
   };
   
   
-  this.metadata = async function(ipfsHash) {
+  this.metadata = async function() {
+    const data = fs.readFileSync(this.outputFolder + 'imagecid.json');
+    const json = JSON.parse(data);
+    const ipfsHash = json.cid;
+    
     const files = await this.readDirectory(this.outputFolder + 'rocks/json');
-    let counter = 1;
     for(let f in files) {
       console.log(f);
       
@@ -363,7 +374,7 @@ const Generator = function() {
       let fileJson = JSON.parse(rawData);
       
       // Add the cid URL to the JSON file
-      fileJson.image = 'ipfs://' + ipfsHash + '/' + file + '.png';
+      fileJson.image = 'ipfs://' + ipfsHash + '/image/' + file + '.png';
       fileJson.external_url = 'https://stonersrock.com/rock/' + file;
       
       let data = JSON.stringify(fileJson);
@@ -373,6 +384,48 @@ const Generator = function() {
       console.log('--------');
     }
     
+  };
+  
+  this.ipfsUpload = async function(path) {
+    if(!ipfsProjectId || !ipfsProjectSecret) {
+      console.log('Please set PROJECT_ID and PROJECT_SECRET in your shell.');
+      return;
+    }
+    const auth = 'Basic ' + Buffer.from(ipfsProjectId + ':' + ipfsProjectSecret).toString('base64')
+    const ipfs = await create({
+      host: ipfsHost,
+      port: ipfsPort,
+      protocol: ipfsProtocol,
+      headers: {
+        authorization: auth
+      }
+    });
+    const globSourceOptions = {
+      recursive: true
+    };
+    const addOptions = {
+      wrapWithDirectory: true,
+    };
+    let cid;
+    for await (const file of ipfs.addAll(globSource(path, globSourceOptions), addOptions)) {
+      console.log(`${file.path}: ${file.cid}`);
+      cid = file.cid;
+    }
+    return cid;
+  };
+  
+  this.ipfsUploadImages = async function() {
+    let cid = String(await this.ipfsUpload(this.outputFolder + 'rocks/image/'));
+    const json = {cid: cid};
+    const data = JSON.stringify(json);
+    fs.writeFileSync(this.outputFolder + 'imagecid.json', data);
+  };
+  
+  this.ipfsUploadJson = async function() {
+    let cid = String(await this.ipfsUpload(this.outputFolder + 'rocks/json/'));
+    const json = {cid: cid};
+    const data = JSON.stringify(json);
+    fs.writeFileSync(this.outputFolder + 'jsoncid.json', data);
   };
   
 };

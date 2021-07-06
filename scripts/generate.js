@@ -9,7 +9,7 @@ const commands = [
   'count',
   'prep',
   'ipfs-images',
-  'metadata QmYwc6vwYR2tLyaR1TbQiQpiD5vkU4FCyqLAk37kTMnLZw',
+  'metadata',
   'ipfs-json'
   
 ];
@@ -54,26 +54,16 @@ const runCommand = async function(cmd) {
       break;
       
     case 'ipfs-images':
-      console.log('Run the following command, and save its CID for input into the next command:');
-      console.log("\n");
-      console.log('ipfs add -r ../build/rocks/image');
+      await generator.ipfsUploadImages();
       break;
       
     case 'metadata':
-      const cid = process.argv[3];
-      if(!cid) {
-        console.log('Please specify a cid to continue.  (' + cid+ ')');
-        break;
-      }
-      await generator.metadata(cid);
+      await generator.metadata();
       break;
       
     case 'ipfs-json':
-      console.log('Run the following command, and save its CID for input into the smart contract:');
-      console.log("\n");
-      console.log('ipfs add -r ../build/rocks/json');
+      await generator.ipfsUploadJson();
       break;
-  
   
     default:
       console.log(`Unknown command: ${cmd}`);

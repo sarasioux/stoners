@@ -57,13 +57,13 @@
         loadData: async function() {
           this.ownerOf = await this.contract.ownerOf.call(this.id);
           this.tokenUri = await this.contract.tokenURI(this.id);
-          //const tokenUrl = this.tokenUri.replace('ipfs://', 'https://ipfs.io/ipfs/');
-          const response = await fetch('/rocks/json/' + this.id);
+          const tokenUrl = this.tokenUri.replace('ipfs://', 'https://ipfs.infura.io/ipfs/');
+          const response = await fetch(tokenUrl);
           try {
             const json = await response.json();
             this.attributes = json.attributes;
-            this.image = '/rocks/image/' + this.id + '.png';
-            this.ipfsImage = json.image.replace('ipfs://', 'https://ipfs.io/ipfs/');
+            this.ipfsImage = json.image.replace('ipfs://', 'https://ipfs.infura.io/ipfs/');
+            this.image = this.ipfsImage;
             this.name = json.name;
           }
           catch(error) {

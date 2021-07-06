@@ -141,7 +141,7 @@
       }
       this.loadCurrentBlock();
 
-      if(this.network === 5777) {
+      if(this.network === 5777 || this.network === 4) {
         this.mintStart = Date.now() + 30*1000;
       } else {
         const d = new Date(1626207600*1000);
