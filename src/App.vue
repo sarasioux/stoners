@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <nav class="navbar" role="navigation" aria-label="main navigation">
+        <nav class="navbar is-hidden-mobile is-hidden-tablet-only" role="navigation" aria-label="main navigation">
             <div class="navbar-brand">
                 <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample" @click="isDropdownActive=(isDropdownActive===false)" :class="{'is-active':isDropdownActive}">
                     <span aria-hidden="true"></span>
@@ -52,6 +52,21 @@
                 </div>
             </div>
         </nav>
+        <div class="is-hidden-desktop columns is-mobile">
+            <div class="column has-text-left">
+                <router-link to="/" class="navbar-item has-text-primary" v-if="$route.name != 'Home'">
+                    Home
+                </router-link>
+            </div>
+            <div class="column has-text-right">
+                <div class="navbar-item" v-if="!isConnected">
+                    <button class="button is-primary has-text-weight-bold" @click="connectWeb3">Connect Wallet</button>
+                </div>
+                <div class="navbar-item" v-if="isConnected">
+                    <router-link to="/mint" class="button is-primary has-text-weight-bold">Mint</router-link>
+                </div>
+            </div>
+        </div>
 
         <router-view
             :isGoogleAuthed="(showAuthButton === false)"

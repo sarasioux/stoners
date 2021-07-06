@@ -79,7 +79,7 @@
             <div class="box">
                 <h1 class="title">Your Rocks</h1>
                 <p v-if="balanceOfRocks === 0">You are not yet a rock collector.</p>
-                <div class="columns is-multiline is-mobile" v-if="balanceOfRocks > 0">
+                <div class="columns is-multiline" v-if="balanceOfRocks > 0">
                     <div class="column is-6" v-for="rock in rocks" :key="rock">
                         <Rock
                             :id="parseInt(rock)"
