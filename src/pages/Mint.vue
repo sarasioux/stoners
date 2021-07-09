@@ -19,7 +19,7 @@
                 </div>
                 <div class="columns">
                     <div class="column has-text-centered">
-                        <h2 class="title is-5">10,000</h2>
+                        <h2 class="title is-5">{{10420 - currentRockId}}</h2>
                         <h3 class="subtitle is-6 has-text-primary has-text-weight-bold">Rocks Left</h3>
                     </div>
                     <div class="column has-text-centered">
@@ -89,6 +89,7 @@
                 </div>
             </div>
         </div>
+        Current: {{currentRockId}}
     </div>
 </template>
 
@@ -112,6 +113,7 @@
         mintAmount: '',
         isMinting: false,
         playHurray: false,
+        currentRockId: '',
       }
     },
     components: {
@@ -154,7 +156,8 @@
     methods: {
       mintRock: async function() {
         this.isMinting = true;
-        await this.contract.mintRock(this.mintAmount, {value: this.mintAmount * .042069 * 1e18, from: this.account});
+        const response = await this.contract.mintRock(this.mintAmount, {value: this.mintAmount * .042069 * 1e18, from: this.account});
+        console.log('mint response', response);
         this.isMinting = false;
         this.playHurray = true;
         this.confetti();
@@ -174,6 +177,7 @@
       loadStartingBlock: async function() {
         if(this.contract.address) {
           this.startingBlock = parseInt(await this.contract.saleStartBlock.call({from: this.account}));
+          this.currentRockId = parseInt(await this.contract.getCurrentRockId.call({from: this.account}));
         }
       },
       loadCurrentBlock: async function() {

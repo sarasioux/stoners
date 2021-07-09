@@ -109,11 +109,11 @@
                 <br />
                 <p>This means that if the API ever goes down, <strong>the original NFT is lost forever</strong>.  We believe the beauty of the blockchain universe is in
                     its permanence, decentralization, and non-fungibility.  With that in mind, our NFTs have been hardened
-                    and <strong>stored on-chain, backed up to IPFS, with no external API server dependency</strong>.</p>
+                    and <strong>stored on-chain, backed up to IPFS, with no external API server dependency</strong> once we sell out (to protect un-minted metadata).</p>
                 <br />
                 <p>We also took a novel approach to our rock reservation strategy.  Instead of pre-minting, we started the token ID count at 421, and left the first 420
                     rocks un-minted.  We have the ability to mint them as-needed for giveaways.  This <strong>eliminates the possibility of holding back the best mints for
-                    ourselves</strong>.  Since the reserved rocks are unminted, we have no idea what they are!</p>
+                    ourselves</strong>.  Since the reserved rocks are unminted, and the sort order is random, we can't cheat!</p>
             </div>
 
 

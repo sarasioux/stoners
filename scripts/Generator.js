@@ -136,7 +136,19 @@ const Generator = function() {
       'Dream',
       'Sugar',
       'Mint',
-      'Laughing'
+      'Laughing',
+      'Sensi',
+      'Cream',
+      'Gelato',
+      'Gorilla',
+      'Turbo',
+      'Dirty',
+      'Night',
+      'Guava',
+      'Sunset',
+      'Secret',
+      'Bubble',
+      'Chunky'
     
     ];
     const nameSuffix = [
@@ -187,7 +199,18 @@ const Generator = function() {
       'Cheesecake',
       'Queen',
       'Dawg',
-      'Ape'
+      'Ape',
+      'Star',
+      'Soda',
+      'Picasso',
+      'Banana',
+      'Glue',
+      'Mintz',
+      'Shade',
+      'Taxi',
+      'Mimosa',
+      'Monkey',
+      'Cone'
     ];
     return namePrefix[Math.floor(Math.random()*namePrefix.length)] + ' ' + nameSuffix[Math.floor(Math.random()*nameSuffix.length)];
   };
@@ -335,7 +358,7 @@ const Generator = function() {
         return true;
       }
     });
-  }
+  };
   
   this.prep = async function() {
     const files = await this.readDirectory(this.inputFolder + 'Generated');
@@ -343,11 +366,7 @@ const Generator = function() {
     for(let f in files) {
       if(files[f].substr(-3) === 'png') {
         let hash = files[f].substr(0, files[f].length-4);
-        console.log('image hash', hash);
-        
-        
-        
-        await this.copy(this.inputFolder + 'Generated/' + hash + '.png', this.outputFolder + 'rocks/image/' + counter + '.png');
+        await this.copy(this.inputFolder + 'Generated/' + hash + '.png', this.outputFolder + 'rocks/image/' + hash + '.png');
         await this.copy(this.inputFolder + 'Generated/' + hash + '.json', this.outputFolder + 'rocks/json/' + counter);
         counter++;
         console.log('--------');
@@ -374,7 +393,7 @@ const Generator = function() {
       let fileJson = JSON.parse(rawData);
       
       // Add the cid URL to the JSON file
-      fileJson.image = 'ipfs://' + ipfsHash + '/image/' + file + '.png';
+      fileJson.image = 'ipfs://' + ipfsHash + '/image/' + fileJson.hash + '.png';
       fileJson.external_url = 'https://stonersrock.com/rock/' + file;
       
       let data = JSON.stringify(fileJson);
