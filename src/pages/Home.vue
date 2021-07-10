@@ -68,7 +68,7 @@
                     </div>
                 </div>
                 <br />
-                <p>We held back the first <strong>420 rocks for giveaways and prizes</strong>, the rest are up for grabs to our stoner
+                <p>We held back the first <strong>420 rocks for the team, giveaways, and future fundraisers</strong>, the rest are up for grabs to our stoner
                     brethren.  The rocks <strong>reveal immediately</strong> after minting, because we believe in instant gratification.
                 </p>
                 <br />
@@ -255,7 +255,7 @@
                             <div class="media">
                                 <div class="media-content">
                                     <p class="title is-4"><a href="https://twitter.com/sircryptos" target="_blank" class="has-text-primary">@sircryptos</a></p>
-                                    <p class="subtitle is-6 has-text-grey">The Hustler</p>
+                                    <p class="subtitle is-6 has-text-grey">The Producer</p>
                                 </div>
                             </div>
 

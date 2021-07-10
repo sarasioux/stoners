@@ -25,7 +25,7 @@ const Generator = function() {
   
   this.makeChoices = async function(build, category, choice) {
     if(category === 'Nose' && choice === 'Big') {
-      build['07 Mouth'] = 'None.12.png';
+      build['07 Mouth'] = 'None.0.png';
     }
     if(category === 'Accessories' && choice === 'Top Hat') {
       build['03 Hair'] = 'None.80.png';
