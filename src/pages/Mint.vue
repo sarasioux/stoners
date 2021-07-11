@@ -150,11 +150,6 @@
       contract: function() {
         this.loadStartingBlock();
         this.loadRocks();
-      },
-      network: function() {
-        if(this.network === 5777) {
-          this.mintStart = Date.now();
-        }
       }
     },
     mounted: async function() {

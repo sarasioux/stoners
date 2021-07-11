@@ -144,9 +144,7 @@
           this.connectionInProgress = false;
           this.network = await this.$web3.eth.net.getId();
           this.isConnected = true;
-          if(this.network === 5777 || this.network === 4) {
-            this.initContracts();
-          }
+          this.initContracts();
         } catch (error) {
           // User denied account access
           console.log('did not receive accts', error);
