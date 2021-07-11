@@ -5,6 +5,20 @@
                 <img src="../assets/logo.png" />
             </figure>
             <br />
+            <div class="columns is-multiline has-text-centered">
+                <div class="column">
+                    <h2 class="subtitle is-6">Drop Date</h2>
+                    <h1 class="title has-text-warning is-4">July 13</h1>
+                </div>
+                <div class="column">
+                    <h2 class="subtitle is-6">Drop Time</h2>
+                    <h1 class="title has-text-warning is-4">4:20pm EST </h1>
+                </div>
+                <div class="column">
+                    <h2 class="subtitle is-6">Drop Location</h2>
+                    <h1 class="title has-text-warning is-4">This Site</h1>
+                </div>
+            </div>
             <figure class="is-4by3 base-transition">
                 <img src="../assets/couch.jpg" class="rock-img" />
             </figure>

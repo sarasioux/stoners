@@ -55,7 +55,26 @@
                         </p>
                     </div>
                 </div>
+
+                <div class="field" v-if="mintGift">
+                    <br />
+                    <p class="control is-expanded has-icons-left">
+                        <input v-model="mintAddress" class="input" type="text" placeholder="Recipient's Address" :disabled="(saleActive === false || isMinting)">
+                        <span class="icon is-small is-left">
+                              <i class="fas fa-gift"></i>
+                            </span>
+                    </p>
+                </div>
+
                 <br />
+                <a @click="mintGift=true" v-if="!mintGift"><span class="icon"><i class="fas fa-gift"></i></span> Mint a Gift</a>
+                <a @click="mintGift=false" v-if="mintGift"><span class="icon"><i class="fas fa-user"></i></span> Mint for Yourself</a>
+                <br />
+                <article class="message is-danger" v-if="msg">
+                    <div class="message-body">
+                        {{msg}}
+                    </div>
+                </article>
                 <div class="has-text-centered">
                     <audio controls autoplay loop v-if="isMinting">
                         <source src="../assets/reggae.mp3" type="audio/mpeg">
@@ -114,6 +133,9 @@
         isMinting: false,
         playHurray: false,
         currentRockId: '',
+        msg: '',
+        mintGift: false,
+        mintAddress: '',
       }
     },
     components: {
@@ -132,7 +154,7 @@
       },
       network: function() {
         if(this.network === 5777) {
-          this.mintStart = Date.now() + 15*1000;
+          this.mintStart = Date.now();
         }
       }
     },
@@ -144,7 +166,7 @@
       this.loadCurrentBlock();
 
       if(this.network === 5777 || this.network === 4) {
-        this.mintStart = Date.now() + 30*1000;
+        this.mintStart = Date.now();
       } else {
         const d = new Date(1626207600*1000);
         this.mintStart = d.getTime();
@@ -155,14 +177,28 @@
     },
     methods: {
       mintRock: async function() {
-        this.isMinting = true;
-        const response = await this.contract.mintRock(this.mintAmount, {value: this.mintAmount * .042069 * 1e18, from: this.account});
-        console.log('mint response', response);
-        this.isMinting = false;
-        this.playHurray = true;
-        this.confetti();
-        setTimeout(this.loadRocks, 5000);
-        setTimeout(this.noHurray, 5000);
+        try {
+          this.isMinting = true;
+          let mintAddress;
+          if(this.mintGift === true) {
+            mintAddress = this.mintAddress;
+          } else {
+            mintAddress = this.account;
+          }
+          const response = await this.contract.mintRock(this.mintAmount, mintAddress, {value: this.mintAmount * .042069 * 1e18, from: this.account});
+          console.log('mint response', response);
+          this.isMinting = false;
+          this.playHurray = true;
+          this.confetti();
+          setTimeout(this.loadRocks, 5000);
+          setTimeout(this.noHurray, 5000);
+        }
+        catch (error) {
+          console.log('error');
+          this.isMinting = false;
+          this.msg = 'Something went wrong while minting, please try again.';
+          setTimeout(this.clearMsg, 5000);
+        }
       },
       noHurray: function() {
         this.playHurray = false;
@@ -224,6 +260,9 @@
             requestAnimationFrame(frame);
           }
         }());
+      },
+      clearMsg: function() {
+        this.msg = '';
       }
     }
   }

@@ -24,11 +24,14 @@ const Generator = function() {
   this.outputFolder = '../build/';
   
   this.makeChoices = async function(build, category, choice) {
-    if(category === 'Nose' && choice === 'Big') {
+    if(category === '10 Nose' && choice === 'Big') {
       build['07 Mouth'] = 'None.0.png';
     }
-    if(category === 'Accessories' && choice === 'Top Hat') {
+    if(category === '06 Accessories' && choice === 'Top Hat') {
       build['03 Hair'] = 'None.80.png';
+    }
+    if(category === '06 Accessories' && build['03 Hair'] === 'Mohawk.4.png') {
+      build['06 Accessories'] = 'None.29.png';
     }
   };
   
@@ -210,9 +213,161 @@ const Generator = function() {
       'Taxi',
       'Mimosa',
       'Monkey',
-      'Cone'
+      'Cone',
+      'Sigh'
     ];
     return namePrefix[Math.floor(Math.random()*namePrefix.length)] + ' ' + nameSuffix[Math.floor(Math.random()*nameSuffix.length)];
+  };
+  
+  this.generateNames = async function() {
+    const namePrefix = [
+      'OG',
+      'Purple',
+      'Grand Daddy',
+      'Sour',
+      'Lemon',
+      'Orange',
+      'Girl Scout',
+      'Wedding',
+      'Mr.',
+      'Blue',
+      'White',
+      'Ice Cream',
+      'Jack',
+      'Green',
+      'Northern',
+      'Bubba',
+      'Cherry',
+      'Strawberry',
+      'Lava',
+      'Super Sour',
+      'Super Lemon',
+      'Forbidden',
+      'Super Silver',
+      'Silver',
+      'Jet',
+      'Maui',
+      'Platinum',
+      'Fire',
+      'Headband',
+      'Mango',
+      'Alaskan',
+      'Blueberry',
+      'Pink',
+      'Blackberry',
+      'God\'s',
+      'Pineapple',
+      'Super',
+      'Cookies and',
+      'Peanut Butter',
+      'Grease',
+      'Grape',
+      'Tropicana',
+      'Birthday',
+      'Ghost Train',
+      'Master',
+      'Golden',
+      'Lilac',
+      'Black',
+      'Monster',
+      'Critical',
+      'Alien',
+      'Agent',
+      'Truffle',
+      'Apple',
+      'Papaya',
+      'Dream',
+      'Sugar',
+      'Mint',
+      'Laughing',
+      'Sensi',
+      'Cream',
+      'Gelato',
+      'Gorilla',
+      'Turbo',
+      'Dirty',
+      'Night',
+      'Guava',
+      'Sunset',
+      'Secret',
+      'Bubble',
+      'Chunky'
+  
+    ];
+    const nameSuffix = [
+      'Kush',
+      'Crush',
+      'Cake',
+      'Cookies',
+      'Dream',
+      'Widow',
+      'Punch',
+      'Gelato',
+      'Runtz',
+      'Sherbert',
+      'Express',
+      'Herer',
+      'Crack',
+      'Lights',
+      'Pie',
+      'Cough',
+      'Haze',
+      'Fruit',
+      'Trainwreck',
+      'OG',
+      'Cheese',
+      'Fuel',
+      'Diamond',
+      'Wowie',
+      'Thunder',
+      'Rhino',
+      'Muffins',
+      'Skunk',
+      'Lemonaide',
+      'Creamsicle',
+      'Tangle',
+      'Indica',
+      'Sativa',
+      'Hybrid',
+      'Slurricane',
+      'Biscotti',
+      'Gushers',
+      'Breath',
+      'Cream',
+      'Jack',
+      'Diesel',
+      'Skywalker',
+      'Orange',
+      'Butter',
+      'Cheesecake',
+      'Queen',
+      'Dawg',
+      'Ape',
+      'Star',
+      'Soda',
+      'Picasso',
+      'Banana',
+      'Glue',
+      'Mintz',
+      'Shade',
+      'Taxi',
+      'Mimosa',
+      'Monkey',
+      'Cone',
+      'Sigh'
+    ];
+    let names = [];
+    for(let i in namePrefix) {
+      for(let k in nameSuffix) {
+        names.push(namePrefix[i] + ' ' + nameSuffix[k]);
+      }
+    }
+    for(let i in nameSuffix) {
+      for(let k in namePrefix) {
+        names.push(namePrefix[i] + ' ' + nameSuffix[k]);
+      }
+    }
+    return names;
   };
   
   this.makeOne = async function(build, json) {
@@ -240,7 +395,6 @@ const Generator = function() {
     for(let c in choices['01 Color']) {
       build['01 Color'] = choices['01 Color'][c];
       build['05 Rock'] = choices['05 Rock'][c];
-      json.name = this.generateName();
       let bgParts = build['01 Color'].split('.');
       json.attributes.push({
         "trait_type": 'Color',
@@ -263,7 +417,6 @@ const Generator = function() {
   
   this.makeRandom = async function() {
     let json = {
-      "name": this.generateName(),
       "attributes": []
     };
     const choices = await this.parseChoices();
@@ -275,8 +428,8 @@ const Generator = function() {
         let parts = choice.split('.');
         
         // Make custom fixes
-        this.makeChoices(build, i.substr(3), parts[0]);
         build[i] = choice;
+        this.makeChoices(build, i, parts[0]);
       }
     }
     
@@ -369,7 +522,7 @@ const Generator = function() {
         await this.copy(this.inputFolder + 'Generated/' + hash + '.png', this.outputFolder + 'rocks/image/' + hash + '.png');
         await this.copy(this.inputFolder + 'Generated/' + hash + '.json', this.outputFolder + 'rocks/json/' + counter);
         counter++;
-        console.log('--------');
+        console.log(hash);
       }
     }
     
@@ -380,6 +533,7 @@ const Generator = function() {
     const data = fs.readFileSync(this.outputFolder + 'imagecid.json');
     const json = JSON.parse(data);
     const ipfsHash = json.cid;
+    const names = this.generateNames();
     
     const files = await this.readDirectory(this.outputFolder + 'rocks/json');
     for(let f in files) {
@@ -393,6 +547,7 @@ const Generator = function() {
       let fileJson = JSON.parse(rawData);
       
       // Add the cid URL to the JSON file
+      fileJson.name = names[file];
       fileJson.image = 'ipfs://' + ipfsHash + '/image/' + fileJson.hash + '.png';
       fileJson.external_url = 'https://stonersrock.com/rock/' + file;
       

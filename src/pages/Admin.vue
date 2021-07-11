@@ -2,154 +2,179 @@
     <div class="section admin" v-if="isAdmin()">
         <div class="columns">
             <div class="column">
+                <article v-if="msg" class="message is-warning is-small pull-right">
+                    <div class="message-body">
+                        {{msg}}
+                    </div>
+                </article>
+                <h1 class="title">Admin</h1>
+                <div class="tabs">
+                    <ul>
+                        <li :class="{'is-active':(activeTab==='mint')}" v-if="isOwner()"><a @click="setActive('mint')">Mint</a></li>
+                        <li :class="{'is-active':(activeTab==='withdraw')}"><a @click="setActive('withdraw')">Withdraw</a></li>
+                        <li :class="{'is-active':(activeTab==='settings')}" v-if="isOwner()"><a @click="setActive('settings')">Settings</a></li>
+                    </ul>
+                </div>
                 <div class="box">
-                    <h1 class="title">Admin</h1>
 
-                    <div class="field is-horizontal">
-                        <div class="field-label is-normal">
-                            <label class="label">Mint Reserved</label>
-                        </div>
-                        <div class="field-body">
-                            <div class="field">
-                                <p class="control is-expanded">
-                                    <input v-model="mintReservedAmount" class="input" type="text" placeholder="20">
-                                </p>
-                                <p class="help">Remaining: {{420 - currentReserveId}}</p>
+                    <div class="mint" v-if="activeTab==='mint'">
+                        <div class="columns">
+                            <div class="column is-2">
+                                <label class="label">Mint to Self</label>
                             </div>
-                            <div class="field">
-                                <p class="control is-expanded">
-                                    <button class="button is-primary is-fullwidth" @click="mintReserved">Mint</button>
-                                </p>
+                            <div class="column is-2">
+                                <div class="field">
+                                    <p class="control">
+                                        <input v-model="mintReservedAmount" class="input amount-input" type="text" placeholder="20" >
+                                    </p>
+                                    <p class="help">Remaining: {{420 - currentReserveId}}</p>
+                                </div>
+                            </div>
+                            <div class="column">
+                                <button class="button is-primary" @click="mintReserved">Mint</button>
+                            </div>
+                        </div>
+
+                        <div class="columns">
+                            <div class="column is-2">
+                                <label class="label">Mint Gift</label>
+                            </div>
+                            <div class="column is-2">
+                                <div class="field">
+                                    <p class="control">
+                                        <input v-model="mintReservedAmount" class="input amount-input" type="text" placeholder="1" >
+                                    </p>
+                                    <p class="help">Remaining: {{420 - currentReserveId}}</p>
+                                </div>
+                            </div>
+                            <div class="column is-6">
+                                <div class="field">
+                                    <p class="control is-expanded">
+                                        <input v-model="mintReservedReceiver" class="input" type="text" placeholder="0x00796e910bd0228ddf4cd79e3f353871a61c351c">
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="column">
+                                <button class="button is-primary" @click="mintReserved">Mint</button>
                             </div>
                         </div>
                     </div>
 
-                    <div class="field is-horizontal">
-                        <div class="field-label is-normal">
-                            <label class="label">Withdraw Funds</label>
-                        </div>
-                        <div class="field-body">
-                            <div class="field">
-                                <p class="control is-expanded">
-                                    <input v-model="withdrawAmount" class="input" type="number" placeholder="1">
-                                </p>
+                    <div class="withdraw" v-if="activeTab==='withdraw'">
+                        <div class="columns" v-if="isOwner()">
+                            <div class="column is-3">
+                                <label class="label">Withdraw Sales</label>
+                            </div>
+                            <div class="column is-3">
+                                <div class="field">
+                                    <p class="control">
+                                        <button class="button is-warning is-fullwidth" @click="withdraw">Withdraw Sales</button>
+                                    </p>
+
+                                </div>
+                            </div>
+                            <div class="column is-6">
                                 <p class="help">Balance: {{currentBalance}}</p>
                             </div>
-                            <div class="field">
-                                <p class="control control-eth">ETH</p>
-                            </div>
-                            <div class="field">
-                                <p class="control is-expanded">
-                                    <button class="button is-warning is-fullwidth" @click="withdraw">Withdraw</button>
-                                </p>
-                            </div>
                         </div>
-                    </div>
-                    <div class="field is-horizontal">
-                        <div class="field-label is-normal">
-                            <label class="label">Withdraw Royalties</label>
-                        </div>
-                        <div class="field-body">
-                            <div class="field">
-                                <p class="control is-expanded">
-                                    <button class="button is-warning" @click="transferRoyalties">Transfer Community</button>
-                                </p>
-                                <p class="help">Balance: {{currentRoyalties}}</p>
+                        <div class="columns">
+                            <div class="column is-3">
+                                <label class="label">Withdraw Royalties</label>
                             </div>
-                            <div class="field">
-                                <p class="control is-expanded">
-                                    <button class="button is-warning" @click="transferRoyalties">Withdraw Personal</button>
-                                </p>
-                                <p class="help">Balance: {{personalRoyalties}}</p>
+                            <div class="column is-3">
+                                <div class="field">
+                                    <p class="control">
+                                        <button class="button is-warning is-fullwidth" @click="withdrawRoyalties">Withdraw Royalties</button>
+                                    </p>
+
+                                </div>
                             </div>
-                            <div class="field">
-                                <p class="control">
-                                    <span class="help">Current split contract balance:<br /> <strong>{{splitBalance}}</strong>.</span>
-                                </p>
+                            <div class="column is-6">
+                                <p class="help">Total Balance: {{currentRoyalties}}<br />Personal Balance: {{personalRoyalties}}<br />Split Balance: {{splitBalance}}</p>
                             </div>
                         </div>
                     </div>
 
-                    <hr />
+                    <div class="settings" v-if="activeTab==='settings'">
+                        <div class="field is-horizontal">
+                            <div class="field-label is-normal">
+                                <label class="label">Starting Block</label>
+                            </div>
+                            <div class="field-body">
+                                <div class="field">
+                                    <p class="control is-expanded">
+                                        <input v-model="startingBlock" class="input" type="text" placeholder="120250457">
+                                    </p>
+                                    <p class="help">{{startingBlock}}</p>
+                                </div>
+                                <div class="field">
+                                    <p class="control is-expanded">
+                                        <button class="button is-warning is-fullwidth" @click="updateStartingBlock">Update</button>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="field is-horizontal">
+                            <div class="field-label is-normal">
+                                <label class="label">Base URI</label>
+                            </div>
+                            <div class="field-body">
+                                <div class="field">
+                                    <p class="control is-expanded">
+                                        <input v-model="baseUri" class="input" type="text" placeholder="http://localhost:8080/rocks/">
+                                    </p>
+                                    <p class="help">{{currentBaseUri}}</p>
+                                </div>
+                                <div class="field">
+                                    <p class="control is-expanded">
+                                        <button class="button is-warning is-fullwidth" @click="updateBaseUri">Update</button>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="field is-horizontal">
+                            <div class="field-label is-normal">
+                                <label class="label">Provenance Hash</label>
+                            </div>
+                            <div class="field-body">
+                                <div class="field">
+                                    <p class="control is-expanded">
+                                        <input v-model="provenanceHash" class="input" type="text" placeholder="aqpow8iuer098wue0r98u">
+                                    </p>
+                                    <p class="help">{{provenanceHash}}</p>
+                                </div>
+                                <div class="field">
+                                    <p class="control is-expanded">
+                                        <button class="button is-warning is-fullwidth" @click="updateProvenanceHash">Update</button>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
 
-                    <div class="field is-horizontal">
-                        <div class="field-label is-normal">
-                            <label class="label">Starting Block</label>
-                        </div>
-                        <div class="field-body">
-                            <div class="field">
-                                <p class="control is-expanded">
-                                    <input v-model="startingBlock" class="input" type="text" placeholder="120250457">
-                                </p>
-                                <p class="help">{{startingBlock}}</p>
-                            </div>
-                            <div class="field">
-                                <p class="control is-expanded">
-                                    <button class="button is-warning is-fullwidth" @click="updateStartingBlock">Update</button>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="field is-horizontal">
-                        <div class="field-label is-normal">
-                            <label class="label">Base URI</label>
-                        </div>
-                        <div class="field-body">
-                            <div class="field">
-                                <p class="control is-expanded">
-                                    <input v-model="baseUri" class="input" type="text" placeholder="http://localhost:8080/rocks/">
-                                </p>
-                                <p class="help">{{currentBaseUri}}</p>
-                            </div>
-                            <div class="field">
-                                <p class="control is-expanded">
-                                    <button class="button is-warning is-fullwidth" @click="updateBaseUri">Update</button>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="field is-horizontal">
-                        <div class="field-label is-normal">
-                            <label class="label">Provenance Hash</label>
-                        </div>
-                        <div class="field-body">
-                            <div class="field">
-                                <p class="control is-expanded">
-                                    <input v-model="provenanceHash" class="input" type="text" placeholder="aqpow8iuer098wue0r98u">
-                                </p>
-                                <p class="help">{{provenanceHash}}</p>
-                            </div>
-                            <div class="field">
-                                <p class="control is-expanded">
-                                    <button class="button is-warning is-fullwidth" @click="updateProvenanceHash">Update</button>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+                        <hr />
 
-                    <hr />
+                        <div class="field is-horizontal">
+                            <div class="field-label is-normal">
+                                <label class="label">On-Chain Storage</label>
+                            </div>
+                            <div class="field-body">
+                                <div class="field">
+                                    <p class="control is-expanded">
+                                        <button class="button is-primary is-fullwidth">Upload Images</button>
+                                    </p>
+                                </div>
+                                <div class="field">
+                                    <p class="control is-expanded">
+                                        <button class="button is-primary is-fullwidth">Upload Metadata</button>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
 
-                    <div class="field is-horizontal">
-                        <div class="field-label is-normal">
-                            <label class="label">On-Chain Storage</label>
-                        </div>
-                        <div class="field-body">
-                            <div class="field">
-                                <p class="control is-expanded">
-                                    <button class="button is-primary is-fullwidth">Upload Images</button>
-                                </p>
-                            </div>
-                            <div class="field">
-                                <p class="control is-expanded">
-                                    <button class="button is-primary is-fullwidth">Upload Metadata</button>
-                                </p>
-                            </div>
-                        </div>
+                        <br />
+                        <p class="has-text-centered">StonersRock Contract:  <strong>{{contract.address}}</strong></p>
+                        <p class="has-text-centered">StonersSplit Contract:  <strong>{{splitContract}}</strong></p>
                     </div>
-
-                    <br />
-                    <p class="has-text-centered">StonersRock Contract:  <strong>{{contract.address}}</strong></p>
-                    <p class="has-text-centered">StonersSplit Contract:  <strong>{{splitContract}}</strong></p>
                 </div>
             </div>
         </div>
@@ -164,12 +189,13 @@
     name: 'Admin',
     data: function() {
       return {
+        activeTab: 'mint',
         startingBlock: 120250457,
         baseUri: '',
         currentBaseUri: '',
         provenanceHash: '',
-        withdrawAmount: '',
         mintReservedAmount: '',
+        mintReservedReceiver: '',
         currentRockId: 0,
         currentReserveId: 0,
         currentBalance: 0,
@@ -177,6 +203,8 @@
         currentRoyalties: 0,
         personalRoyalties: 0,
         splitContract: '',
+        splitInstance: {},
+        msg: ''
       }
     },
     props: {
@@ -195,6 +223,9 @@
       if(this.contract) {
         this.loadVariables();
       }
+      if(!this.isOwner()) {
+        this.activeTab = 'withdraw';
+      }
     },
     methods: {
       loadVariables: async function() {
@@ -211,6 +242,7 @@
             from: this.account
           });
           const instance = await contract.deployed();
+          this.splitInstance = instance;
           this.splitContract = instance.address;
           this.splitBalance = await this.$web3.eth.getBalance(this.splitContract) / 1e18;
           this.currentRoyalties = parseInt(await instance.getOwed(this.contract.address)) / 1e18;
@@ -229,14 +261,12 @@
         }
       },
       withdraw: async function() {
-        const withdrawAmount = this.withdrawAmount * 1e18;
-        console.log('withdrawing', withdrawAmount);
-        const response = await this.contract.withdraw(withdrawAmount.toString(), {from: this.account});
+        const response = await this.contract.withdraw({from: this.account});
         console.log('response', response);
         this.loadVariables();
       },
-      transferRoyalties: async function() {
-        const response = await this.contract.withdrawRoyalties({from: this.account});
+      withdrawRoyalties: async function() {
+        const response = await this.splitInstance.release(this.account, {from: this.account});
         console.log('response', response);
       },
       updateStartingBlock: async function() {
@@ -257,7 +287,27 @@
       mintReserved: async function() {
         const response = await this.contract.reserveRocks(this.mintReservedAmount);
         console.log('response', response);
+        this.msg = 'Mint Successful!';
+        setTimeout(this.clearMsg, 5000);
         this.loadVariables();
+      },
+      mintGift: async function() {
+        const response = await this.contract.reserveRocks(this.mintReservedAmount, this.mintReservedReceiver);
+        console.log('response', response);
+        this.msg = 'Mint Successful!';
+        setTimeout(this.clearMsg, 5000);
+        this.loadVariables();
+      },
+      setActive: function(tab) {
+        this.activeTab = tab;
+      },
+      clearMsg: function() {
+        this.msg = '';
+      },
+      isOwner: function() {
+        return (
+          String(this.account).toLowerCase() === '0x314439ab9e319440500376224211aa898215b889'.toLowerCase()  // Owner
+        );
       }
     }
   }

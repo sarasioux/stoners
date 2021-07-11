@@ -162,8 +162,11 @@
       },
       isAdmin: function() {
         return (
-          String(this.account).toLowerCase() === '0x00796e910bd0228ddf4cd79e3f353871a61c351c'.toLowerCase() || String(this.account).toLowerCase() === '0xB58Fb5372e9Aa0C86c3B281179c05Af3bB7a181b'.toLowerCase() || String(this.account).toLowerCase() === '0x7fc55376D5A29e0Ee86C18C81bb2fC8F9f490E50'.toLowerCase()
-          || String(this.account).toLowerCase() === '0x314439ab9e319440500376224211aa898215b889'.toLowerCase()
+          String(this.account).toLowerCase() === '0x00796e910bd0228ddf4cd79e3f353871a61c351c'.toLowerCase()     // Sara Main
+          || String(this.account).toLowerCase() === '0xB58Fb5372e9Aa0C86c3B281179c05Af3bB7a181b'.toLowerCase()  // Mark Main
+          || String(this.account).toLowerCase() === '0x7fc55376D5A29e0Ee86C18C81bb2fC8F9f490E50'.toLowerCase()  // Shaun Main
+          || String(this.account).toLowerCase() === '0x314439ab9e319440500376224211aa898215b889'.toLowerCase()  // Sara Dev
+          || String(this.account).toLowerCase() === '0xd83Dd8A288270512b8A46F581A8254CD971dCb09'.toLowerCase()  // Owner
         );
       }
 
