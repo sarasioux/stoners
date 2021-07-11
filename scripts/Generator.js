@@ -533,7 +533,7 @@ const Generator = function() {
     const data = fs.readFileSync(this.outputFolder + 'imagecid.json');
     const json = JSON.parse(data);
     const ipfsHash = json.cid;
-    const names = this.generateNames();
+    const names = await this.generateNames();
     
     const files = await this.readDirectory(this.outputFolder + 'rocks/json');
     for(let f in files) {

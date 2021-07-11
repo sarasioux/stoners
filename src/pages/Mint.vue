@@ -108,7 +108,6 @@
                 </div>
             </div>
         </div>
-        Current: {{currentRockId}}
     </div>
 </template>
 
