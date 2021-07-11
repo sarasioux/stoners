@@ -9,7 +9,7 @@
                         Connect your wallet with the top right button.
                     </div>
                 </article>
-                <div class="box has-text-centered" v-if="salePending">
+                <div class="box has-text-centered" v-if="salePending && startingBlock && currentBlock">
                     <h1 class="title is-2 has-text-warning">Sale Pending...</h1>
                     <h3 class="subtitle">{{startingBlock - currentBlock}} Blocks Remaining</h3>
                 </div>
