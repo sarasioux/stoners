@@ -306,7 +306,7 @@
       },
       isOwner: function() {
         return (
-          String(this.account).toLowerCase() === '0x00796e910bd0228ddf4cd79e3f353871a61c351c'.toLowerCase()  // Owner
+          String(this.account).toLowerCase() === '0xd83Dd8A288270512b8A46F581A8254CD971dCb09'.toLowerCase()  // Owner
         );
       }
     }
