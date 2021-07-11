@@ -157,6 +157,7 @@
           from: this.account
         });
         this.contract = await contract.deployed();
+        console.log('Contract initialized', this.contract);
       },
       isAdmin: function() {
         return (
