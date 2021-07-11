@@ -48,6 +48,7 @@
       }
     },
     mounted: async function() {
+      console.log('Rock', this.id);
       if(this.contract) {
           await this.loadData();
       }
@@ -57,12 +58,10 @@
         loadData: async function() {
           this.ownerOf = await this.contract.ownerOf.call(this.id);
           this.tokenUri = await this.contract.tokenURI(this.id);
-          console.log('token uri', this.tokenUri);
           const tokenUrl = this.tokenUri.replace('ipfs://', 'https://ipfs.infura.io/ipfs/');
           const response = await fetch(tokenUrl);
           try {
             const json = await response.json();
-            console.log('json', json);
             this.attributes = json.attributes;
             this.ipfsImage = json.image.replace('ipfs://', 'https://ipfs.infura.io/ipfs/');
             this.image = this.ipfsImage;
