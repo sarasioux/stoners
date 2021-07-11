@@ -1,6 +1,6 @@
 <template>
     <div class="card">
-        <div class="card-image">
+        <div class="card-image" v-if="image">
             <figure class="image is-square">
                 <img :src="image" />
             </figure>
