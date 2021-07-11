@@ -24,14 +24,18 @@ const Generator = function() {
   this.outputFolder = '../build/';
   
   this.makeChoices = async function(build, category, choice) {
+    
     if(category === '10 Nose' && choice === 'Big') {
       build['07 Mouth'] = 'None.0.png';
+      console.log('RULE:  Big Nose No Mouth');
     }
-    if(category === '06 Accessories' && choice === 'Top Hat') {
+    if(choice === 'Top Hat') {
       build['03 Hair'] = 'None.80.png';
+      console.log('RULE:  Top Hat No Hair');
     }
     if(category === '06 Accessories' && build['03 Hair'] === 'Mohawk.4.png') {
       build['06 Accessories'] = 'None.29.png';
+      console.log('RULE:  Mohawk No Accessories');
     }
   };
   

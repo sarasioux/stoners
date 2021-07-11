@@ -1,28 +1,32 @@
 <template>
     <div class="home">
-        <div class="section is-small">
-            <figure class="logo">
-                <img src="../assets/logo.png" />
-            </figure>
-            <br />
-            <div class="columns is-multiline has-text-centered">
-                <div class="column">
-                    <h2 class="subtitle is-6">Drop Date</h2>
-                    <h1 class="title has-text-warning is-4">July 13</h1>
-                </div>
-                <div class="column">
-                    <h2 class="subtitle is-6">Drop Time</h2>
-                    <h1 class="title has-text-warning is-4">4:20pm EST </h1>
-                </div>
-                <div class="column">
-                    <h2 class="subtitle is-6">Drop Location</h2>
-                    <h1 class="title has-text-warning is-4">This Site</h1>
-                </div>
+        <div class="section is-small small-top">
+            <div class="has-text-centered">
+                <figure class="logo is-hidden-widescreen-only">
+                    <img src="../assets/logo.png" />
+                </figure>
+                <figure class="smaller-logo is-hidden-fullhd is-hidden-desktop-only is-hidden-tablet-only is-hidden-mobile">
+                    <img src="../assets/logo.png" />
+                </figure>
             </div>
             <figure class="is-4by3 base-transition">
                 <img src="../assets/couch.jpg" class="rock-img" />
             </figure>
             <br />
+            <div class="columns is-multiline has-text-centered">
+                <div class="column">
+                    <h2 class="subtitle is-6">Drop Date</h2>
+                    <h1 class="title has-text-primary is-4">July 13</h1>
+                </div>
+                <div class="column">
+                    <h2 class="subtitle is-6">Drop Time</h2>
+                    <h1 class="title has-text-primary is-4">4:20pm EST </h1>
+                </div>
+                <div class="column">
+                    <h2 class="subtitle is-6">Drop Location</h2>
+                    <h1 class="title has-text-primary is-4">This Site</h1>
+                </div>
+            </div>
             <div class="columns">
                 <div class="column">
                     <p>The Rocks are a collection of 10,420 unique NFTs minted on the Ethereum
@@ -361,9 +365,16 @@
         text-decoration: none !important;
     }
     figure.logo {
-        text-align: center;
+        display: inline-block;
+    }
+    figure.smaller-logo {
+        width: 600px;
+        display: inline-block;
     }
     p.is-size-4 {
         line-height: 1.3em;
+    }
+    .small-top {
+        padding-top: 1em;
     }
 </style>
