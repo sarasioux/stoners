@@ -91,7 +91,8 @@
           });
         }
         catch (error) {
-          alert(error);
+          const err = JSON.parse(error.body);
+          alert(err.error.message);
         }
         this.deleted = true;
       }
