@@ -319,7 +319,7 @@
                         <div class="card-content">
                             <div class="media">
                                 <div class="media-content">
-                                    <p class="title is-4"><a href="https://twitter.com/sarasioux" target="_blank" class="has-text-primary">@sarasioux</a></p>
+                                    <p class="title is-4"><a href="https://twitter.com/altcryp" target="_blank" class="has-text-primary">@altcryp</a></p>
                                     <p class="subtitle is-6 has-text-grey">The Coder</p>
                                 </div>
                             </div>
