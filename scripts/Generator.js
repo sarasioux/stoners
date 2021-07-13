@@ -673,14 +673,8 @@ const Generator = function() {
       },
       timeout: '20m'
     });
-    const globSourceOptions = {
-      recursive: true
-    };
-    const addOptions = {
-      wrapWithDirectory: true,
-    };
     let cid;
-    for await (const file of ipfs.addAll(globSource(path, globSourceOptions), addOptions)) {
+    for await (const file of ipfs.addAll(globSource(path, { recursive: true }), { shardSplitThreshold: 11000, wrapWithDirectory: true })) {
       console.log(`${file.path}: ${file.cid}`);
       cid = file.cid;
     }
@@ -688,14 +682,14 @@ const Generator = function() {
   };
   
   this.ipfsUploadImages = async function() {
-    let cid = String(await this.ipfsUpload(this.outputFolder + 'rocks/image/'));
+    let cid = String(await this.ipfsUpload(this.outputFolder + 'rocks/image'));
     const json = {cid: cid};
     const data = JSON.stringify(json);
     fs.writeFileSync(this.outputFolder + 'imagecid.json', data);
   };
   
   this.ipfsUploadJson = async function() {
-    let cid = String(await this.ipfsUpload(this.outputFolder + 'rocks/json/'));
+    let cid = String(await this.ipfsUpload(this.outputFolder + 'rocks/json'));
     const json = {cid: cid};
     const data = JSON.stringify(json);
     fs.writeFileSync(this.outputFolder + 'jsoncid.json', data);

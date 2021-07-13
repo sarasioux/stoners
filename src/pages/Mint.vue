@@ -136,7 +136,7 @@
         mintStart: 0,
         timeLeft: '',
         salePending: false,
-        saleActive: false,
+        saleActive: true,
         startingBlock:  '',
         currentBlock: '',
         balanceOfRocks: 0,
@@ -172,12 +172,7 @@
       }
       this.loadCurrentBlock();
 
-      if(this.network === 5777 || this.network === 4) {
-        this.mintStart = Date.now();
-      } else {
-        const d = new Date(1626207600*1000);
-        this.mintStart = d.getTime();
-      }
+      this.mintStart = Date.now();
       this.calculateTimeLeft();
       setTimeout(this.calculateTimeLeft, 1000);
 
@@ -229,13 +224,12 @@
           this.saleActive = true;
           this.salePending = false;
         } else {
-          setTimeout(this.loadCurrentBlock, 15000);
+          setTimeout(this.loadCurrentBlock, 1000);
         }
       },
       calculateTimeLeft: function() {
         const timeLeft = (this.mintStart - Date.now()) / 1000;
         if(timeLeft <= 0) {
-          this.salePending = true;
           this.loadCurrentBlock();
         } else {
           const days = Math.floor(timeLeft/(60*60*24));
