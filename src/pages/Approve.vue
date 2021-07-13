@@ -63,7 +63,7 @@
       listFiles: function() {
         let self = this;
         window.gapi.client.drive.files.list({
-          q: "'1DyqPzP_60zRaQwW6w1Qu6ACo2JxPEP_Q' in parents and mimeType='image/png'",
+          q: "'1DyqPzP_60zRaQwW6w1Qu6ACo2JxPEP_Q' in parents and mimeType='image/png' and trashed = false",
           pageSize: 100,
           fields: "nextPageToken, files(id, name)",
           orderBy: "createdTime desc",

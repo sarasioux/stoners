@@ -18,8 +18,6 @@ const ipfsProjectSecret = process.env.PROJECT_SECRET;
 
 const Generator = function() {
   
-  let _this = this;
-  
   this.inputFolder = '../build/google/';
   this.outputFolder = '../build/';
   
@@ -33,9 +31,13 @@ const Generator = function() {
       build['03 Hair'] = 'None.89.png';
       console.log('RULE:  Top Hat No Hair');
     }
-    if(category === '05 Accessories' && build['03 Hair'] === 'Mohawk.4.png') {
+    if(category === '05 Accessories' && (build['03 Hair'] === 'Mohawk.4.png' || build['03 Hair'] === 'Clown.7.png')) {
       build['05 Accessories'] = 'None.29.png';
-      console.log('RULE:  Mohawk No Accessories');
+      console.log('RULE:  Mohawk/Clown No Accessories');
+    }
+    if(category === '08 Eyes' && (build['05 Accessories'] === 'Trucker 420.6.png' || build['05 Accessories'] === 'Trucker Rock.1.png')) {
+      build['05 Accessories'] = 'None.29.png';
+      console.log('RULE:  No trucker hats with eyebrows.');
     }
   };
   
@@ -460,7 +462,7 @@ const Generator = function() {
   };
   
   this.loadNames = async function() {
-    let rawData = fs.readFileSync(this.outputFolder + 'names-final.txt', 'utf8');
+    let rawData = fs.readFileSync(this.outputFolder + 'names-shuffled.txt', 'utf8');
     const text = rawData.trim();
     const names = text.split('\n');
     return names;
