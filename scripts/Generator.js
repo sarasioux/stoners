@@ -670,7 +670,8 @@ const Generator = function() {
       protocol: ipfsProtocol,
       headers: {
         authorization: auth
-      }
+      },
+      timeout: '20m'
     });
     const globSourceOptions = {
       recursive: true
