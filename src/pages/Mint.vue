@@ -95,6 +95,19 @@
                 </div>
             </div>
             <br />
+
+            <div class="box">
+                <div class="columns">
+                    <div class="column is-4">
+                        <img src="../assets/blank.png" class="rock-img" />
+                    </div>
+                    <div class="column has-text-centered">
+                        <br /><br />
+                        <p class="is-size-5">Find a <strong>super rare</strong> blank rock<br />and win <strong>at least 0.5 ETH</strong>!</p>
+                    </div>
+                </div>
+            </div>
+            <br />
             <div class="box">
                 <h1 class="title">Your Rocks</h1>
                 <p v-if="balanceOfRocks === 0">You are not yet a rock collector.</p>
@@ -264,4 +277,7 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+    .rock-img {
+        border-radius: 15px;
+    }
 </style>
