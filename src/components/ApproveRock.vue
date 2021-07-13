@@ -82,12 +82,17 @@
         this.attributes = json.attributes;
       },
       deleteRock: async function() {
-        await window.gapi.client.drive.files.delete({
-          fileId: this.id
-        });
-        await window.gapi.client.drive.files.delete({
-          fileId: this.jsonId
-        });
+        try {
+          await window.gapi.client.drive.files.delete({
+            fileId: this.id
+          });
+          await window.gapi.client.drive.files.delete({
+            fileId: this.jsonId
+          });
+        }
+        catch (error) {
+          alert(error);
+        }
         this.deleted = true;
       }
 
