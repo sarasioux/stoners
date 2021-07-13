@@ -25,16 +25,16 @@ const Generator = function() {
   
   this.makeChoices = async function(build, category, choice) {
     
-    if(category === '10 Nose' && choice === 'Big') {
-      build['07 Mouth'] = 'None.0.png';
+    if(category === '09 Nose' && choice === 'Big') {
+      build['06 Mouth'] = 'None.0.png';
       console.log('RULE:  Big Nose No Mouth');
     }
     if(choice === 'Top Hat') {
-      build['03 Hair'] = 'None.80.png';
+      build['03 Hair'] = 'None.89.png';
       console.log('RULE:  Top Hat No Hair');
     }
-    if(category === '06 Accessories' && build['03 Hair'] === 'Mohawk.4.png') {
-      build['06 Accessories'] = 'None.29.png';
+    if(category === '05 Accessories' && build['03 Hair'] === 'Mohawk.4.png') {
+      build['05 Accessories'] = 'None.29.png';
       console.log('RULE:  Mohawk No Accessories');
     }
   };
@@ -225,140 +225,223 @@ const Generator = function() {
   
   this.generateNames = async function() {
     const namePrefix = [
-      'OG',
-      'Purple',
-      'Grand Daddy',
-      'Sour',
-      'Lemon',
-      'Orange',
-      'Girl Scout',
-      'Wedding',
-      'Mr.',
-      'Blue',
-      'White',
-      'Ice Cream',
-      'Jack',
-      'Green',
-      'Northern',
-      'Bubba',
-      'Cherry',
-      'Strawberry',
-      'Lava',
-      'Super Sour',
-      'Super Lemon',
-      'Forbidden',
-      'Super Silver',
-      'Silver',
-      'Jet',
-      'Maui',
-      'Platinum',
-      'Fire',
-      'Headband',
-      'Mango',
-      'Alaskan',
-      'Blueberry',
-      'Pink',
-      'Blackberry',
-      'God\'s',
-      'Pineapple',
-      'Super',
-      'Cookies and',
-      'Peanut Butter',
-      'Grease',
-      'Grape',
-      'Tropicana',
-      'Birthday',
-      'Ghost Train',
-      'Master',
-      'Golden',
-      'Lilac',
-      'Black',
-      'Monster',
-      'Critical',
-      'Alien',
-      'Agent',
-      'Truffle',
-      'Apple',
-      'Papaya',
-      'Dream',
-      'Sugar',
-      'Mint',
-      'Laughing',
-      'Sensi',
-      'Cream',
-      'Gelato',
-      'Gorilla',
-      'Turbo',
-      'Dirty',
-      'Night',
-      'Guava',
-      'Sunset',
-      'Secret',
-      'Bubble',
-      'Chunky'
+        'OG' ,
+        'Purple' ,
+        'Grand Daddy' ,
+        'Sour' ,
+        'Lemon' ,
+        'Orange' ,
+        'Girl Scout' ,
+        'Wedding' ,
+        'Mr.' ,
+        'Blue' ,
+        'White' ,
+        'Ice Cream' ,
+        'Jack' ,
+        'Green' ,
+        'Northern' ,
+        'Bubba' ,
+        'Cherry' ,
+        'Strawberry' ,
+        'Lava' ,
+        'Super Sour' ,
+        'Super Lemon' ,
+        'Forbidden' ,
+        'Super Silver' ,
+        'Silver' ,
+        'Jet' ,
+        'Maui' ,
+        'Platinum' ,
+        'Fire' ,
+        'Headband' ,
+        'Mango' ,
+        'Alaskan' ,
+        'Blueberry' ,
+        'Pink' ,
+        'Blackberry' ,
+        'God\'s' ,
+        'Pineapple' ,
+        'Super' ,
+        'Cookies and' ,
+        'Peanut Butter' ,
+        'Grease' ,
+        'Grape' ,
+        'Tropicana' ,
+        'Birthday' ,
+        'Ghost Train' ,
+        'Master' ,
+        'Golden' ,
+        'Lilac' ,
+        'Black' ,
+        'Monster' ,
+        'Critical' ,
+        'Alien' ,
+        'Agent' ,
+        'Truffle' ,
+        'Apple' ,
+        'Papaya' ,
+        'Dream' ,
+        'Sugar' ,
+        'Mint' ,
+        'Laughing' ,
+        'Sensi' ,
+        'Cream' ,
+        'Gelato' ,
+        'Gorilla' ,
+        'Turbo' ,
+        'Dirty' ,
+        'Night' ,
+        'Guava' ,
+        'Sunset' ,
+        'Secret' ,
+        'Bubble' ,
+        'Chunky' ,
+        'Dank' ,
+        'Do-si' ,
+        'Sundae' ,
+        'Watermelon' ,
+        'GMO' ,
+        'Durban' ,
+        'Miracle' ,
+        'Cereal' ,
+        'Amnesia' ,
+        'Mendo' ,
+        'Bruce' ,
+        'AK' ,
+        'Animal' ,
+        'Candy' ,
+        'Motor' ,
+        'King' ,
+        'Mandarin' ,
+        'Jungle' ,
+        'NYC' ,
+        'Vanilla' ,
+        'Khalifa' ,
+        '9lb' ,
+        'Death' ,
+        'Georgia' ,
+        'Juicy' ,
+        'Lucky' ,
+        'Cali' ,
+        'Deadhead' ,
+        'Goji' ,
+        'Magic' ,
+        'Sweet' ,
+        'Power' ,
+        'Gummy' ,
+        'Grandpa\'s' ,
+        'Space' ,
+        'Incredible' ,
+        'Honey' ,
+        'Lavender' ,
+        'Red' ,
+        'Rainbow' ,
+        'Sticky' ,
+        'Royal' ,
+        'Tropic' ,
+        'Scooby' ,
+        'Cookie' ,
+        'Jelly' ,
+        'Lime' ,
+        'LA'
   
     ];
     const nameSuffix = [
-      'Kush',
-      'Crush',
-      'Cake',
-      'Cookies',
-      'Dream',
-      'Widow',
-      'Punch',
-      'Gelato',
-      'Runtz',
-      'Sherbert',
-      'Express',
-      'Herer',
-      'Crack',
-      'Lights',
-      'Pie',
-      'Cough',
-      'Haze',
-      'Fruit',
-      'Trainwreck',
-      'OG',
-      'Cheese',
-      'Fuel',
-      'Diamond',
-      'Wowie',
-      'Thunder',
-      'Rhino',
-      'Muffins',
-      'Skunk',
-      'Lemonaide',
-      'Creamsicle',
-      'Tangle',
-      'Indica',
-      'Sativa',
-      'Hybrid',
-      'Slurricane',
-      'Biscotti',
-      'Gushers',
-      'Breath',
-      'Cream',
-      'Jack',
-      'Diesel',
-      'Skywalker',
-      'Orange',
-      'Butter',
-      'Cheesecake',
-      'Queen',
-      'Dawg',
-      'Ape',
-      'Star',
-      'Soda',
-      'Picasso',
-      'Banana',
-      'Glue',
-      'Mintz',
-      'Shade',
-      'Taxi',
-      'Mimosa',
-      'Monkey',
-      'Cone',
-      'Sigh'
+      'Kush' ,
+      'Crush' ,
+      'Cake' ,
+      'Cookies' ,
+      'Dream' ,
+      'Widow' ,
+      'Punch' ,
+      'Gelato' ,
+      'Runtz' ,
+      'Sherbert' ,
+      'Express' ,
+      'Herer' ,
+      'Crack' ,
+      'Lights' ,
+      'Pie' ,
+      'Cough' ,
+      'Haze' ,
+      'Fruit' ,
+      'Trainwreck' ,
+      'OG' ,
+      'Cheese' ,
+      'Fuel' ,
+      'Diamond' ,
+      'Wowie' ,
+      'Thunder' ,
+      'Rhino' ,
+      'Muffins' ,
+      'Skunk' ,
+      'Lemonaide' ,
+      'Creamsicle' ,
+      'Tangle' ,
+      'Indica' ,
+      'Sativa' ,
+      'Hybrid' ,
+      'Slurricane' ,
+      'Biscotti' ,
+      'Gushers' ,
+      'Breath' ,
+      'Cream' ,
+      'Jack' ,
+      'Diesel' ,
+      'Skywalker' ,
+      'Orange' ,
+      'Butter' ,
+      'Cheesecake' ,
+      'Queen' ,
+      'Dawg' ,
+      'Ape' ,
+      'Star' ,
+      'Soda' ,
+      'Picasso' ,
+      'Banana' ,
+      'Glue' ,
+      'Mintz' ,
+      'Shade' ,
+      'Taxi' ,
+      'Mimosa' ,
+      'Monkey' ,
+      'Cone' ,
+      'Sigh' ,
+      'Zkittlez' ,
+      'Do' ,
+      'Driver' ,
+      'Poison' ,
+      'Milk' ,
+      'Banner' ,
+      'Fritter' ,
+      'Land' ,
+      'Louis' ,
+      'Goat' ,
+      'Hammer' ,
+      'Rozay' ,
+      'Mamba' ,
+      'Frosting' ,
+      'Mass' ,
+      'Charms' ,
+      'Melon' ,
+      'Stomper' ,
+      'Tooth' ,
+      'Plant' ,
+      'Bears' ,
+      'Stash' ,
+      'Hulk' ,
+      'Panties' ,
+      'Bun' ,
+      'Starburst' ,
+      'Dragon' ,
+      'Chip' ,
+      'Rock Candy' ,
+      'Buns' ,
+      'Highness' ,
+      'Snacks' ,
+      'Monster' ,
+      'Caramel' ,
+      'Goblin'
     ];
     let names = [];
     for(let i in namePrefix) {
@@ -366,11 +449,20 @@ const Generator = function() {
         names.push(namePrefix[i] + ' ' + nameSuffix[k]);
       }
     }
-    for(let i in nameSuffix) {
-      for(let k in namePrefix) {
-        names.push(namePrefix[i] + ' ' + nameSuffix[k]);
-      }
-    }
+    return names;
+  };
+  
+  this.saveNames = async function() {
+    const names = await this.generateNames();
+    console.log('names', names);
+    const writeNames = names.join("\n");
+    fs.writeFileSync(this.outputFolder + 'names.txt', writeNames);
+  };
+  
+  this.loadNames = async function() {
+    let rawData = fs.readFileSync(this.outputFolder + 'names-final.txt', 'utf8');
+    const text = rawData.trim();
+    const names = text.split('\n');
     return names;
   };
   
@@ -398,13 +490,13 @@ const Generator = function() {
     let build = {};
     for(let c in choices['01 Color']) {
       build['01 Color'] = choices['01 Color'][c];
-      build['05 Rock'] = choices['05 Rock'][c];
+      build['04 Rock'] = choices['04 Rock'][c];
       let bgParts = build['01 Color'].split('.');
       json.attributes.push({
         "trait_type": 'Color',
         "value":bgParts[0]
       });
-      let rockParts = build['05 Rock'].split('.');
+      let rockParts = build['04 Rock'].split('.');
       json.attributes.push({
         "trait_type": 'Rock',
         "value":rockParts[0]
@@ -537,7 +629,7 @@ const Generator = function() {
     const data = fs.readFileSync(this.outputFolder + 'imagecid.json');
     const json = JSON.parse(data);
     const ipfsHash = json.cid;
-    const names = await this.generateNames();
+    const names = await this.loadNames();
     
     const files = await this.readDirectory(this.outputFolder + 'rocks/json');
     for(let f in files) {

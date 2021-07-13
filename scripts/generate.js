@@ -4,6 +4,7 @@
 console.log("\n");
 
 const commands = [
+  'names',
   'blanks',
   'rocks 100',
   'count',
@@ -31,6 +32,10 @@ const generator = new Generator();
 
 const runCommand = async function(cmd) {
   switch(cmd) {
+    case 'names':
+      await generator.saveNames();
+      break;
+      
     case 'blanks':
       await generator.makeBlanks();
       break;
@@ -63,6 +68,10 @@ const runCommand = async function(cmd) {
       
     case 'ipfs-json':
       await generator.ipfsUploadJson();
+      break;
+      
+    case 'load-names':
+      await generator.loadNames();
       break;
   
     default:
