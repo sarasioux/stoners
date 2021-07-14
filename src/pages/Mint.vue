@@ -84,15 +84,6 @@
                         <source src="../assets/hurray.mp3" type="audio/mpeg">
                     </audio>
                 </div>
-                <br />
-                <div class="columns" v-if="account">
-                    <div class="column has-text-dark">
-                        <p class="help">Starting Block: {{startingBlock}}</p>
-                    </div>
-                    <div class="column has-text-right has-text-dark">
-                        <p class="help">Current Block: {{currentBlock}}</p>
-                    </div>
-                </div>
             </div>
             <br />
 
@@ -102,8 +93,8 @@
                         <img src="../assets/blank.png" class="rock-img" />
                     </div>
                     <div class="column has-text-centered">
-                        <br /><br />
-                        <p class="is-size-5">Find a <strong>super rare</strong> blank rock<br />and win <strong>at least 0.5 ETH</strong>!</p>
+                        <br />
+                        <p class="is-size-6">Find a <strong>super rare</strong> blank rock<br />and win <strong>at least 0.5 ETH</strong>!</p>
                     </div>
                 </div>
             </div>
