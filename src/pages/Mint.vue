@@ -167,15 +167,9 @@
     },
     mounted: async function() {
       if(this.contract.address) {
-        this.loadStartingBlock();
         this.loadRocks();
       }
-      this.loadCurrentBlock();
-
-      this.mintStart = Date.now();
-      this.calculateTimeLeft();
-      setTimeout(this.calculateTimeLeft, 1000);
-
+      this.mintStart = Date.now() - 1000;
     },
     methods: {
       mintRock: async function() {
