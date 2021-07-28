@@ -4,11 +4,9 @@
         <div class="column is-half is-offset-one-quarter">
             <div class="box">
                 <h1 class="title">Mint Your Rocks</h1>
-                <article class="message is-warning" v-if="!account">
-                    <div class="message-body">
-                        Connect your wallet with the top right button.
-                    </div>
-                </article>
+                <button class="button is-primary is-fullwidth" v-if="!account" @click="connect">
+                    Connect Your Wallet
+                </button>
                 <div class="box has-text-centered" v-if="salePending && startingBlock && currentBlock">
                     <h1 class="title is-2 has-text-warning">Sale Pending...</h1>
                     <h3 class="subtitle">{{startingBlock - currentBlock}} Blocks Remaining</h3>
@@ -17,9 +15,10 @@
                     <h1 class="title is-1 has-text-warning">{{timeLeft}}</h1>
                     <h2 class="subtitle">Sale Begins</h2>
                 </div>
-                <div class="columns">
+                <div class="columns" v-if="account">
                     <div class="column has-text-centered">
-                        <h2 class="title is-5">{{10420 - currentRockId}}</h2>
+                        <h2 class="title is-5" v-if="currentRockId">{{10420 - currentRockId}}</h2>
+                        <h2 class="title is-5" v-if="!currentRockId">---</h2>
                         <h3 class="subtitle is-6 has-text-primary has-text-weight-bold">Rocks Left</h3>
                     </div>
                     <div class="column has-text-centered">
@@ -31,8 +30,8 @@
                         <h3 class="subtitle is-6 has-text-primary has-text-weight-bold">Limit Per Mint</h3>
                     </div>
                 </div>
-                <hr />
-                <div class="field-body">
+                <hr v-if="account" />
+                <div class="field-body" v-if="account">
                     <div class="field">
                         <p class="control is-expanded has-icons-left">
                             <input v-model="mintAmount" class="input" type="number" placeholder="Amount to Mint" :disabled="(saleActive === false || isMinting)">
@@ -56,19 +55,22 @@
                     </div>
                 </div>
 
-                <div class="field" v-if="mintGift">
-                    <br />
-                    <p class="control is-expanded has-icons-left">
-                        <input v-model="mintAddress" class="input" type="text" placeholder="Recipient's Address" :disabled="(saleActive === false || isMinting)">
-                        <span class="icon is-small is-left">
+                <div  v-if="account">
+                    <div class="field" v-if="mintGift">
+                        <br />
+                        <p class="control is-expanded has-icons-left">
+                            <input v-model="mintAddress" class="input" type="text" placeholder="Recipient's Address" :disabled="(saleActive === false || isMinting)">
+                            <span class="icon is-small is-left">
                               <i class="fas fa-gift"></i>
                             </span>
-                    </p>
+                        </p>
+                    </div>
+
+                    <br />
+                    <a @click="mintGift=true" v-if="!mintGift"><span class="icon"><i class="fas fa-gift"></i></span> Mint a Gift</a>
+                    <a @click="mintGift=false" v-if="mintGift"><span class="icon"><i class="fas fa-user"></i></span> Mint for Yourself</a>
                 </div>
 
-                <br />
-                <a @click="mintGift=true" v-if="!mintGift"><span class="icon"><i class="fas fa-gift"></i></span> Mint a Gift</a>
-                <a @click="mintGift=false" v-if="mintGift"><span class="icon"><i class="fas fa-user"></i></span> Mint for Yourself</a>
                 <br />
                 <article class="message is-danger" v-if="msg">
                     <div class="message-body">
@@ -99,7 +101,7 @@
                 </div>
             </div>
             <br />
-            <div class="box">
+            <div class="box" v-if="account">
                 <h1 class="title">Your Rocks</h1>
                 <p v-if="balanceOfRocks === 0">You are not yet a rock collector.</p>
                 <div class="columns is-multiline" v-if="balanceOfRocks > 0">
@@ -191,11 +193,12 @@
         this.playHurray = false;
       },
       loadRocks: async function() {
-            console.log('loading rocks', this.contract);
             let rocks = await this.contract.getRocksByOwner(this.account, {from: this.account});
             rocks.reverse();
             this.rocks = rocks;
             this.balanceOfRocks = this.rocks.length;
+            this.currentRockId = parseInt(await this.contract.getCurrentRockId.call({from: this.account}));
+
       },
       loadStartingBlock: async function() {
         if(this.contract.address) {
@@ -249,6 +252,9 @@
       },
       clearMsg: function() {
         this.msg = '';
+      },
+      connect: function() {
+        this.$emit('connect');
       }
     }
   }

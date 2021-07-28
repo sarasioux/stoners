@@ -28,43 +28,5 @@
     <div id="app"></div>
     <!-- built files will be auto injected -->
 
-    <script type="text/javascript">
-      // Client ID and API key from the Developer Console
-      const CLIENT_ID = '743673040302-o4sulklog7et6bs94qbnkq9c7a2t1kcs.apps.googleusercontent.com';
-      const API_KEY = 'AIzaSyAINeu3NKPiX_x_sgMqXVVObbgdsbsXCL8';
-
-      // Array of API discovery doc URLs for APIs used by the quickstart
-      const DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/drive/v3/rest"];
-
-      // Authorization scopes required by the API; multiple scopes can be
-      // included, separated by spaces.
-      const SCOPES = 'https://www.googleapis.com/auth/drive';
-
-      /**
-       *  On load, called to load the auth2 library and API client library.
-       */
-      function handleClientLoad() {
-        gapi.load('client:auth2', initClient);
-      }
-
-      /**
-       *  Initializes the API client library and sets up sign-in state
-       *  listeners.
-       */
-      function initClient() {
-        gapi.client.init({
-          apiKey: API_KEY,
-          clientId: CLIENT_ID,
-          discoveryDocs: DISCOVERY_DOCS,
-          scope: SCOPES
-        });
-      }
-
-    </script>
-
-    <script async defer src="https://apis.google.com/js/api.js"
-            onload="this.onload=function(){};handleClientLoad()"
-            onreadystatechange="if (this.readyState === 'complete') this.onload()">
-    </script>
   </body>
 </html>

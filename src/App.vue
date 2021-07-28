@@ -25,21 +25,12 @@
                     <router-link to="/" class="navbar-item has-text-primary" v-if="$route.name != 'Home'">
                         Home
                     </router-link>
-                    <router-link to="/test" class="navbar-item has-text-danger" v-if="!showAuthButton">
-                        Test
-                    </router-link>
-                    <router-link to="/approve" class="navbar-item has-text-danger" v-if="!showAuthButton">
-                        Approve
-                    </router-link>
                     <router-link to="/admin" class="navbar-item has-text-danger" v-if="isAdmin()">
                         Admin
                     </router-link>
                 </div>
 
                 <div class="navbar-end">
-                    <div class="navbar-item" v-if="isAdmin() && showAuthButton" >
-                        <button class="button is-primary is-outlined" @click="handleAuthClick">Authorize Google</button>
-                    </div>
                     <div class="navbar-item" v-if="!isConnected">
                         <button class="button is-primary has-text-weight-bold" @click="connectWeb3">Connect Wallet</button>
                     </div>
@@ -69,11 +60,11 @@
         </div>
 
         <router-view
-            :isGoogleAuthed="(showAuthButton === false)"
             :isAdmin="isAdmin"
             :contract="contract"
             :account="account"
             :network="network"
+            v-on:connect="connectWeb3"
         ></router-view>
 
         <div class="section">
@@ -157,7 +148,6 @@
           from: this.account
         });
         this.contract = await contract.deployed();
-        console.log('Contract initialized', this.contract);
       },
       isAdmin: function() {
         return (
