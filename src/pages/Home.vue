@@ -5,6 +5,7 @@
                 <figure class="logo is-hidden-widescreen-only">
                     <img src="../assets/logo.png" />
                 </figure>
+                <h1 class="is-hidden">Stoners Rock NFT</h1>
                 <figure class="smaller-logo is-hidden-fullhd is-hidden-desktop-only is-hidden-tablet-only is-hidden-mobile">
                     <img src="../assets/logo.png" />
                 </figure>
@@ -13,24 +14,10 @@
                 <img src="../assets/couch.jpg" class="rock-img" />
             </figure>
             <br />
-            <div class="columns is-multiline has-text-centered">
-                <div class="column">
-                    <h2 class="subtitle is-6">Drop Date</h2>
-                    <h1 class="title has-text-primary is-4">July 13</h1>
-                </div>
-                <div class="column">
-                    <h2 class="subtitle is-6">Drop Time</h2>
-                    <h1 class="title has-text-primary is-4">4:20pm EST </h1>
-                </div>
-                <div class="column">
-                    <h2 class="subtitle is-6">Drop Location</h2>
-                    <h1 class="title has-text-primary is-4">This Site</h1>
-                </div>
-            </div>
             <div class="columns">
                 <div class="column">
                     <p>The Rocks are a collection of 10,420 unique NFTs minted on the Ethereum
-                        blockchain. Rocks grant you access to our exclusive <router-link to="/sanctuary">Stoner Sanctuary</router-link>, and more
+                        blockchain. Rocks grant you access to our exclusive Stoner Sanctuary, and more
                         exciting updates on our rockmap.</p>
                 </div>
                 <div class="column is-narrow"></div>
@@ -60,6 +47,14 @@
                 </div>
             </div>
         </div>
+        <article class="message is-warning" v-if="isAdmin()">
+            <div class="message-header">
+                <p>Attention!  Are you already a Rock Holder?</p>
+            </div>
+            <div class="message-body">
+                Head on over to our new <router-link to="/claim">Claim Page</router-link> to claim your free WEED for being a hodler!  Weed can be used for new NFT drops, exclusive merchandise, and more benefits coming soon.  <a href="https://discord.gg/gjVrcc7FZU" target="_blank">Join our Discord</a> for more information and help getting started.
+            </div>
+        </article>
         <div class="section">
             <h2 class="title is-hand is-1 is-size-2-mobile">Rockenomics</h2>
             <div class="">
@@ -149,8 +144,8 @@
                             $100 into $1 million on a school trip.</p>
                         <br />
                         <p>Each rock is adorable and loveable and comes with a unique name that gives it extra personality.  This community
-                            is for rock enthusiasts and stoners, since we love a good pun.  Minting goes live at approximately <strong class="has-text-warning">4:20pm EST on July 13,
-                            International Rock Day</strong>.</p>
+                            is for rock enthusiasts and stoners, since we love a good pun.  Minting went live at approximately 4:20pm EST on July 13,
+                            International Rock Day, and <router-link to="/mint" class="has-text-weight-bold has-text-warning">minting is still available right now</router-link>.</p>
                     </div>
                     <br />
                 </div>
@@ -348,6 +343,13 @@
       }
     },
     components: {
+    },
+    props: {
+      account: String,
+      isAdmin: Function,
+      contract: Object,
+      weedContract: Object,
+      network: Number
     },
     mounted: function() {
     },

@@ -40,6 +40,9 @@
                     <div class="navbar-item" v-if="isConnected">
                         <router-link to="/mint" class="button is-primary has-text-weight-bold">Mint</router-link>
                     </div>
+                    <div class="navbar-item" v-if="isConnected && isAdmin()">
+                        <router-link to="/claim" class="button is-warning has-text-weight-bold"><span class="icon"><i class="fas fa-cannabis has-text-primary"></i></span> &nbsp; Claim</router-link>
+                    </div>
                 </div>
             </div>
         </nav>
@@ -49,7 +52,7 @@
                     Home
                 </router-link>
             </div>
-            <div class="column has-text-right">
+            <div class="column has-text-right is-2">
                 <div class="navbar-item" v-if="!isConnected">
                     <button class="button is-primary has-text-weight-bold" @click="connectWeb3">Connect Wallet</button>
                 </div>
@@ -57,11 +60,17 @@
                     <router-link to="/mint" class="button is-primary has-text-weight-bold">Mint</router-link>
                 </div>
             </div>
+            <div class="column has-text-right is-3" v-if="isConnected && isAdmin()">
+                <div class="navbar-item">
+                    <router-link to="/claim" class="button is-warning has-text-weight-bold">Claim</router-link>
+                </div>
+            </div>
         </div>
 
         <router-view
             :isAdmin="isAdmin"
             :contract="contract"
+            :weedContract="weedContract"
             :account="account"
             :network="network"
             v-on:connect="connectWeb3"
@@ -94,6 +103,7 @@
 <script>
 
   import StonersRockContract from '../public/contracts/StonersRock.json'
+  import WeedContract from '../public/contracts/Weed.json'
   import TruffleContract from '@truffle/contract'
 
   export default {
@@ -101,6 +111,7 @@
     data: function() {
       return {
         contract: {},
+        weedContract: {},
         isDropdownActive: false,
         isGenerating: false,
         generateAmount: 10,
@@ -120,12 +131,6 @@
     mounted: async function() {
     },
     methods: {
-      handleAuthClick: function() {
-        let self = this;
-        window.gapi.auth2.getAuthInstance().signIn().then(() => {
-          self.showAuthButton = false;
-        });
-      },
       connectWeb3: async function() {
         this.connectionInProgress = true;
         try {
@@ -148,6 +153,15 @@
           from: this.account
         });
         this.contract = await contract.deployed();
+
+        if(this.isAdmin()) {
+          contract = TruffleContract(WeedContract);
+          contract.setProvider(this.$web3.currentProvider);
+          contract.defaults({
+            from: this.account
+          });
+          this.weedContract = await contract.deployed();
+        }
       },
       isAdmin: function() {
         return (

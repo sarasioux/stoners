@@ -69,6 +69,7 @@
                     <br />
                     <a @click="mintGift=true" v-if="!mintGift"><span class="icon"><i class="fas fa-gift"></i></span> Mint a Gift</a>
                     <a @click="mintGift=false" v-if="mintGift"><span class="icon"><i class="fas fa-user"></i></span> Mint for Yourself</a>
+
                 </div>
 
                 <br />
@@ -86,6 +87,10 @@
                         <source src="../assets/hurray.mp3" type="audio/mpeg">
                     </audio>
                 </div>
+
+                <p class="help has-text-centered" v-if="account">
+                    Smart Contract: <a :href="'https://etherscan.io/address/' + contract.address" target="_blank">{{contract.address}}</a>
+                </p>
             </div>
             <br />
 
@@ -174,8 +179,7 @@
           } else {
             mintAddress = this.account;
           }
-          const response = await this.contract.mintRock(this.mintAmount, mintAddress, {value: this.mintAmount * .042069 * 1e18, from: this.account});
-          console.log('mint response', response);
+          await this.contract.mintRock(this.mintAmount, mintAddress, {value: this.mintAmount * .042069 * 1e18, from: this.account});
           this.isMinting = false;
           this.playHurray = true;
           this.confetti();
@@ -183,7 +187,7 @@
           setTimeout(this.noHurray, 5000);
         }
         catch (error) {
-          console.log('error');
+          console.log('Error', error);
           this.isMinting = false;
           this.msg = 'Something went wrong while minting, please try again.';
           setTimeout(this.clearMsg, 5000);

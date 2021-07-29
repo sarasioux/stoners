@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import Home from "../pages/Home";
 import Test from "../pages/Test";
 import Mint from "../pages/Mint";
+import Claim from "../pages/Claim";
 import Approve from "../pages/Approve";
 import Code from "../pages/Code";
 import Art from "../pages/Art";
@@ -20,6 +21,12 @@ const routes = [
     path: "/mint",
     name: "Mint",
     component: Mint
+  },
+  {
+    // mode: 'history',
+    path: "/claim",
+    name: "Claim",
+    component: Claim
   },
   {
     // mode: 'history',

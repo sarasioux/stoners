@@ -1,33 +1,23 @@
 <template>
-    <div class="card">
-        <div class="card-image" v-if="image">
-            <figure class="image is-square">
+    <div class="media">
+        <div class="media-left">
+            <figure class="image is-96x96">
                 <img :src="image" />
             </figure>
         </div>
-        <div class="card-content">
-            <div class="media">
-                <div class="media-content">
-                    <p class="title is-6">{{name}}</p>
-                </div>
-            </div>
-
-            <div class="content">
-                <div class="columns is-multiline">
-                    <div class="column is-6 has-text-centered" v-for="att in attributes" :key="att">
-                        <h1 class="title is-7 has-text-warning">{{att.value}}</h1>
-                        <h2 class="subtitle is-7">{{att.trait_type}}</h2>
-                    </div>
-                </div>
-            </div>
+        <div class="media-content">
+            <p class="title is-7">{{name}}</p>
+            <p class="subtitle is-3 has-text-warning has-text-weight-bold">{{formatNumber(unclaimed)}}</p>
         </div>
     </div>
 </template>
 
 <script>
 
+  import numeral from "numeral";
+
   export default {
-    name: 'Rock',
+    name: 'ClaimRock',
     data: function() {
       return {
         ownerOf: '',
@@ -35,31 +25,39 @@
         attributes: [],
         image: '',
         ipfsImage: '',
-        name: ''
+        name: '',
+        unclaimed: '',
+        weedBalance: 0,
       }
     },
     props: {
       id: Number,
-      contract: {}
+      contract: {},
+      weedContract: {},
     },
     watch: {
       contract: function() {
         this.loadData();
+      },
+      weedContract: function() {
+        this.loadWeed();
       }
     },
     mounted: async function() {
       if(this.contract) {
           await this.loadData();
       }
-
+      if(this.weedContract.address) {
+          await this.loadWeed();
+      }
     },
     methods: {
         loadData: async function() {
           this.ownerOf = await this.contract.ownerOf.call(this.id);
           this.tokenUri = await this.contract.tokenURI(this.id);
           const tokenUrl = this.tokenUri.replace('ipfs://', 'https://ipfs.infura.io/ipfs/');
+          const response = await fetch(tokenUrl);
           try {
-            const response = await fetch(tokenUrl);
             const json = await response.json();
             this.attributes = json.attributes;
             this.ipfsImage = json.image.replace('ipfs://', 'https://ipfs.infura.io/ipfs/');
@@ -69,8 +67,15 @@
           catch(error) {
             console.log('json error', error);
           }
-
+        },
+        loadWeed: async function() {
+            this.unclaimed = parseInt(await this.weedContract.claimableWeed.call(this.id));
+            this.$emit('unclaimed', this.unclaimed);
+        },
+        formatNumber: function(num) {
+            return numeral(num).format('0,0');
         }
+
     }
   }
 </script>
