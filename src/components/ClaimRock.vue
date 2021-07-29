@@ -69,7 +69,8 @@
           }
         },
         loadWeed: async function() {
-            this.unclaimed = parseInt(await this.weedContract.claimableWeed.call(this.id));
+            let balance = parseInt(await this.weedContract.claimableWeed.call(this.id));
+            this.unclaimed = balance / 10e18;
             this.$emit('unclaimed', this.unclaimed);
         },
         formatNumber: function(num) {

@@ -29,7 +29,12 @@
                 <p v-if="balanceOfRocks === 0">You are not yet a rock collector. <router-link to="/mint">Mint some rocks now!</router-link></p>
                 <div class="columns is-multiline" v-if="balanceOfRocks > 0">
                     <div class="column is-12" v-if="unclaimedBalance > 0">
-                        <button class="button is-primary is-fullwidth" @click="claimWeed">Claim Your Weed</button>
+                        <button class="button is-primary is-fullwidth" @click="claimWeed" :disabled="isClaiming">
+                            <span class="icon is-small is-left" v-if="isClaiming">
+                              <i class="fas fa-spinner fa-pulse"></i>
+                            </span>
+                            <span>Claim Your Weed</span>
+                        </button>
                     </div>
                     <div class="column is-6" v-for="rock in rocks" :key="rock">
                         <ClaimRock
@@ -47,7 +52,7 @@
 
             <div class="box">
                 <h2 class="title is-4">How to Spend &nbsp;<span class="icon"><i class="fas fa-cannabis has-text-primary"></i></span> WEED</h2>
-                <p>Hold onto your &nbsp;<span class="icon"><i class="fas fa-cannabis has-text-primary"></i></span>WEED for now, because you'll be able to spend it on some exciting opportunities soon!</p>
+                <p>Hold onto your WEED for now, because you'll be able to spend it on some exciting opportunities soon!</p>
                 <br />
                 <ul>
                     <li>&nbsp;<span class="icon"><i class="fas fa-cannabis has-text-primary"></i></span> Ape into our upcoming NFT game with just WEED and gas.</li>
@@ -78,7 +83,7 @@
         balanceOfRocks: 0,
         rocks: [],
         mintAmount: '',
-        isMinting: false,
+        isClaiming: false,
         playHurray: false,
         currentRockId: '',
         msg: '',
@@ -128,7 +133,8 @@
 
       },
       loadWeed: async function() {
-          this.weedBalance = parseInt(await this.weedContract.balanceOf.call(this.account));
+          let balance = parseInt(await this.weedContract.balanceOf.call(this.account));
+          this.weedBalance = balance / 10e18;
       },
       confetti: function() {
         let colors = ['#FD2A00', '#FDFE00', '#19C401'];
@@ -159,7 +165,10 @@
         this.unclaimedBalance += amount;
       },
       claimWeed: async function() {
+        this.isClaiming = true;
         await this.weedContract.claimWeed(this.rocks);
+        this.isClaiming = false;
+        this.unclaimedBalance = 0;
         this.loadRocks();
         this.loadWeed();
         this.confetti();
