@@ -52,17 +52,13 @@
                     Home
                 </router-link>
             </div>
-            <div class="column has-text-right is-2">
+            <div class="column has-text-right is-8">
                 <div class="navbar-item" v-if="!isConnected">
                     <button class="button is-primary has-text-weight-bold" @click="connectWeb3">Connect Wallet</button>
                 </div>
-                <div class="navbar-item" v-if="isConnected">
-                    <router-link to="/mint" class="button is-primary has-text-weight-bold">Mint</router-link>
-                </div>
-            </div>
-            <div class="column has-text-right is-3" v-if="isConnected && isAdmin()">
-                <div class="navbar-item">
-                    <router-link to="/claim" class="button is-warning has-text-weight-bold">Claim</router-link>
+                <div class="navbar-item-buttons" v-if="isConnected">
+                    <router-link to="/mint" class="button is-primary has-text-weight-bold">Mint</router-link> &nbsp;
+                    <router-link to="/claim" class="button is-warning has-text-weight-bold" v-if="isAdmin()"><span class="icon"><i class="fas fa-cannabis has-text-primary"></i></span> &nbsp; Claim</router-link>
                 </div>
             </div>
         </div>
@@ -191,22 +187,7 @@
         text-decoration: none !important;
         color: white;
     }
-
-    .base-transition {
-        transition: transform 1s;
+    .navbar-item-buttons {
+        padding: 0.5em;
     }
-    .change-transition {
-        transform: translateX(-100vw);
-    }
-
-    /*
-    html {
-        background: url(./assets/couch.png) no-repeat center center fixed;
-        -webkit-background-size: cover;
-        -moz-background-size: cover;
-        -o-background-size: cover;
-        background-size: cover;
-    }
-    */
-
 </style>

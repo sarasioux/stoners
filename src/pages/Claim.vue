@@ -54,8 +54,8 @@
                 <h2 class="title is-4">How to Spend &nbsp;<span class="icon"><i class="fas fa-cannabis has-text-primary"></i></span> WEED</h2>
                 <p>Hold onto your WEED for now, because you'll be able to spend it on some exciting opportunities soon!</p>
                 <br />
-                <ul>
-                    <li>&nbsp;<span class="icon"><i class="fas fa-cannabis has-text-primary"></i></span> Ape into our upcoming NFT game with just WEED and gas.</li>
+                <ul class="is-size-7">
+                    <li>&nbsp;<span class="icon"><i class="fas fa-cannabis has-text-primary"></i></span> Ape into our new NFT game with just WEED & gas.</li>
                     <li>&nbsp;<span class="icon"><i class="fas fa-cannabis has-text-primary"></i></span> Buy exclusive Stoner merch and gifts with WEED.</li>
                     <li>&nbsp;<span class="icon"><i class="fas fa-cannabis has-text-primary"></i></span> Bid on upcoming NFT auctions with WEED.</li>
                     <li>&nbsp;<span class="icon"><i class="fas fa-cannabis has-text-primary"></i></span> <a href="https://discord.gg/gjVrcc7FZU" target="_blank">Join our Discord</a> for more WEED opportunities!</li>
@@ -159,7 +159,11 @@
         this.$emit('connect');
       },
       formatNumber: function(num) {
-        return numeral(num).format('0,0');
+        let formatNum = numeral(num).format('0,0');
+        if(formatNum === "NaN") {
+          return 0;
+        }
+        return formatNum;
       },
       unclaimedEvent: function(amount) {
         this.unclaimedBalance += amount;

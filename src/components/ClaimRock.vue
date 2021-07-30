@@ -74,7 +74,11 @@
             this.$emit('unclaimed', this.unclaimed);
         },
         formatNumber: function(num) {
-            return numeral(num).format('0,0');
+            let formatNum = numeral(num).format('0,0');
+            if(formatNum === "NaN") {
+                return 0;
+            }
+            return formatNum;
         }
 
     }
