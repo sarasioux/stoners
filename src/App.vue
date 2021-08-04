@@ -40,7 +40,7 @@
                     <div class="navbar-item" v-if="isConnected">
                         <router-link to="/mint" class="button is-primary has-text-weight-bold">Mint</router-link>
                     </div>
-                    <div class="navbar-item" v-if="isConnected && isAdmin()">
+                    <div class="navbar-item" v-if="isConnected">
                         <router-link to="/claim" class="button is-warning has-text-weight-bold"><span class="icon"><i class="fas fa-cannabis has-text-primary"></i></span> &nbsp; Claim</router-link>
                     </div>
                 </div>
@@ -150,14 +150,12 @@
         });
         this.contract = await contract.deployed();
 
-        if(this.isAdmin()) {
-          contract = TruffleContract(WeedContract);
-          contract.setProvider(this.$web3.currentProvider);
-          contract.defaults({
+        contract = TruffleContract(WeedContract);
+        contract.setProvider(this.$web3.currentProvider);
+        contract.defaults({
             from: this.account
-          });
-          this.weedContract = await contract.deployed();
-        }
+        });
+        this.weedContract = await contract.deployed();
       },
       isAdmin: function() {
         return (

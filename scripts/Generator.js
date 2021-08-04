@@ -20,6 +20,7 @@ const Generator = function() {
   
   this.inputFolder = '../build/google/';
   this.outputFolder = '../build/';
+  this.finalFolder = '../../stoners-api/rocks/';
   
   this.makeChoices = async function(build, category, choice) {
     
@@ -693,6 +694,39 @@ const Generator = function() {
     const json = {cid: cid};
     const data = JSON.stringify(json);
     fs.writeFileSync(this.outputFolder + 'jsoncid.json', data);
+  };
+  
+  this.ipfsFixOne = async function(id) {
+    if(!ipfsProjectId || !ipfsProjectSecret) {
+      console.log('Please set PROJECT_ID and PROJECT_SECRET in your shell.');
+      return;
+    }
+    const auth = 'Basic ' + Buffer.from(ipfsProjectId + ':' + ipfsProjectSecret).toString('base64')
+    const ipfs = await create({
+      host: ipfsHost,
+      port: ipfsPort,
+      protocol: ipfsProtocol,
+      headers: {
+        authorization: auth
+      },
+      timeout: '20m'
+    });
+  
+    const jsonPath = this.finalFolder + id;
+  
+    // Load the existing JSON
+    let rawData = fs.readFileSync(jsonPath);
+    let fileJson = JSON.parse(rawData);
+    let hash = fileJson.hash;
+    
+    const { cid } = await ipfs.add(globSource(this.outputFolder + 'rocks/image/' + hash + '.png'));
+    fileJson.image = 'https://ipfs.infura.io/ipfs/' + String(cid);
+  
+    let data = JSON.stringify(fileJson);
+    fs.writeFileSync(jsonPath, data);
+  
+    console.log('json', fileJson);
+  
   };
   
 };

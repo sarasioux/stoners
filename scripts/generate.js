@@ -11,7 +11,8 @@ const commands = [
   'prep',
   'ipfs-images',
   'metadata',
-  'ipfs-json'
+  'ipfs-json',
+  'fix-id 1',
   
 ];
 
@@ -72,6 +73,15 @@ const runCommand = async function(cmd) {
       
     case 'load-names':
       await generator.loadNames();
+      break;
+      
+    case 'fix-id':
+      const id = parseInt(process.argv[3]);
+      if(!id) {
+        console.log('Please specify an id to fix.');
+        break;
+      }
+      await generator.ipfsFixOne(id);
       break;
   
     default:
