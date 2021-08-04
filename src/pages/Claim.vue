@@ -134,7 +134,7 @@
       },
       loadWeed: async function() {
           let balance = parseInt(await this.weedContract.balanceOf.call(this.account));
-          this.weedBalance = balance / 10e18;
+          this.weedBalance = balance / 1e18;
       },
       confetti: function() {
         let colors = ['#FD2A00', '#FDFE00', '#19C401'];
